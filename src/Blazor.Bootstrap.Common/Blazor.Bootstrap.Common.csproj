@@ -5,28 +5,7 @@
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <Description>Provides Blazor components for Bootstrapp</Description>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/emmanuelbenitez/BigSolution.Blazor.Bootstrap</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <DeterministicSourcePaths Condition="'$(EnableSourceLink)' == ''">false</DeterministicSourcePaths>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">false</GeneratePackageOnBuild>
-    <PackageId>$(AssemblyTitle)</PackageId> 
-    <PackageDescription>$(Description)</PackageDescription>
-    <!--<PackageIconUrl>icon url prop</PackageIconUrl>-->
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <!--<PackageReleaseNotes>release notes prop</PackageReleaseNotes>-->
-    <PackageTags>blazor bootstrap components</PackageTags> <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="BigSolution.Blazor.DynamicComponents" Version="1.0.0-preview20235.0" />
     <PackageReference Include="BigSolution.Infra.Validation" Version="2.0.0-preview20235.2" />
