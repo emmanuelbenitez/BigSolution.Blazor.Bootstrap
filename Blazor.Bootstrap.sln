@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Cards", "src\Blazor.Bootstrap.Components.Cards\Blazor.Bootstrap.Components.Cards.csproj", "{71E0CD26-AADD-4F29-A957-BEDDC5F4B7D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Dropdowns", "src\Blazor.Bootstrap.Components.Dropdowns\Blazor.Bootstrap.Components.Dropdowns.csproj", "{ED46931C-17C1-486E-A12F-1922DA42E48E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{71E0CD26-AADD-4F29-A957-BEDDC5F4B7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71E0CD26-AADD-4F29-A957-BEDDC5F4B7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71E0CD26-AADD-4F29-A957-BEDDC5F4B7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED46931C-17C1-486E-A12F-1922DA42E48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED46931C-17C1-486E-A12F-1922DA42E48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED46931C-17C1-486E-A12F-1922DA42E48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED46931C-17C1-486E-A12F-1922DA42E48E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +145,7 @@ Global
 		{CF5A9055-4EB5-4193-8A3E-04E335923545} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{373D1D2A-1ED0-4E41-9920-5A403AD82623} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{71E0CD26-AADD-4F29-A957-BEDDC5F4B7D7} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
+		{ED46931C-17C1-486E-A12F-1922DA42E48E} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3913E469-251E-44CF-87DC-4E375F03813F}
