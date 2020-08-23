@@ -18,7 +18,7 @@
 
 using System;
 
-namespace BigSolution.Bootstrap.Layout
+namespace BigSolution.Bootstrap
 {
     public sealed class GridColumnAutoWidth : GridColumnWidth
     {

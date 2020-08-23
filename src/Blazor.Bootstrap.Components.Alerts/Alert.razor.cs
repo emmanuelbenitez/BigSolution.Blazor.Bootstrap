@@ -16,11 +16,10 @@
 
 #endregion
 
-using BigSolution.Bootstrap.Content;
 using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap.Components.Alerts
+namespace BigSolution.Bootstrap
 {
     public partial class Alert
     {

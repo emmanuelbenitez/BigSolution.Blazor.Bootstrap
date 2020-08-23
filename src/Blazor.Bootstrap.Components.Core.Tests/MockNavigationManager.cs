@@ -18,7 +18,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap.Components
+namespace BigSolution.Bootstrap
 {
     public class MockNavigationManager : NavigationManager
     {

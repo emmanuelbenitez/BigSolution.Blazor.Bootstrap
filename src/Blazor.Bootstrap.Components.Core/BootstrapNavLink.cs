@@ -23,7 +23,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Routing;
 
-namespace BigSolution.Bootstrap.Components
+namespace BigSolution.Bootstrap
 {
     public abstract class BootstrapNavLink : BootstrapComponentBase
     {

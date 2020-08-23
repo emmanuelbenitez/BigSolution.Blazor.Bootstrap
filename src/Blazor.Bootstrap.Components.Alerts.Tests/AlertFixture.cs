@@ -22,7 +22,7 @@ using Bunit;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Alerts
+namespace BigSolution.Bootstrap
 {
     public class AlertFixture : TestContext
     {

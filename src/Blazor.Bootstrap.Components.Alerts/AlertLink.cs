@@ -18,7 +18,7 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap.Components.Alerts
+namespace BigSolution.Bootstrap
 {
     public class AlertLink : BootstrapNavLink
     {

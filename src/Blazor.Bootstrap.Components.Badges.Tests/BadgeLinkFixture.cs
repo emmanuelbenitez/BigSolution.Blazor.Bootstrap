@@ -25,7 +25,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Badges
+namespace BigSolution.Bootstrap
 {
     public class BadgeLinkFixture : TestContext
     {

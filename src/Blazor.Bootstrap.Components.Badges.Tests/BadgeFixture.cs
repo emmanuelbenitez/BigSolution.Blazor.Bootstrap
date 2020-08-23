@@ -22,7 +22,7 @@ using BigSolution.Bootstrap.Utilities;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Badges
+namespace BigSolution.Bootstrap
 {
     public class BadgeFixture
     {

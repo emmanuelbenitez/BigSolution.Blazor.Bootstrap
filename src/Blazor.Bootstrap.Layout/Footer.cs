@@ -18,7 +18,7 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap.Layout
+namespace BigSolution.Bootstrap
 {
     public class Footer : BootstrapComponentBase
     {

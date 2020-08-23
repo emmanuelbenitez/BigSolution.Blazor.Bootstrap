@@ -20,7 +20,7 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Layout
+namespace BigSolution.Bootstrap
 {
     public class GridRowFixture
     {

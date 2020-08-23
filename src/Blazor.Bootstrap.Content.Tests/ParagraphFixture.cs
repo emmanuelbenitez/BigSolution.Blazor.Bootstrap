@@ -19,7 +19,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Content
+namespace BigSolution.Bootstrap
 {
     public class ParagraphFixture
     {

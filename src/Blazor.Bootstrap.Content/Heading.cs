@@ -18,7 +18,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap.Content
+namespace BigSolution.Bootstrap
 {
     public class Heading : BootstrapComponentBase
     {

@@ -18,7 +18,7 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap.Components.Breadcrumbs
+namespace BigSolution.Bootstrap
 {
     public partial class Breadcrumb
     {

@@ -19,7 +19,7 @@
 using System;
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap.Components.Badges
+namespace BigSolution.Bootstrap
 {
     internal static class CssBuilderExtensions
     {

@@ -20,7 +20,7 @@ using Bunit;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Breadcrumbs
+namespace BigSolution.Bootstrap
 {
     public class BreadcrumbFixture : TestContext
     {

@@ -24,7 +24,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components
+namespace BigSolution.Bootstrap
 {
     public class BootstrapNavLinkFixture : TestContext
     {

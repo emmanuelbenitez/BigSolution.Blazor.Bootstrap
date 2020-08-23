@@ -19,7 +19,7 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap.Layout
+namespace BigSolution.Bootstrap
 {
     public class Container : BootstrapComponentBase
     {

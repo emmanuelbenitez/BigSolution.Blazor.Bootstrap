@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Alerts
+namespace BigSolution.Bootstrap
 {
     public class AlertLinkFixture : TestContext
     {

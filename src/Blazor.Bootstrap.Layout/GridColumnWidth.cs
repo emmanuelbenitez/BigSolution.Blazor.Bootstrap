@@ -19,7 +19,7 @@
 using System;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap.Layout
+namespace BigSolution.Bootstrap
 {
     public abstract class GridColumnWidth
     {

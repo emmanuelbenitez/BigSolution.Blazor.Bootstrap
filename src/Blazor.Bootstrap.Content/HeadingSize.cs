@@ -16,7 +16,7 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap.Content
+namespace BigSolution.Bootstrap
 {
     public enum HeadingSize
     {

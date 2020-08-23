@@ -21,7 +21,7 @@ using BigSolution.Bootstrap.Utilities;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Components.Alerts
+namespace BigSolution.Bootstrap
 {
     public class AlertWrapperFixture
     {

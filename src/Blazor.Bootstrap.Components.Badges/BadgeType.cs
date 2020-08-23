@@ -16,7 +16,7 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap.Components.Badges
+namespace BigSolution.Bootstrap
 {
     public enum BadgeType
     {

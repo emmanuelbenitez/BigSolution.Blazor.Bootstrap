@@ -20,7 +20,7 @@ using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap.Components.Badges
+namespace BigSolution.Bootstrap
 {
     public class Badge : BootstrapComponentBase
     {

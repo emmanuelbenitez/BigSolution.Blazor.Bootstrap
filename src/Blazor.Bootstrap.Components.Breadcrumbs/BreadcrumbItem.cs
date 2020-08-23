@@ -19,7 +19,7 @@
 using System.Collections.Generic;
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap.Components.Breadcrumbs
+namespace BigSolution.Bootstrap
 {
     public class BreadcrumbItem : ActivatableDynamicElement
     {

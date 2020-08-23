@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>BigSolution.Bootstrap.Components.Breadcrumbs</RootNamespace>
+    <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <Description>Provides Blazor components for Badges Bootstrapp</Description>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>

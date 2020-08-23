@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>BigSolution.Bootstrap.Components.Badges</RootNamespace>
+    <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
