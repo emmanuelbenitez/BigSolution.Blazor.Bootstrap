@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
@@ -24,6 +25,7 @@ namespace BigSolution.Bootstrap.Layout
     public class GridColumnFixture
     {
         [Fact]
+        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Test purpose")]
         public void ColumnWidthInitialized()
         {
             var gridColumn = new GridColumn {
