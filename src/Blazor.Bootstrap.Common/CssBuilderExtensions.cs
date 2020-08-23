@@ -24,7 +24,7 @@ using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap
 {
-    internal static class CssBuilderExtensions
+    public static class CssBuilderExtensions
     {
         public static CssBuilder AddClasses(this CssBuilder builder, IEnumerable<string> values, Func<string, bool> condition = null)
         {
