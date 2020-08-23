@@ -13,27 +13,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BE60BA7C
 		version-variables.yml = version-variables.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Common", "src\Blazor.Bootstrap.Common\Blazor.Bootstrap.Common.csproj", "{0A25C32D-62E7-4663-991D-52A31D9F597C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Common", "src\Blazor.Bootstrap.Common\Blazor.Bootstrap.Common.csproj", "{0A25C32D-62E7-4663-991D-52A31D9F597C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Common.Tests", "src\Blazor.Bootstrap.Common.Tests\Blazor.Bootstrap.Common.Tests.csproj", "{889C758B-21BC-4CAF-9382-AEFE237EC423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Common.Tests", "src\Blazor.Bootstrap.Common.Tests\Blazor.Bootstrap.Common.Tests.csproj", "{889C758B-21BC-4CAF-9382-AEFE237EC423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Layout", "src\Blazor.Bootstrap.Layout\Blazor.Bootstrap.Layout.csproj", "{CBDC03EA-9011-44D7-AE4F-12864EFFE8BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Layout", "src\Blazor.Bootstrap.Layout\Blazor.Bootstrap.Layout.csproj", "{CBDC03EA-9011-44D7-AE4F-12864EFFE8BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Layout.Tests", "src\Blazor.Bootstrap.Layout.Tests\Blazor.Bootstrap.Layout.Tests.csproj", "{56642D8F-757C-4EF9-93CE-9324F7FC45F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Layout.Tests", "src\Blazor.Bootstrap.Layout.Tests\Blazor.Bootstrap.Layout.Tests.csproj", "{56642D8F-757C-4EF9-93CE-9324F7FC45F7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Content", "src\Blazor.Bootstrap.Content\Blazor.Bootstrap.Content.csproj", "{9AF5A2CA-8513-44B9-8E14-89B68D2FB18E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Content.Tests", "src\Blazor.Bootstrap.Content.Tests\Blazor.Bootstrap.Content.Tests.csproj", "{9CA2C5E8-720B-4292-ABDC-2ED73A56347C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Content.Tests", "src\Blazor.Bootstrap.Content.Tests\Blazor.Bootstrap.Content.Tests.csproj", "{9CA2C5E8-720B-4292-ABDC-2ED73A56347C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{5C2E1A8A-607A-47B9-9019-D7930563EDE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Alerts", "src\Blazor.Bootstrap.Components.Alerts\Blazor.Bootstrap.Components.Alerts.csproj", "{D4201284-71D9-41A1-A470-068C2B3AA56E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Alerts", "src\Blazor.Bootstrap.Components.Alerts\Blazor.Bootstrap.Components.Alerts.csproj", "{D4201284-71D9-41A1-A470-068C2B3AA56E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Core", "src\Blazor.Bootstrap.Components.Core\Blazor.Bootstrap.Components.Core.csproj", "{A83D95EF-29CD-4612-8940-A5DD8C74FF8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Core.Tests", "src\Blazor.Bootstrap.Components.Core.Tests\Blazor.Bootstrap.Components.Core.Tests.csproj", "{9D62D1D6-07D0-450F-9033-F6C8C8D0BE32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Core.Tests", "src\Blazor.Bootstrap.Components.Core.Tests\Blazor.Bootstrap.Components.Core.Tests.csproj", "{9D62D1D6-07D0-450F-9033-F6C8C8D0BE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Alerts.Tests", "src\Blazor.Bootstrap.Components.Alerts.Tests\Blazor.Bootstrap.Components.Alerts.Tests.csproj", "{4A548953-0815-4FEF-A898-DF5B0AA56DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Alerts.Tests", "src\Blazor.Bootstrap.Components.Alerts.Tests\Blazor.Bootstrap.Components.Alerts.Tests.csproj", "{4A548953-0815-4FEF-A898-DF5B0AA56DF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Badges", "src\Blazor.Bootstrap.Components.Badges\Blazor.Bootstrap.Components.Badges.csproj", "{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Badges.Tests", "src\Blazor.Bootstrap.Components.Badges.Tests\Blazor.Bootstrap.Components.Badges.Tests.csproj", "{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{4A548953-0815-4FEF-A898-DF5B0AA56DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A548953-0815-4FEF-A898-DF5B0AA56DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A548953-0815-4FEF-A898-DF5B0AA56DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +102,8 @@ Global
 		{A83D95EF-29CD-4612-8940-A5DD8C74FF8B} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{9D62D1D6-07D0-450F-9033-F6C8C8D0BE32} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{4A548953-0815-4FEF-A898-DF5B0AA56DF2} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
+		{73C4BE63-C7E3-4C48-BD4F-80DF8FD85135} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
+		{AE1DF083-CF84-4EF3-B1A5-5969EF4E4744} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3913E469-251E-44CF-87DC-4E375F03813F}

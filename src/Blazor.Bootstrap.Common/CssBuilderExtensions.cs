@@ -46,7 +46,7 @@ namespace BigSolution.Bootstrap
             return builder.AddEnumValue(prefix, colorGetter, condition ?? (() => colorGetter() != Color.None));
         }
 
-        private static CssBuilder AddEnumValue<TEnum>(this CssBuilder builder, string prefix, Func<TEnum> valueGetter, Func<bool> condition)
+        public static CssBuilder AddEnumValue<TEnum>(this CssBuilder builder, string prefix, Func<TEnum> valueGetter, Func<bool> condition)
             where TEnum : Enum
         {
             Requires.Argument(builder, nameof(builder))
