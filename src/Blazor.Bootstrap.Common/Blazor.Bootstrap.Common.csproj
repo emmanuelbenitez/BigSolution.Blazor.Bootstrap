@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework> 
+    <RootNamespace>BigSolution.Bootstrap</RootNamespace>
+    <Description>Provides Blazor components for Bootstrapp</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/emmanuelbenitez/BigSolution.Blazor.Bootstrap</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DeterministicSourcePaths Condition="'$(EnableSourceLink)' == ''">false</DeterministicSourcePaths>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">false</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyTitle)</PackageId> 
+    <PackageDescription>$(Description)</PackageDescription>
+    <!--<PackageIconUrl>icon url prop</PackageIconUrl>-->
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <!--<PackageReleaseNotes>release notes prop</PackageReleaseNotes>-->
+    <PackageTags>blazor bootstrap components</PackageTags> <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BigSolution.Blazor.DynamicComponents" Version="1.0.0-preview20235.0" />
+    <PackageReference Include="BigSolution.Infra.Validation" Version="2.0.0-preview20235.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- .js/.css files will be referenced via <script>/<link> tags; other content files will just be included in the app's 'dist' directory without any tags referencing them -->
+    <EmbeddedResource Include="wwwroot\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

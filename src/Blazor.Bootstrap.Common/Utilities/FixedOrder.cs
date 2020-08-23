@@ -1,0 +1,87 @@
+﻿#region Copyright & License
+
+// Copyright © 2020 - 2020 Emmanuel Benitez
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+// http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#endregion
+
+using System;
+using System.Globalization;
+
+namespace BigSolution.Bootstrap.Utilities
+{
+    public sealed class FixedOrder : Order
+    {
+        #region Operators
+
+        public static implicit operator FixedOrder(uint value)
+        {
+            return ToFixedOrder(value);
+        }
+
+        public static implicit operator FixedOrder(string value)
+        {
+            return ToFixedOrder(value);
+        }
+
+        #endregion
+
+        internal static bool CanConvert(string value)
+        {
+            return uint.TryParse(value, out _);
+        }
+
+        private static FixedOrder ToFixedOrder(string value)
+        {
+            if (!CanConvert(value))
+            {
+                throw new InvalidCastException(
+                    $"The string can be only cast to {nameof(FixedOrder)} when value can converted to uint (value={value})");
+            }
+
+            return new FixedOrder(Convert.ToUInt32(value, NumberFormatInfo.CurrentInfo));
+        }
+
+        private static FixedOrder ToFixedOrder(uint value)
+        {
+            return new FixedOrder(value);
+        }
+
+        public FixedOrder(uint order)
+        {
+            Requires.Argument(order, nameof(order))
+                .IsGreaterOrEqualThan(MIN_ORDER)
+                .IsLessOrEqualThan(MAX_ORDER)
+                .Check();
+            Order = order;
+        }
+
+        #region Base Class Member Overrides
+
+        protected override void ConfigureCssClassBuilder(CssClassBuilder builder)
+        {
+            builder.Append($"{Order}");
+        }
+
+        #endregion
+
+        public uint Order { get; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
+        public const uint MAX_ORDER = 12U;
+        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
+        public const uint MIN_ORDER = 1U;
+    }
+}
