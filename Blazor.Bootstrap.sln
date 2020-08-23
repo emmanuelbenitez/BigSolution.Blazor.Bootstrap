@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Buttons", "src\Blazor.Bootstrap.Components.Buttons\Blazor.Bootstrap.Components.Buttons.csproj", "{CF5A9055-4EB5-4193-8A3E-04E335923545}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Buttons.Tests", "src\Blazor.Bootstrap.Components.Buttons.Tests\Blazor.Bootstrap.Components.Buttons.Tests.csproj", "{373D1D2A-1ED0-4E41-9920-5A403AD82623}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{CF5A9055-4EB5-4193-8A3E-04E335923545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF5A9055-4EB5-4193-8A3E-04E335923545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF5A9055-4EB5-4193-8A3E-04E335923545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373D1D2A-1ED0-4E41-9920-5A403AD82623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373D1D2A-1ED0-4E41-9920-5A403AD82623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373D1D2A-1ED0-4E41-9920-5A403AD82623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373D1D2A-1ED0-4E41-9920-5A403AD82623}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{054E016B-87F5-4CBE-850C-6A3382E0567A} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{D09EB423-4520-42DC-B3CF-4504FAC20D2A} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{CF5A9055-4EB5-4193-8A3E-04E335923545} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
+		{373D1D2A-1ED0-4E41-9920-5A403AD82623} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3913E469-251E-44CF-87DC-4E375F03813F}

@@ -16,11 +16,16 @@
 
 #endregion
 
+using System;
+using BlazorComponentUtilities;
+
 namespace BigSolution.Bootstrap
 {
-    public static class HtmlAttributeNames
+    internal static class CssBuilderExtensions
     {
-        public const string CLASS = "class";
-        public const string TYPE = "type";
+        public static CssBuilder AddButtonSize(this CssBuilder builder, Func<ButtonSize> valueGetter)
+        {
+            return builder.AddEnumValue(Button.DEFAULT_CSS_CLASS, valueGetter, () => valueGetter() != ButtonSize.None);
+        }
     }
 }

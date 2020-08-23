@@ -18,9 +18,14 @@
 
 namespace BigSolution.Bootstrap
 {
-    public static class HtmlAttributeNames
+    public enum ButtonSize
     {
-        public const string CLASS = "class";
-        public const string TYPE = "type";
+        None,
+
+        [CssClassPart("sm")]
+        Small,
+
+        [CssClassPart("lg")]
+        Large,
     }
 }
