@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Layout</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Layout</AssemblyName>
     <Description>Provides Blazor components for Bootstrapp</Description>
   </PropertyGroup>
 

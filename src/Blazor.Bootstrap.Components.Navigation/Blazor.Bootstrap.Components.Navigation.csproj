@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <Description>Provides Blazor components for Navigation Bootstrapp</Description>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Navigation</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Navigation</AssemblyName>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 

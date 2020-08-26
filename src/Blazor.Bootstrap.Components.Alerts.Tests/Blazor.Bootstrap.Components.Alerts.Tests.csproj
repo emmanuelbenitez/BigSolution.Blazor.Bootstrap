@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Alerts.Tests</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Alerts.Tests</AssemblyName>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

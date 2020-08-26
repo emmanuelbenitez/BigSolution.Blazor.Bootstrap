@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Alerts</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Alerts</AssemblyName>
     <Description>Provides Blazor components for Alerts Bootstrapp</Description>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>

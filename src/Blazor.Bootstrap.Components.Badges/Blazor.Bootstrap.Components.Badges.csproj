@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <Description>Provides Blazor components for Badges Bootstrapp</Description>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Badges</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Badges</AssemblyName>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 

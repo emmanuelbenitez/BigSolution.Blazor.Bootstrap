@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <Description>Provides Blazor components for Cards Bootstrapp</Description>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Cards</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Cards</AssemblyName>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 

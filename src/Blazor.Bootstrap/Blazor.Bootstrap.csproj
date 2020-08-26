@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap</AssemblyName>
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
