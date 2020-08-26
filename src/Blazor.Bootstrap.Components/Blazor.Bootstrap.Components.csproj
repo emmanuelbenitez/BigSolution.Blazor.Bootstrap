@@ -6,6 +6,10 @@
     <AssemblyName>BigSolution.Blazor.Bootstrap.Components</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <IncludeSymbols>false</IncludeSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Alerts\Blazor.Bootstrap.Components.Alerts.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Badges\Blazor.Bootstrap.Components.Badges.csproj" />

@@ -7,12 +7,15 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <IncludeSymbols>false</IncludeSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Blazor.Bootstrap.Common\Blazor.Bootstrap.Common.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Components\Blazor.Bootstrap.Components.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Content\Blazor.Bootstrap.Content.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Layout\Blazor.Bootstrap.Layout.csproj" />
   </ItemGroup>
-
 
 </Project>
