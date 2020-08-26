@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Alerts\Blazor.Bootstrap.Components.Alerts.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Badges\Blazor.Bootstrap.Components.Badges.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Breadcrumbs\Blazor.Bootstrap.Components.Breadcrumbs.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Buttons\Blazor.Bootstrap.Components.Buttons.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Cards\Blazor.Bootstrap.Components.Cards.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Core\Blazor.Bootstrap.Components.Core.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Dropdowns\Blazor.Bootstrap.Components.Dropdowns.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Navigation\Blazor.Bootstrap.Components.Navigation.csproj" />
+  </ItemGroup>
+</Project>

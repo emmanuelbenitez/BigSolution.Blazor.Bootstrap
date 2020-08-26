@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blazor.Bootstrap.Common\Blazor.Bootstrap.Common.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components\Blazor.Bootstrap.Components.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Content\Blazor.Bootstrap.Content.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Layout\Blazor.Bootstrap.Layout.csproj" />
+  </ItemGroup>
+
+
+</Project>

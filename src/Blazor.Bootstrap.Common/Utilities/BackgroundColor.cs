@@ -16,15 +16,42 @@
 
 #endregion
 
+using System;
+
 namespace BigSolution.Bootstrap.Utilities
 {
     public sealed class BackgroundColor
     {
+        private bool Equals(BackgroundColor other)
+        {
+            return Color == other.Color && IsGradient == other.IsGradient;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj) || obj is BackgroundColor other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine((int) Color, IsGradient);
+        }
+
         #region Operators
+
+        public static bool operator ==(BackgroundColor value, Color valueToCompare)
+        {
+            return value?.Color == valueToCompare;
+        }
 
         public static implicit operator BackgroundColor(Color color)
         {
             return ToBackgroundColor(color);
+        }
+
+        public static bool operator !=(BackgroundColor value, Color valueToCompare)
+        {
+            return value?.Color != valueToCompare;
         }
 
         #endregion
