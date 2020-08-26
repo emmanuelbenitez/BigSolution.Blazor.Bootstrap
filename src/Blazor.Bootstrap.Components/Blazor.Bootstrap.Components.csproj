@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
