@@ -39,5 +39,7 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public NavigationStyle Style { get; set; }
+
+        protected override bool IsFlex => true;
     }
 }
