@@ -28,14 +28,21 @@ namespace BigSolution.Bootstrap
 
         protected override CssBuilder CssBuilder => new CssBuilder("navbar")
             // TODO : Implement navigation bar color
-            //.AddClass($"navbar-{BackgroundColor.GetCssClassPart()}", () => BackgroundColor != Color.None)
+            .AddClass($"navbar-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
             //.AddClass($"navbar-{CustomBackgroundColor}", () => BackgroundColor == Color.None && !string.IsNullOrWhiteSpace(CustomBackgroundColor))
             .AddClass($"navbar-expand-{ExpandBreakpoint?.GetCssClassPart()}", () => ExpandBreakpoint.HasValue && ExpandBreakpoint != Breakpoint.None)
             .AddClass($"navbar-expand", () => ExpandBreakpoint == Breakpoint.None);
 
+        #endregion
+
+        #region Base Class Member Overrides
+
         protected override string DefaultTagName => "nav";
 
         #endregion
+
+        [Parameter]
+        public NavigationBarColor Color { get; set; }
 
         [Parameter]
         public Breakpoint? ExpandBreakpoint { get; [UsedImplicitly] set; }

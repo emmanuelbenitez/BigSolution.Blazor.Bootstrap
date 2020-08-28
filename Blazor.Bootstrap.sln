@@ -53,9 +53,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Navigation", "src\Blazor.Bootstrap.Components.Navigation\Blazor.Bootstrap.Components.Navigation.csproj", "{B495EE2E-21F3-4F1C-BC50-E0BBEE73A3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components", "src\Blazor.Bootstrap.Components\Blazor.Bootstrap.Components.csproj", "{B54AE78C-A8FA-4A9C-AA31-BAF2AE90B39E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components", "src\Blazor.Bootstrap.Components\Blazor.Bootstrap.Components.csproj", "{B54AE78C-A8FA-4A9C-AA31-BAF2AE90B39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap", "src\Blazor.Bootstrap\Blazor.Bootstrap.csproj", "{F2943F6E-6594-442F-9A41-EB846C633536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap", "src\Blazor.Bootstrap\Blazor.Bootstrap.csproj", "{F2943F6E-6594-442F-9A41-EB846C633536}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Navigation.Tests", "src\Blazor.Bootstrap.Components.Navigation.Tests\Blazor.Bootstrap.Components.Navigation.Tests.csproj", "{D39EF176-7C83-4468-883B-56D9DC5F33AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{F2943F6E-6594-442F-9A41-EB846C633536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2943F6E-6594-442F-9A41-EB846C633536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2943F6E-6594-442F-9A41-EB846C633536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39EF176-7C83-4468-883B-56D9DC5F33AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39EF176-7C83-4468-883B-56D9DC5F33AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39EF176-7C83-4468-883B-56D9DC5F33AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39EF176-7C83-4468-883B-56D9DC5F33AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -166,6 +172,7 @@ Global
 		{ED46931C-17C1-486E-A12F-1922DA42E48E} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{B495EE2E-21F3-4F1C-BC50-E0BBEE73A3AA} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 		{B54AE78C-A8FA-4A9C-AA31-BAF2AE90B39E} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
+		{D39EF176-7C83-4468-883B-56D9DC5F33AB} = {5C2E1A8A-607A-47B9-9019-D7930563EDE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3913E469-251E-44CF-87DC-4E375F03813F}
