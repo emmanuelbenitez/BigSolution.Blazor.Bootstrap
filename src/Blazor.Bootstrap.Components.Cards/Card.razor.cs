@@ -16,6 +16,7 @@
 
 #endregion
 
+using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
 namespace BigSolution.Bootstrap
@@ -33,6 +34,9 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public string BodyClasses { get; set; }
+
+        [Parameter]
+        public Color Color { get; set; }
 
         [Parameter]
         public RenderFragment Footer { get; set; }

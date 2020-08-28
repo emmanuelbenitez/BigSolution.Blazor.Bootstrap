@@ -16,6 +16,7 @@
 
 #endregion
 
+using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
@@ -27,6 +28,7 @@ namespace BigSolution.Bootstrap
 
         protected override CssBuilder CssBuilder => base.CssBuilder
             .AddClass(CSS_CLASS_PREFIX)
+            .AddColor(CSS_CLASS_PREFIX, () => Color, () => Color != Color.None)
             .AddClass(_outlineCssClass, () => HasOutline);
 
         protected override bool IsFlex => true;
@@ -35,6 +37,9 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public bool HasOutline { get; set; }
+
+        [Parameter]
+        public Color Color { get; set; }
 
         public const string CSS_CLASS_PREFIX = "card";
 
