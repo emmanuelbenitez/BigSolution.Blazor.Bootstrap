@@ -6,6 +6,9 @@
     <AssemblyTitle>BigSolution.Blazor.Bootstrap.Common</AssemblyTitle>
     <AssemblyName>BigSolution.Blazor.Bootstrap.Common</AssemblyName>
     <Description>Provides Blazor components for Bootstrapp</Description>
+    <LangVersion>8.0</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
   
   <ItemGroup>
@@ -23,19 +26,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\**\*.*" />
+    <!--<Content Remove="wwwroot\**\*.*" />-->
     <Content Remove="libman.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\**\*.*" />
+    <!--<None Include="wwwroot\**\*.*" />-->
     <None Include="libman.json" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- .js/.css files will be referenced via <script>/<link> tags; other content files will just be included in the app's 'dist' directory without any tags referencing them -->
-    <EmbeddedResource Include="wwwroot\**\*.js" LogicalName="blazor:js:%(Filename)%(Extension)" />
-    <EmbeddedResource Include="wwwroot\**\*.css" LogicalName="blazor:css:%(Filename)%(Extension)" />
-    <EmbeddedResource Include="wwwroot\**" Exclude="**\*.js;**\*.css;**\*.map" LogicalName="blazor:file:%(Filename)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(FileName)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(FileName)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**" Exclude="**\*.js;**\*.css;**\*.map" LogicalName="blazor:file:%(RecursiveDir)%(FileName)%(Extension)" />
   </ItemGroup>
 </Project>

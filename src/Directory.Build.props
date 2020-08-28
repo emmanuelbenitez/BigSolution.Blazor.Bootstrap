@@ -21,6 +21,8 @@
     <Major Condition=" '$(Major)' == '' ">1</Major>
     <Minor Condition=" '$(Minor)' == '' ">0</Minor>
     <Patch Condition=" '$(Patch)' == '' ">0</Patch>
+    <Build Condition=" '$(Build)' == '' ">$([System.DateTime]::Now.ToString("yy"))$([System.DateTime]::Now.DayOfYear.ToString("000"))</Build>
+    <Revision Condition=" '$(Revision)' == '' ">$([System.DateTime]::Now.ToString("HHmm"))</Revision>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)../.resourses/Directory.Build.props" />
