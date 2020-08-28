@@ -27,7 +27,7 @@ namespace BigSolution.Bootstrap
         [Theory]
         [InlineData(NavigationBarColor.None, "navbar")]
         [InlineData(NavigationBarColor.Dark, "navbar navbar-dark")]
-        [InlineData(NavigationBarColor.Light, "navbar navbar-dark")]
+        [InlineData(NavigationBarColor.Light, "navbar navbar-light")]
         [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
         public void CssClassWellFormattedForNavigationBarColor(NavigationBarColor color, string expected)
         {

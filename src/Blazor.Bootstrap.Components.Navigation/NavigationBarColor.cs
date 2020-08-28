@@ -25,7 +25,7 @@ namespace BigSolution.Bootstrap
         [CssClassPart("dark")]
         Dark,
 
-        [CssClassPart("dark")]
+        [CssClassPart("light")]
         Light
     }
 }
