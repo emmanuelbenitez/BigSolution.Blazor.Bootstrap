@@ -22,7 +22,7 @@ namespace BigSolution.Bootstrap
 {
     public class CardHeader : BootstrapComponentBase
     {
-        private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX).Append("Header").Build();
+        private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX).Append("header").Build();
 
         #region Base Class Member Overrides
 
