@@ -9,7 +9,7 @@ namespace BigSolution.Bootstrap
     public class CssClassBuilderFixture
     {
         [Fact]
-        public void AppendFailed()
+        public void AppendFails()
         {
             Action action = () => new CssClassBuilder("a").Append((Func<string>) null, null);
             action.Should().ThrowExactly<ArgumentNullException>().Which.ParamName.Should().Be("valueGetter");
@@ -26,11 +26,11 @@ namespace BigSolution.Bootstrap
         [InlineData(null)]
         [InlineData("")]
         [InlineData(" ")]
+        [InlineData("prefix")]
         [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
-        public void CreationFailed(string prefix)
+        public void InstanceCreated(string prefix)
         {
-            Action action = () => new CssClassBuilder(prefix);
-            action.Should().ThrowExactly<ArgumentException>().Which.ParamName.Should().Be("prefix");
+            new CssClassBuilder(prefix);
         }
 
         public static IEnumerable<object[]> GetValidBuilder()

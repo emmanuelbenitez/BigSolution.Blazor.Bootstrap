@@ -26,6 +26,7 @@ namespace BigSolution.Bootstrap
         public const string IMG = "img";
         public const string INPUT = "input";
         public const string LI = "li";
+        public const string NAV = "nav";
         public const string P = "p";
         public const string UL = "ul";
     }

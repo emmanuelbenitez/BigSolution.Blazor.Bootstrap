@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Collections.Generic;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
@@ -25,21 +26,35 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override string DefaultTagName => "ul";
+        protected override string DefaultTagName => HtmlTagNames.UL;
+
+        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.UL };
 
         #endregion
 
         #region Base Class Member Overrides
 
         protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("nav")
-            .AddClass($"nav-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None);
+            .AddClass(MainClass)
+            .AddClass($"{CSS_CLASS_PREFIX}-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None);
+
+        protected override bool IsFlex => true;
 
         #endregion
+
+        [CascadingParameter]
+        public NavigationBar NavigationBar { get; set; }
 
         [Parameter]
         public NavigationStyle Style { get; set; }
 
-        protected override bool IsFlex => true;
+        private bool IsInNavigationBar => NavigationBar != null;
+
+        private string MainClass => new CssClassBuilder(string.Empty)
+            .Append(NavigationBar.CSS_CLASS_PREFIX, () => IsInNavigationBar)
+            .Append(CSS_CLASS_PREFIX)
+            .Build();
+
+        public const string CSS_CLASS_PREFIX = "nav";
     }
 }

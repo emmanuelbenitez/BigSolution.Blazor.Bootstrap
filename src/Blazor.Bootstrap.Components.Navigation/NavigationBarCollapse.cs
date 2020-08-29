@@ -27,7 +27,7 @@ namespace BigSolution.Bootstrap
 
         protected override CssBuilder CssBuilder => base.CssBuilder
             .AddClass("collapse")
-            .AddClass("navbar-collapse");
+            .AddClass($"{NavigationBar.CSS_CLASS_PREFIX}-collapse");
 
         #endregion
     }

@@ -19,25 +19,43 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.CompilerServices;
+using Microsoft.AspNetCore.Components.Rendering;
 
 namespace BigSolution.Bootstrap
 {
-    public partial class NavigationBar
+    public class NavigationBar : BootstrapComponentBase
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new CssBuilder("navbar")
-            // TODO : Implement navigation bar color
-            .AddClass($"navbar-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
-            //.AddClass($"navbar-{CustomBackgroundColor}", () => BackgroundColor == Color.None && !string.IsNullOrWhiteSpace(CustomBackgroundColor))
-            .AddClass($"navbar-expand-{ExpandBreakpoint?.GetCssClassPart()}", () => ExpandBreakpoint.HasValue && ExpandBreakpoint != Breakpoint.None)
-            .AddClass($"navbar-expand", () => ExpandBreakpoint == Breakpoint.None);
+        protected override CssBuilder CssBuilder
+        {
+            get
+            {
+                return new CssBuilder(CSS_CLASS_PREFIX)
+                    .AddClass($"{CSS_CLASS_PREFIX}-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
+                    .AddClass(GetExpandCssClass(), () => ExpandBreakpoint.HasValue);
+            }
+        }
 
         #endregion
 
         #region Base Class Member Overrides
 
-        protected override string DefaultTagName => "nav";
+        protected override string DefaultTagName => HtmlTagNames.NAV;
+
+        #endregion
+
+        #region Base Class Member Overrides
+
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            var sequenceGenerator = new SequenceGenerator();
+            builder.OpenComponent<CascadingValue<NavigationBar>>(sequenceGenerator.GetNextValue());
+            builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.Value), RuntimeHelpers.TypeCheck(this));
+            builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.ChildContent), (RenderFragment) (b => base.BuildRenderTree(b)));
+            builder.CloseComponent();
+        }
 
         #endregion
 
@@ -46,5 +64,17 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public Breakpoint? ExpandBreakpoint { get; [UsedImplicitly] set; }
+
+        private string GetExpandCssClass()
+        {
+            return ExpandBreakpoint.HasValue
+                ? new CssClassBuilder(CSS_CLASS_PREFIX)
+                    .Append("expand")
+                    .Append(() => ExpandBreakpoint.Value.GetCssClassPart(), ExpandBreakpoint.Value != Breakpoint.None)
+                    .Build()
+                : string.Empty;
+        }
+
+        public const string CSS_CLASS_PREFIX = "navbar";
     }
 }

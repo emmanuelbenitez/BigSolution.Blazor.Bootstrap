@@ -35,8 +35,8 @@ namespace BigSolution.Bootstrap
         #region Base Class Member Overrides
 
         protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("dropdown", IsDropdown)
-            .AddClass("nav-item");
+            .AddClass($"{Navigation.CSS_CLASS_PREFIX}-item")
+            .AddClass("dropdown", IsDropdown);
 
         #endregion
 

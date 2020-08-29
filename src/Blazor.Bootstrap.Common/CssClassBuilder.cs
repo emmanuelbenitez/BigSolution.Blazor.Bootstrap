@@ -44,9 +44,6 @@ namespace BigSolution.Bootstrap
 
         public CssClassBuilder(string prefix)
         {
-            Requires.Argument(prefix, nameof(prefix))
-                .IsNotNullOrWhiteSpace()
-                .Check();
             _prefix = prefix;
             Append(() => _prefix);
         }

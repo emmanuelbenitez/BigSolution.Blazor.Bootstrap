@@ -16,26 +16,22 @@
 
 #endregion
 
-using System.Collections.Generic;
-using BlazorComponentUtilities;
+using System.Diagnostics.CodeAnalysis;
+using FluentAssertions;
+using Xunit;
 
 namespace BigSolution.Bootstrap
 {
-    public class NavigationBarNavigation : BootstrapComponentBase
+    public class NavigationItemFixture
     {
-        #region Base Class Member Overrides
-
-        protected override string DefaultTagName => HtmlTagNames.UL;
-
-        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.UL };
-
-        #endregion
-
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("navbar-nav");
-
-        #endregion
+        [Theory]
+        [InlineData(false, "nav-item")]
+        [InlineData(true, "nav-item dropdown")]
+        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+        public void CssClassWellFormattedForIsDropdown(bool value, string expected)
+        {
+            new NavigationItem { IsDropdown = value }
+                .CssClasses.Should().Be(expected);
+        }
     }
 }
