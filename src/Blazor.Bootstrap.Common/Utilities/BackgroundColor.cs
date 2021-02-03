@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,26 +17,12 @@
 #endregion
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BigSolution.Bootstrap.Utilities
 {
     public sealed class BackgroundColor
     {
-        private bool Equals(BackgroundColor other)
-        {
-            return Color == other.Color && IsGradient == other.IsGradient;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return ReferenceEquals(this, obj) || obj is BackgroundColor other && Equals(other);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine((int) Color, IsGradient);
-        }
-
         #region Operators
 
         public static bool operator ==(BackgroundColor value, Color valueToCompare)
@@ -66,6 +52,21 @@ namespace BigSolution.Bootstrap.Utilities
             return new BackgroundColor { Color = color };
         }
 
+        #region Base Class Member Overrides
+
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj) || obj is BackgroundColor other && Equals(other);
+        }
+
+        [SuppressMessage("ReSharper", "NonReadonlyMemberInGetHashCode")]
+        public override int GetHashCode()
+        {
+            return HashCode.Combine((int) Color, IsGradient);
+        }
+
+        #endregion
+
         public Color Color { get; set; }
 
         public bool HasValidColor => IsValidColor(Color);
@@ -80,6 +81,11 @@ namespace BigSolution.Bootstrap.Utilities
                 .Append("gradient", () => IsGradient)
                 .Append(() => Color.GetCssClassPart(), () => Color != Color.None && Color != Color.Muted)
                 .Build();
+        }
+
+        private bool Equals(BackgroundColor other)
+        {
+            return Color == other.Color && IsGradient == other.IsGradient;
         }
 
         private const string CSS_CLASS_PREFIX = "bg";

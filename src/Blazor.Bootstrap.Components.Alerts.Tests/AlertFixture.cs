@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ namespace BigSolution.Bootstrap
         public void HeadingDoesNotBuild()
         {
             var renderedComponent = RenderComponent<Alert>();
-           
+
             var divisionElement = renderedComponent.Find("div");
             divisionElement.ClassName.Should().Be("alert");
             divisionElement.FindChild<IHtmlHeadingElement>().Should().BeNull();

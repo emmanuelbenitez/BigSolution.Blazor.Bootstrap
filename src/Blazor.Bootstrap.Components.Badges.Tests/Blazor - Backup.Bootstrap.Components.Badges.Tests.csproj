@@ -1,20 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
-    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Navigation.Tests</AssemblyTitle>
-    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Navigation.Tests</AssemblyName>
+    <AssemblyTitle>BigSolution.Blazor.Bootstrap.Components.Badges.Tests</AssemblyTitle>
+    <AssemblyName>BigSolution.Blazor.Bootstrap.Components.Badges.Tests</AssemblyName>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bunit" Version="1.0.0-beta-8" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="Moq" Version="4.14.5" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <PrivateAssets>all</PrivateAssets>
@@ -27,7 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blazor.Bootstrap.Components.Navigation\Blazor.Bootstrap.Components.Navigation.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Badges\Blazor.Bootstrap.Components.Badges.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Core.Tests\Blazor.Bootstrap.Components.Core.Tests.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Core\Blazor.Bootstrap.Components.Core.csproj" />
   </ItemGroup>
 
 </Project>

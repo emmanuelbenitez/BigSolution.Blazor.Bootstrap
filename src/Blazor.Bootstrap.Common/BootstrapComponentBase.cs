@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,24 +35,24 @@ namespace BigSolution.Bootstrap
             {
                 var cssBuilder = base.CssBuilder;
 
-                foreach (var floatPosition in _floatPositionDictionary.Where(pair => pair.Value != null))
+                foreach (var (breakpoint, floatPosition) in _floatPositionDictionary.Where(pair => pair.Value != null))
                 {
-                    cssBuilder.AddClass(() => floatPosition.Value.GetValueOrDefault().ToCssClass(floatPosition.Key), true);
+                    cssBuilder.AddClass(() => floatPosition.GetValueOrDefault().ToCssClass(breakpoint), true);
                 }
 
-                foreach (var display in _displayDictionary.Where(pair => pair.Value != null))
+                foreach (var (breakpoint, displayType) in _displayDictionary.Where(pair => pair.Value != null))
                 {
-                    cssBuilder.AddClass(display.Value?.ToCssClass(display.Key));
+                    cssBuilder.AddClass(displayType?.ToCssClass(breakpoint));
                 }
 
-                foreach (var selfAlignment in _flexSelfAlignmentDictionary.Where(pair => pair.Value != FlexAlignment.None))
+                foreach (var (breakpoint, flexAlignment) in _flexSelfAlignmentDictionary.Where(pair => pair.Value != FlexAlignment.None))
                 {
-                    cssBuilder.AddClass(selfAlignment.Value.ToCssClass(FlexAlignmentScope.Self, selfAlignment.Key));
+                    cssBuilder.AddClass(flexAlignment.ToCssClass(FlexAlignmentScope.Self, breakpoint));
                 }
 
-                foreach (var order in _orderDictionary.Where(pair => pair.Value != null))
+                foreach (var (breakpoint, order) in _orderDictionary.Where(pair => pair.Value != null))
                 {
-                    cssBuilder.AddClass(order.Value.BuildCssClass(order.Key));
+                    cssBuilder.AddClass(order.BuildCssClass(breakpoint));
                 }
 
                 cssBuilder = _marginDictionary

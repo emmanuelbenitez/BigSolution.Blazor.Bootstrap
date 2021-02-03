@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -33,9 +33,9 @@ namespace BigSolution.Bootstrap
             {
                 var cssBuilder = base.CssBuilder;
 
-                foreach (var width in _widthDictionary.Where(pair => pair.Value != null))
+                foreach (var (breakpoint, gridColumnWidth) in _widthDictionary.Where(pair => pair.Value != null))
                 {
-                    cssBuilder.AddClass(width.Value.BuildCssClass(width.Key));
+                    cssBuilder.AddClass(gridColumnWidth.BuildCssClass(breakpoint));
                 }
 
                 return cssBuilder

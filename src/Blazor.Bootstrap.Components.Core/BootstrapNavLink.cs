@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -63,7 +63,7 @@ namespace BigSolution.Bootstrap
 
         private IReadOnlyDictionary<string, object> CalculateAdditionalAttributes()
         {
-            var additionalAttributes = AdditionalAttributes?.ToDictionary(pair => pair.Key, pair => pair.Value) 
+            var additionalAttributes = AdditionalAttributes?.ToDictionary(pair => pair.Key, pair => pair.Value)
                 ?? new Dictionary<string, object>();
 
             if (!additionalAttributes.ContainsKey(HtmlAttributeNames.CLASS)) additionalAttributes.Add(HtmlAttributeNames.CLASS, string.Empty);

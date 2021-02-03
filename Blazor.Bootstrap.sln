@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BE60BA7C-A9BE-4C8C-867F-79E4850AEB5F}"
 	ProjectSection(SolutionItems) = preProject
 		azure-devops-ci.yml = azure-devops-ci.yml
-		azure-devops-prerelease.yml = azure-devops-prerelease.yml
+		azure-devops-nightly.yml = azure-devops-nightly.yml
 		azure-devops-release.yml = azure-devops-release.yml
 		src\Directory.Build.props = src\Directory.Build.props
 		src\Directory.Build.targets = src\Directory.Build.targets
@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap", "src\Bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Navigation.Tests", "src\Blazor.Bootstrap.Components.Navigation.Tests\Blazor.Bootstrap.Components.Navigation.Tests.csproj", "{D39EF176-7C83-4468-883B-56D9DC5F33AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Bootstrap.Components.Cards.Tests", "src\Blazor.Bootstrap.Components.Cards.Tests\Blazor.Bootstrap.Components.Cards.Tests.csproj", "{527D6CBD-2DA3-41A6-8D28-A20B6BE67A83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Bootstrap.Components.Cards.Tests", "src\Blazor.Bootstrap.Components.Cards.Tests\Blazor.Bootstrap.Components.Cards.Tests.csproj", "{527D6CBD-2DA3-41A6-8D28-A20B6BE67A83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

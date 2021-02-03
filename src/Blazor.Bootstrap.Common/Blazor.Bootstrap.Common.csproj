@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework> 
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BigSolution.Bootstrap</RootNamespace>
     <AssemblyTitle>BigSolution.Blazor.Bootstrap.Common</AssemblyTitle>
     <AssemblyName>BigSolution.Blazor.Bootstrap.Common</AssemblyName>
@@ -9,13 +9,13 @@
     <LangVersion>8.0</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <PackageReference Include="BigSolution.Blazor.DynamicComponents" Version="1.0.0-preview20235.0" />
-    <PackageReference Include="BigSolution.Infra.Validation" Version="2.0.0-preview20235.2" />
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+    <PackageReference Include="BigSolution.Blazor.DynamicComponents" Version="1.0.0-preview.210203.1" />
+    <PackageReference Include="BigSolution.Infra.Validation" Version="2.0.0-preview.210201.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

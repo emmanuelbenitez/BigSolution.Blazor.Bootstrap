@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -44,9 +44,9 @@ namespace BigSolution.Bootstrap
                     .AddClass(CSS_CLASS_PREFIX)
                     .AddClass("no-gutters", () => HasNoGutters);
 
-                foreach (var columns in _columnsDictionary.Where(pair => pair.Value >= 1 && pair.Value <= 6))
+                foreach (var (breakpoint, columnSize) in _columnsDictionary.Where(pair => pair.Value >= 1 && pair.Value <= 6))
                 {
-                    cssBuilder.AddClass(() => BuildColumnsCssClass(columns.Key, columns.Value.GetValueOrDefault()), true);
+                    cssBuilder.AddClass(() => BuildColumnsCssClass(breakpoint, columnSize.GetValueOrDefault()), true);
                 }
 
                 return cssBuilder;

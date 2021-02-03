@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace BigSolution.Bootstrap.Utilities
@@ -77,12 +78,13 @@ namespace BigSolution.Bootstrap.Utilities
 
         #endregion
 
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public int Size { get; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
+        // ReSharper disable once MemberCanBePrivate.Global
         public const int MAX_VALUE = 5;
-        
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
+
+        // ReSharper disable once MemberCanBePrivate.Global
         public const int MIN_VALUE = -5;
     }
 }

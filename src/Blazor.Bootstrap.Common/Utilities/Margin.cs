@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace BigSolution.Bootstrap.Utilities
@@ -57,6 +58,7 @@ namespace BigSolution.Bootstrap.Utilities
             return new Margin { MarginSides = new[] { marginSide } };
         }
 
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
         public MarginSide[] MarginSides { get; set; }
 
         public IEnumerable<string> BuildCssClasses(Breakpoint breakpoint)
@@ -64,7 +66,6 @@ namespace BigSolution.Bootstrap.Utilities
             return MarginSides.SelectMany(m => m.BuildCssClasses(breakpoint));
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
         public const string CSS_CLASS_PREFIX = "m";
     }
 }
