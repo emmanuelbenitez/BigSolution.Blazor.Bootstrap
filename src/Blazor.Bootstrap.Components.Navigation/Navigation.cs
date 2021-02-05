@@ -36,7 +36,8 @@ namespace BigSolution.Bootstrap
 
         protected override CssBuilder CssBuilder => base.CssBuilder
             .AddClass(MainClass)
-            .AddClass($"{CSS_CLASS_PREFIX}-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None);
+            .AddClass($"{CSS_CLASS_PREFIX}-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None)
+            .AddClass(NavigationBarScrollingContainer.DefaultCssClass, () => IsInNavigationBar && SupportScrolling);
 
         protected override bool IsFlex => true;
 
@@ -47,6 +48,9 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public NavigationStyle Style { get; set; }
+
+        [Parameter]
+        public bool SupportScrolling { get; set; }
 
         private bool IsInNavigationBar => NavigationBar != null;
 
