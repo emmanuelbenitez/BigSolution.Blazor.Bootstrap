@@ -61,6 +61,12 @@ namespace BigSolution.Bootstrap
                         cssBuilder,
                         (current, margin) => current.AddClasses(margin.Value.BuildCssClasses(margin.Key)));
 
+                cssBuilder = _paddingDictionary
+                    .Where(pair => pair.Value != null)
+                    .Aggregate(
+                        cssBuilder,
+                        (current, padding) => current.AddClasses(padding.Value.BuildCssClasses(padding.Key)));
+
                 if (IsFlex)
                 {
                     cssBuilder = _flexOptionsDictionary
@@ -146,6 +152,13 @@ namespace BigSolution.Bootstrap
         }
 
         [Parameter]
+        public Padding ExtraLargePadding
+        {
+            get => _paddingDictionary[Breakpoint.ExtraLarge];
+            set => _paddingDictionary[Breakpoint.ExtraLarge] = value;
+        }
+
+        [Parameter]
         public FlexOptions FlexOptions
         {
             get => _flexOptionsDictionary[Breakpoint.None];
@@ -212,6 +225,13 @@ namespace BigSolution.Bootstrap
         }
 
         [Parameter]
+        public Padding LargePadding
+        {
+            get => _paddingDictionary[Breakpoint.Large];
+            set => _paddingDictionary[Breakpoint.Large] = value;
+        }
+
+        [Parameter]
         public Margin Margin
         {
             get => _marginDictionary[Breakpoint.None];
@@ -261,6 +281,13 @@ namespace BigSolution.Bootstrap
         }
 
         [Parameter]
+        public Padding MediumPadding
+        {
+            get => _paddingDictionary[Breakpoint.Medium];
+            set => _paddingDictionary[Breakpoint.Medium] = value;
+        }
+
+        [Parameter]
         public Order Order
         {
             get => _orderDictionary[Breakpoint.None];
@@ -269,6 +296,13 @@ namespace BigSolution.Bootstrap
 
         [Parameter]
         public Overflow Overflow { get; set; }
+
+        [Parameter]
+        public Padding Padding
+        {
+            get => _paddingDictionary[Breakpoint.None];
+            set => _paddingDictionary[Breakpoint.None] = value;
+        }
 
         [Parameter]
         public DisplayType? PrintDisplay { get; set; }
@@ -319,6 +353,13 @@ namespace BigSolution.Bootstrap
         {
             get => _orderDictionary[Breakpoint.Small];
             set => _orderDictionary[Breakpoint.Small] = value;
+        }
+
+        [Parameter]
+        public Padding SmallPadding
+        {
+            get => _paddingDictionary[Breakpoint.Small];
+            set => _paddingDictionary[Breakpoint.Small] = value;
         }
 
         [Parameter]
@@ -373,6 +414,14 @@ namespace BigSolution.Bootstrap
         };
 
         private readonly Dictionary<Breakpoint, Order> _orderDictionary = new Dictionary<Breakpoint, Order> {
+            { Breakpoint.None, null },
+            { Breakpoint.Small, null },
+            { Breakpoint.Medium, null },
+            { Breakpoint.Large, null },
+            { Breakpoint.ExtraLarge, null },
+        };
+
+        private readonly Dictionary<Breakpoint, Padding> _paddingDictionary = new Dictionary<Breakpoint, Padding> {
             { Breakpoint.None, null },
             { Breakpoint.Small, null },
             { Breakpoint.Medium, null },

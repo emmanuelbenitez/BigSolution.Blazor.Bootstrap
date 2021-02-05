@@ -16,21 +16,19 @@
 
 #endregion
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap.Utilities
 {
-    public static class SidesExtensions
+    public abstract class Spacing<TSpacingSide>
+        where TSpacingSide : SpacingSide
     {
-        public static IEnumerable<Sides> ExtractSides(this Sides sides)
-        {
-            return Enum.GetValues(typeof(Sides))
-                .OfType<Sides>()
-                .Where(position => !_excludedValues.Contains(position) && sides.HasFlag(position));
-        }
+        public TSpacingSide[] Sides { get; set; }
 
-        private static readonly Sides[] _excludedValues = { Sides.All, Sides.LeftAndRight, Sides.TopAndBottom, Sides.None };
+        public IEnumerable<string> BuildCssClasses(Breakpoint breakpoint)
+        {
+            return Sides.SelectMany(m => m.BuildCssClasses(breakpoint));
+        }
     }
 }

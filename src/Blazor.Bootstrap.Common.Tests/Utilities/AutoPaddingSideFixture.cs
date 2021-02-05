@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2021 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,22 +22,22 @@ using Xunit;
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public class FixedMarginSideFixture
+    public class AutoPaddingSideFixture
     {
         [Theory]
-        [MemberData(nameof(ValidFixedMargins))]
-        public void BuildCssClassesSucceeds(int value, Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
+        [MemberData(nameof(ValidAutoPaddings))]
+        public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
         {
-            new FixedMarginSide(value) { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+            new AutoPaddingSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
         }
 
-        public static IEnumerable<object[]> ValidFixedMargins
+        public static IEnumerable<object[]> ValidAutoPaddings
         {
             get
             {
-                yield return new object[] { 0, Sides.LeftAndRight, Breakpoint.None, new[] { "mx-0" } };
-                yield return new object[] { -1, Sides.Left, Breakpoint.None, new[] { "ml-n1" } };
-                yield return new object[] { 0, Sides.Left, Breakpoint.Small, new[] { "ml-sm-0" } };
+                yield return new object[] { Sides.LeftAndRight, Breakpoint.None, new[] { "px-auto" } };
+                yield return new object[] { Sides.Left, Breakpoint.None, new[] { "pl-auto" } };
+                yield return new object[] { Sides.Left, Breakpoint.Small, new[] { "pl-sm-auto" } };
             }
         }
     }

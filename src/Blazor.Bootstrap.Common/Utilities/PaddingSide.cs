@@ -20,34 +20,34 @@ using System;
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public abstract class MarginSide : SpacingSide
+    public abstract class PaddingSide : SpacingSide
     {
         #region Operators
 
-        public static implicit operator MarginSide(int value)
+        public static implicit operator PaddingSide(int value)
         {
             return ToMarginSide(value);
         }
 
-        public static implicit operator MarginSide(string value)
+        public static implicit operator PaddingSide(string value)
         {
             return ToMarginSide(value);
         }
 
         #endregion
 
-        private static MarginSide ToMarginSide(string value)
+        private static PaddingSide ToMarginSide(string value)
         {
-            if (FixedMarginSide.CanConvert(value)) return (FixedMarginSide) value;
-            if (AutoMarginSide.CanConvert(value)) return (AutoMarginSide) value;
+            if (FixedMarginSide.CanConvert(value)) return (FixedPaddingSide) value;
+            if (AutoMarginSide.CanConvert(value)) return (AutoPaddingSide) value;
 
             throw new InvalidCastException(
                 $"The string can be only cast to {nameof(MarginSide)} when value equals to 'auto' or is a number (value={value})");
         }
 
-        private static MarginSide ToMarginSide(int value)
+        private static PaddingSide ToMarginSide(int value)
         {
-            return (FixedMarginSide) value;
+            return value;
         }
 
         #region Base Class Member Overrides
@@ -56,6 +56,6 @@ namespace BigSolution.Bootstrap.Utilities
 
         #endregion
 
-        public const string CSS_CLASS_PREFIX = "m";
+        private const string CSS_CLASS_PREFIX = "p";
     }
 }

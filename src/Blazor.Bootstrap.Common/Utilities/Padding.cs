@@ -18,40 +18,40 @@
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public class Margin : Spacing<MarginSide>
+    public class Padding : Spacing<PaddingSide>
     {
         #region Operators
 
-        public static implicit operator Margin(MarginSide marginSide)
+        public static implicit operator Padding(PaddingSide paddingSide)
         {
-            return ToMargin(marginSide);
+            return ToPadding(paddingSide);
         }
 
-        public static implicit operator Margin(int value)
+        public static implicit operator Padding(int value)
         {
-            return ToMargin(value);
+            return ToPadding(value);
         }
 
-        public static implicit operator Margin(string value)
+        public static implicit operator Padding(string value)
         {
-            return ToMargin(value);
+            return ToPadding(value);
         }
 
         #endregion
 
-        private static Margin ToMargin(string value)
+        private static Padding ToPadding(string value)
         {
-            return (MarginSide) value;
+            return (PaddingSide) value;
         }
 
-        private static Margin ToMargin(int value)
+        private static Padding ToPadding(int value)
         {
-            return (FixedMarginSide) value;
+            return (FixedPaddingSide) value;
         }
 
-        private static Margin ToMargin(MarginSide marginSide)
+        private static Padding ToPadding(PaddingSide paddingSide)
         {
-            return new Margin { Sides = new[] { marginSide } };
+            return new Padding { Sides = new[] { paddingSide } };
         }
     }
 }

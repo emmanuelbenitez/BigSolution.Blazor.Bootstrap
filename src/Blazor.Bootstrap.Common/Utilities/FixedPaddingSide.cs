@@ -22,28 +22,28 @@ using System.Globalization;
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public sealed class FixedMarginSide : MarginSide
+    public class FixedPaddingSide : PaddingSide
     {
         #region Operators
 
-        public static implicit operator FixedMarginSide(int value)
+        public static implicit operator FixedPaddingSide(uint value)
         {
-            return ToFixedMarginSide(value);
+            return ToFixedPaddingSide(value);
         }
 
-        public static implicit operator FixedMarginSide(string value)
+        public static implicit operator FixedPaddingSide(string value)
         {
-            return ToFixedMarginSide(value);
+            return ToFixedPaddingSide(value);
         }
 
         #endregion
 
-        internal static bool CanConvert(string value)
+        private static bool CanConvert(string value)
         {
             return uint.TryParse(value, out _);
         }
 
-        private static FixedMarginSide ToFixedMarginSide(string value)
+        private static FixedPaddingSide ToFixedPaddingSide(string value)
         {
             if (!CanConvert(value))
             {
@@ -51,15 +51,15 @@ namespace BigSolution.Bootstrap.Utilities
                     $"The string can be only cast to {nameof(FixedMarginSide)} when value can converted to int (value={value})");
             }
 
-            return new FixedMarginSide(Convert.ToInt32(value, NumberFormatInfo.CurrentInfo)) { ImpactedSides = Sides.All };
+            return new FixedPaddingSide(Convert.ToUInt32(value, NumberFormatInfo.CurrentInfo)) { ImpactedSides = Sides.All };
         }
 
-        private static FixedMarginSide ToFixedMarginSide(int value)
+        private static FixedPaddingSide ToFixedPaddingSide(uint value)
         {
-            return new FixedMarginSide(value) { ImpactedSides = Sides.All };
+            return new FixedPaddingSide(value) { ImpactedSides = Sides.All };
         }
 
-        public FixedMarginSide(int size)
+        public FixedPaddingSide(uint size)
         {
             Requires.Argument(size, nameof(size))
                 .IsGreaterOrEqualThan(MIN_VALUE)
@@ -73,18 +73,18 @@ namespace BigSolution.Bootstrap.Utilities
 
         protected override string GetCssClassSuffix()
         {
-            return Size < 0 ? $"n{Math.Abs(Size)}" : $"{Size}";
+            return Size.ToString();
         }
 
         #endregion
 
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-        public int Size { get; }
+        public uint Size { get; }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public const int MAX_VALUE = 5;
+        public const uint MAX_VALUE = 5;
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public const int MIN_VALUE = -5;
+        public const uint MIN_VALUE = 0;
     }
 }

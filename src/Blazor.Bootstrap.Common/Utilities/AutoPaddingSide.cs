@@ -20,31 +20,31 @@ using System;
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public sealed class AutoMarginSide : MarginSide
+    public class AutoPaddingSide : PaddingSide
     {
         #region Operators
 
-        public static implicit operator AutoMarginSide(string value)
+        public static implicit operator AutoPaddingSide(string value)
         {
-            return ToAutoMarginSide(value);
+            return ToAutoPaddingSide(value);
         }
 
         #endregion
 
-        internal static bool CanConvert(string value)
+        private static bool CanConvert(string value)
         {
             return string.Equals(CSS_CLASS_SUFFIX, value, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        private static AutoMarginSide ToAutoMarginSide(string value)
+        private static AutoPaddingSide ToAutoPaddingSide(string value)
         {
             if (!CanConvert(value))
             {
                 throw new InvalidCastException(
-                    $"The string can be only cast to {nameof(AutoMarginSide)} when value equals to '{CSS_CLASS_SUFFIX}' (value={value})");
+                    $"The string can be only cast to {nameof(AutoPaddingSide)} when value equals to '{CSS_CLASS_SUFFIX}' (value={value})");
             }
 
-            return new AutoMarginSide { ImpactedSides = Sides.All };
+            return new AutoPaddingSide { ImpactedSides = Sides.All };
         }
 
         #region Base Class Member Overrides

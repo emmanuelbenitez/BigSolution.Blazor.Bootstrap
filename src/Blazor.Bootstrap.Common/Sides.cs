@@ -27,25 +27,25 @@ namespace BigSolution.Bootstrap
         None = 0,
 
         [CssClassPart("top")]
-        [CssClassPart("t", Scope = nameof(Margin))]
+        [CssClassPart("t", Scope = nameof(SpacingSide))]
         Top = 1,
 
         [CssClassPart("right")]
-        [CssClassPart("r", Scope = nameof(Margin))]
+        [CssClassPart("r", Scope = nameof(SpacingSide))]
         Right = 2,
 
         [CssClassPart("bottom")]
-        [CssClassPart("b", Scope = nameof(Margin))]
+        [CssClassPart("b", Scope = nameof(SpacingSide))]
         Bottom = 4,
 
         [CssClassPart("left")]
-        [CssClassPart("l", Scope = nameof(Margin))]
+        [CssClassPart("l", Scope = nameof(SpacingSide))]
         Left = 8,
 
-        [CssClassPart("x", Scope = nameof(Margin))]
+        [CssClassPart("x", Scope = nameof(SpacingSide))]
         LeftAndRight = 10,
 
-        [CssClassPart("y", Scope = nameof(Margin))]
+        [CssClassPart("y", Scope = nameof(SpacingSide))]
         TopAndBottom = 5,
 
         All = 15

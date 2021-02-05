@@ -28,7 +28,7 @@ namespace BigSolution.Bootstrap.Utilities
         [MemberData(nameof(ValidAutoMargins))]
         public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
         {
-            new AutoMarginSide { Sides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+            new AutoMarginSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
         }
 
         public static IEnumerable<object[]> ValidAutoMargins

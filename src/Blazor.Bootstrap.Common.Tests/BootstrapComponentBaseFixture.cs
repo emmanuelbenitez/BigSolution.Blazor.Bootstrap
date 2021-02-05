@@ -25,7 +25,7 @@ using Xunit;
 
 namespace BigSolution.Bootstrap
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "<Pending>")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
     public class BootstrapComponentBaseFixture
     {
         [Theory]
