@@ -50,9 +50,12 @@ namespace BigSolution.Bootstrap
         #region Base Class Member Overrides
 
         protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("active", IsActive());
+            .AddClass(() => ActiveClass ?? "active", IsActive());
 
         #endregion
+
+        [Parameter]
+        public string ActiveClass { get; set; }
 
         [Parameter]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Required for Blazor")]
