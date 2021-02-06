@@ -25,6 +25,7 @@
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Cards\Blazor.Bootstrap.Components.Cards.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Core\Blazor.Bootstrap.Components.Core.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Dropdowns\Blazor.Bootstrap.Components.Dropdowns.csproj" />
+    <ProjectReference Include="..\Blazor.Bootstrap.Components.Jumbotrons\Blazor.Bootstrap.Components.Jumbotrons.csproj" />
     <ProjectReference Include="..\Blazor.Bootstrap.Components.Navigation\Blazor.Bootstrap.Components.Navigation.csproj" />
   </ItemGroup>
 </Project>

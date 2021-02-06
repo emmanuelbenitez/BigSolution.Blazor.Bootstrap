@@ -46,6 +46,8 @@ namespace BigSolution.Bootstrap
             return Instance;
         }
 
+        private GridColumnDefaultWidth() { }
+
         public static readonly GridColumnDefaultWidth Instance = new GridColumnDefaultWidth();
     }
 }
