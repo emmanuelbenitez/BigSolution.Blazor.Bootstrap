@@ -56,6 +56,9 @@ namespace BigSolution.Bootstrap.Utilities
         Transparent,
 
         [CssClassPart("muted")]
-        Muted
+        Muted,
+
+        [CssClassPart("white")]
+        White
     }
 }
