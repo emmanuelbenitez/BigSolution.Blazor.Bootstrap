@@ -92,9 +92,6 @@ namespace BigSolution.Bootstrap
             }
         }
 
-
-        [Parameter]
-        public FontWeight FontWeight { get; set; }
         #endregion
 
         [Parameter]
@@ -182,6 +179,9 @@ namespace BigSolution.Bootstrap
             get => _floatPositionDictionary[Breakpoint.None];
             set => _floatPositionDictionary[Breakpoint.None] = value;
         }
+
+        [Parameter]
+        public FontWeight FontWeight { get; set; }
 
         [Parameter]
         public bool HideText { get; set; }

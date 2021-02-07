@@ -20,9 +20,15 @@ namespace BigSolution.Bootstrap.Utilities
 {
     public enum FlexOrientation
     {
+        /// <summary>
+        /// Horizontal direction (the browser default). Generate <c> .flex-row</c> class.
+        /// </summary>
         [CssClassPart("row")]
         Horizontal,
 
+        /// <summary>
+        /// Vertical direction. Generate <c> .flex-column</c> class.
+        /// </summary>
         [CssClassPart("column")]
         Vertical
     }
