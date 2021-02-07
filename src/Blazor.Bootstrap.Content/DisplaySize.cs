@@ -16,30 +16,20 @@
 
 #endregion
 
-using BlazorComponentUtilities;
-using Microsoft.AspNetCore.Components;
-
 namespace BigSolution.Bootstrap
 {
-    public class Heading : BootstrapComponentBase
+    public enum DisplaySize
     {
-        #region Base Class Member Overrides
+        [CssClassPart("1")]
+        One,
 
-        protected override string DefaultTagName => Size.GetCssClassPart() ?? HtmlTagNames.H1;
+        [CssClassPart("2")]
+        Two,
 
-        #endregion
+        [CssClassPart("3")]
+        Three,
 
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DisplaySize.ToCssClass(), () => DisplaySize != null);
-
-        #endregion
-
-        [Parameter]
-        public DisplaySize? DisplaySize { get; set; }
-
-        [Parameter]
-        public HeadingSize Size { get; set; }
+        [CssClassPart("4")]
+        Four,
     }
 }
