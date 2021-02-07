@@ -87,10 +87,14 @@ namespace BigSolution.Bootstrap
                     .AddClass(() => UserSelection.ToCssClass(), () => UserSelection != null)
                     .AddClass(() => Overflow.ToCssClass(), () => Overflow != Overflow.None)
                     .AddClass(() => Shadow.ToCssClass(), () => Shadow != null)
-                    .AddClasses(ScreenReaderOptions?.BuildCssClasses());
+                    .AddClasses(ScreenReaderOptions?.BuildCssClasses())
+                    .AddClass(() => FontWeight.ToCssClass(), () => FontWeight != FontWeight.None);
             }
         }
 
+
+        [Parameter]
+        public FontWeight FontWeight { get; set; }
         #endregion
 
         [Parameter]
