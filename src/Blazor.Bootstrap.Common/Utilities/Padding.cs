@@ -27,7 +27,7 @@ namespace BigSolution.Bootstrap.Utilities
             return ToPadding(paddingSide);
         }
 
-        public static implicit operator Padding(int value)
+        public static implicit operator Padding(uint value)
         {
             return ToPadding(value);
         }
@@ -44,7 +44,7 @@ namespace BigSolution.Bootstrap.Utilities
             return (PaddingSide) value;
         }
 
-        private static Padding ToPadding(int value)
+        private static Padding ToPadding(uint value)
         {
             return (FixedPaddingSide) value;
         }
