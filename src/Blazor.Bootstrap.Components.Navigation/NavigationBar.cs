@@ -28,15 +28,10 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder
-        {
-            get
-            {
-                return new CssBuilder(CSS_CLASS_PREFIX)
-                    .AddClass($"{CSS_CLASS_PREFIX}-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
-                    .AddClass(GetExpandCssClass(), () => ExpandBreakpoint.HasValue);
-            }
-        }
+        protected override CssBuilder CssBuilder => base.CssBuilder
+            .AddClass(CSS_CLASS_PREFIX)
+            .AddClass($"{CSS_CLASS_PREFIX}-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
+            .AddClass(GetExpandCssClass(), () => ExpandBreakpoint.HasValue);
 
         #endregion
 
