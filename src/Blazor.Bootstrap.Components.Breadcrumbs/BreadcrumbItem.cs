@@ -25,7 +25,7 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new CssBuilder("breadcrumb-item");
+        protected override CssBuilder CssBuilder => new("breadcrumb-item");
 
         #endregion
 

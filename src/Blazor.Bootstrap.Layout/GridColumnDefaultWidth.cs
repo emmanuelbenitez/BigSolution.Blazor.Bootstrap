@@ -48,6 +48,6 @@ namespace BigSolution.Bootstrap
 
         private GridColumnDefaultWidth() { }
 
-        public static readonly GridColumnDefaultWidth Instance = new GridColumnDefaultWidth();
+        public static readonly GridColumnDefaultWidth Instance = new();
     }
 }

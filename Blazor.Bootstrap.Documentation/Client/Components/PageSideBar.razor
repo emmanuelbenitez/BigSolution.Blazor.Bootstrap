@@ -1,0 +1,16 @@
+﻿<GridColumn MediumWidth="3" ExtraLargeWidth="2" Classes="bd-sidebar">
+    <div class="bd-links">
+        @foreach (var itemGroup in ContentProvider.GetItemGroups()) {
+            <TableOfContentItem ActivePath="@itemGroup.ActivePath">
+                <NavLink ActiveClass="" href="@itemGroup.Link" class="bd-toc-link">@itemGroup.Display</NavLink>
+                <Navigation Classes="bd-sidenav">
+                    @foreach (var item in itemGroup.Items) {
+                        <ActivatableDynamicElement TagName="li" ActivePath="@item.Link" ActiveClass="active bd-sidenav-active">
+                            <NavLink ActiveClass="" href="@item.Link">@item.Display</NavLink>
+                        </ActivatableDynamicElement>
+                    }
+                </Navigation>
+            </TableOfContentItem>
+        }
+    </div>
+</GridColumn>

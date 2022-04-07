@@ -1,0 +1,77 @@
+﻿@layout EmptyLayout
+@inherits ExamplePageBase
+@page "/examples/album"
+@attribute [DisplayName("Album"), Description("Simple one-page template for photo galleries, portfolios, and more."), ImageUrl("album.png")]
+
+<div>
+    <NavigationBar Color="NavigationBarColor.Dark" BackgroundColor="Color.Dark" Shadow="Shadow.Small">
+        <Container Display="DisplayType.Flex" FlexOptions="FlexJustifyContent.Center">
+            <NavigationBarBrand Display="DisplayType.Flex" FlexOptions="FlexJustifyContent.Center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round"
+                     stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                </svg>
+                <strong>Album</strong>
+            </NavigationBarBrand>
+            <NavigationBarToggler/>
+        </Container>
+    </NavigationBar>
+    <main rolle="main">
+        <Jumbotron TagName="section" TextAlign="TextAlign.Center">
+            <Container>
+                <Heading Size="HeadingSize.One">Album example</Heading>
+                <Paragraph IsLead="true" TextColor="Color.Muted">
+                    Something short and leading about the collection below—its contents, the creator, etc.
+                    Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+                </Paragraph>
+                <Paragraph>
+                    <Button TagName="a" href="#" Color="Color.Primary" Margin="new FixedMarginSide(2) { ImpactedSides = Sides.TopAndBottom }">
+                        Main call to action
+                    </Button>
+                    <Button TagName="a" href="#" Color="Color.Secondary" Margin="new FixedMarginSide(2) { ImpactedSides = Sides.TopAndBottom }">
+                        Secondary action
+                    </Button>
+                </Paragraph>
+            </Container>
+        </Jumbotron>
+        <Content Padding="new FixedPaddingSide(5) { ImpactedSides = Sides.TopAndBottom }" BackgroundColor="Color.Light">
+            <Container>
+                <GridRow>
+                    @for (var counter = 0; counter < 9; counter++) {
+                        <GridColumn MediumWidth="4">
+                            <CardWrapper Margin="new FixedMarginSide(4) { ImpactedSides = Sides.Bottom }" Shadow="Shadow.Small">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+                                     aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <title>Placeholder</title>
+                                    <rect width="100%" height="100%" fill="#55595c"/>
+                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                </svg>
+                                <CardBody>
+                                    <CardText>
+                                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                    </CardText>
+                                    <Content Display="DisplayType.Flex"
+                                             FlexOptions="new FlexOptions { JustifyContent = FlexJustifyContent.Between, ItemsAlignment = FlexAlignment.Center }">
+                                        <ButtonGroup>
+                                            <Button Color="Color.Secondary" Size="ButtonSize.Small" HasOutline="true">View</Button>
+                                            <Button Color="Color.Secondary" Size="ButtonSize.Small" HasOutline="true">Edit</Button>
+                                        </ButtonGroup>
+                                    </Content>
+                                </CardBody>
+                            </CardWrapper>
+                        </GridColumn>
+                    }
+                </GridRow>
+            </Container>
+        </Content>
+    </main>
+    <Content TagName="footer" TextColor="Color.Muted">
+        <Container>
+            <Paragraph FloatPosition="FloatPosition.Right">
+                <a href="#">Back to top</a>
+            </Paragraph>
+            <Paragraph>Album example is &copy; Bootstrap, but please download and customize it for yourself!</Paragraph>
+        </Container>
+    </Content>
+</div>

@@ -18,7 +18,7 @@
 -->
 <Project>
   <PropertyGroup>
-    <Major Condition=" '$(Major)' == '' ">1</Major>
+    <Major Condition=" '$(Major)' == '' ">5</Major>
     <Minor Condition=" '$(Minor)' == '' ">0</Minor>
     <Patch Condition=" '$(Patch)' == '' ">0</Patch>
   </PropertyGroup>

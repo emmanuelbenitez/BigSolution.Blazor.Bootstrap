@@ -1,0 +1,9 @@
+﻿<Heading Size="HeadingSize.Two" id="@Id">
+    <span class="bd-content-title">
+        @Title
+        @if (HasId) {
+            <a href="@($"#{Id}")" class="anchorjs-link" style="padding-left: 0.375em;">#</a>
+        }
+    </span>
+</Heading>
+@ChildContent

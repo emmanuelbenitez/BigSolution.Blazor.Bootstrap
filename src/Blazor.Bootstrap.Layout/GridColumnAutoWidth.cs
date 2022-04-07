@@ -58,6 +58,6 @@ namespace BigSolution.Bootstrap
 
         internal const string CSS_CLASS_SUFFIX = "auto";
 
-        public static readonly GridColumnAutoWidth Instance = new GridColumnAutoWidth();
+        public static readonly GridColumnAutoWidth Instance = new();
     }
 }

@@ -26,7 +26,7 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new CssBuilder("alert-heading");
+        protected override CssBuilder CssBuilder => new("alert-heading");
 
         #endregion
     }

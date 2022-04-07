@@ -97,7 +97,7 @@ namespace BigSolution.Bootstrap
 
         private const string CSS_CLASS_PREFIX = "row";
 
-        private readonly Dictionary<Breakpoint, uint?> _columnsDictionary = new Dictionary<Breakpoint, uint?> {
+        private readonly Dictionary<Breakpoint, uint?> _columnsDictionary = new() {
             { Breakpoint.None, null },
             { Breakpoint.Small, null },
             { Breakpoint.Medium, null },

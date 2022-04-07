@@ -17,9 +17,14 @@
 #endregion
 
 using JetBrains.Annotations;
+using Microsoft.AspNetCore.Components;
 
 namespace BigSolution.Bootstrap
 {
     [UsedImplicitly]
-    public partial class NavigationBarToggler { }
+    public partial class NavigationBarToggler
+    {
+        [Parameter]
+        public string Target { get; set; }
+    }
 }

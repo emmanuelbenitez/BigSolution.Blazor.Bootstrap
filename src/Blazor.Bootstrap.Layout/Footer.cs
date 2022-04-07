@@ -24,7 +24,7 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new CssBuilder("footer");
+        protected override CssBuilder CssBuilder => new("footer");
 
         #endregion
 

@@ -1,0 +1,51 @@
+﻿@layout EmptyLayout
+@inherits ExamplePageBase
+@page "/examples/pricing"
+@attribute [DisplayName("Pricing"), Description("Example pricing page built with Cards and featuring a custom header and footer."), ImageUrl("pricing.png")]
+@inject IPricingModelProvider _pricingModelProvider;
+
+<div>
+    <Content Display="DisplayType.Flex" FlexOptions="new FlexOptions() { Direction = FlexOrientation.Vertical, ItemsAlignment = FlexAlignment.Center }"
+             MediumFlexOptions="FlexOrientation.Horizontal" Padding="3" MediumPadding="new FixedPaddingSide(4) { ImpactedSides = Sides.LeftAndRight }"
+             Margin="new FixedMarginSide(3) { ImpactedSides = Sides.Bottom }" BackgroundColor="Color.White" Border="Sides.Bottom" Shadow="Shadow.Small">
+        <Heading Size="HeadingSize.Five" Margin="new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }"
+                 MediumMargin="new AutoMarginSide { ImpactedSides = Sides.Right }" FontWeight="FontWeight.Normal">
+            Company Name
+        </Heading>
+        <Navigation Margin="new FixedMarginSide(2) { ImpactedSides = Sides.TopAndBottom }"
+                    MediumMargin="new Margin { Sides = new MarginSide[] { new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }, new FixedMarginSide(3) { ImpactedSides = Sides.Right } } }">
+            @foreach (var item in new[] { "Features", "Enterprise", "Support", "Pricing" }) {
+                <Content TagName="a" Padding="2" TextColor="Color.Dark">@item</Content>
+            }
+        </Navigation>
+        <Button TagName="a" HasOutline="true" Color="Color.Primary">Sign up</Button>
+    </Content>
+    <Content Classes="pricing-header" Padding="3" Margin="new AutoMarginSide() { ImpactedSides = Sides.LeftAndRight }" TextAlign="TextAlign.Center"
+             MediumPadding="new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) { ImpactedSides = Sides.Top }, new FixedPaddingSide(4) { ImpactedSides = Sides.Bottom } } }">
+        <Heading DisplaySize="DisplaySize.Four"></Heading>
+        <Paragraph IsLead="true">
+            Quickly build an effective pricing table for your potential customers with this Bootstrap example.
+            It’s built with default Bootstrap components and utilities with little customization.
+        </Paragraph>
+    </Content>
+    <Container>
+        <CardDeck TextAlign="TextAlign.Center" Margin="new FixedMarginSide(3) { ImpactedSides = Sides.Bottom }">
+            @foreach (var pricingModel in _pricingModelProvider.GetPricingModels()) {
+                <Card Margin="new FixedMarginSide(4) { ImpactedSides = Sides.Bottom }">
+                    <Header>
+                        <Heading Size="HeadingSize.Four" Margin="new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }" FontWeight="FontWeight.Normal">
+                            @pricingModel.Name
+                        </Heading>
+                    </Header>
+                    <Body>
+                    <CardTitle Classes="pricing-card-title">
+                        $@pricingModel.Price
+                        <Content TagName="small" TextColor="Color.Muted">/ mo</Content>
+                    </CardTitle>
+                    
+                    </Body>
+                </Card>
+            }
+        </CardDeck>
+    </Container>
+</div>

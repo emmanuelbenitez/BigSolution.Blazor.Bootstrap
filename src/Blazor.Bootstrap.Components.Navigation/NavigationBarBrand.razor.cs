@@ -28,7 +28,7 @@ namespace BigSolution.Bootstrap
     {
         #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new CssBuilder("navbar-brand");
+        protected override CssBuilder CssBuilder => new("navbar-brand");
 
         #endregion
 

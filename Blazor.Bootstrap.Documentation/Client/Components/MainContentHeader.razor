@@ -1,0 +1,10 @@
+﻿@using BigSolution.Bootstrap.Utilities
+
+@if (!string.IsNullOrWhiteSpace(Title)) {
+    <Content MediumDisplay="DisplayType.Flex" FlexOptions="_mediumFlexOptions">
+        <h1 class="bd-title">@Title</h1>
+    </Content>
+}
+@if (Description != null) {
+    <Paragraph Classes="bd-lead" ChildContent="@Description"></Paragraph>
+}

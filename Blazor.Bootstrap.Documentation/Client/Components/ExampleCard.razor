@@ -1,0 +1,19 @@
+﻿@using Blazor.Bootstrap.Documentation.Client.Services
+@using BigSolution.Bootstrap.Utilities
+@if (ExamplePage != null)
+{
+    <GridColumn SmallWidth="6" MediumWidth="4" ExtraLargeWidth="3" Margin="new FixedMarginSide(3) { ImpactedSides = Sides.Top }">
+        <NavLink href="@ExamplePage.Route" target="_blank">
+            <img class="img-thumbnail mb-3" src="@($"/img/examples/{ExamplePage.ImageUrl}")" width="480" height="300" alt="" />
+            <Heading Size="HeadingSize.Three" Margin="new FixedMarginSide(3) { ImpactedSides = Sides.Bottom }">@ExamplePage.Title</Heading>
+        </NavLink>
+        <Paragraph TextColor="Color.Muted">@ExamplePage.Description</Paragraph>
+    </GridColumn>
+}
+
+@code {
+
+    [Parameter]
+    public ExamplePage ExamplePage { get; set; }
+
+}

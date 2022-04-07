@@ -82,7 +82,7 @@ namespace BigSolution.Bootstrap
 
         private bool HasWidth => _widthDictionary.Values.Any(value => value != null);
 
-        private readonly Dictionary<Breakpoint, GridColumnWidth> _widthDictionary = new Dictionary<Breakpoint, GridColumnWidth> {
+        private readonly Dictionary<Breakpoint, GridColumnWidth> _widthDictionary = new() {
             { Breakpoint.None, null },
             { Breakpoint.Small, null },
             { Breakpoint.ExtraLarge, null },

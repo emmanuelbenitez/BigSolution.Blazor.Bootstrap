@@ -99,6 +99,6 @@ namespace BigSolution.Bootstrap
             _row.CssClasses.Should().Be(expectedCssClass);
         }
 
-        private readonly GridRow _row = new GridRow();
+        private readonly GridRow _row = new();
     }
 }

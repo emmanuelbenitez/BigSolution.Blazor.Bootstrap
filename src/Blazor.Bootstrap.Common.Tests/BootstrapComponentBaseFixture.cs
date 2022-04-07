@@ -313,7 +313,7 @@ namespace BigSolution.Bootstrap
             }
         }
 
-        private readonly FakeBootstrapComponent _component = new FakeBootstrapComponent();
+        private readonly FakeBootstrapComponent _component = new();
 
         private class FakeBootstrapComponent : BootstrapComponentBase { }
     }

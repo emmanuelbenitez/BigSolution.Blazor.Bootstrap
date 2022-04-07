@@ -1,0 +1,21 @@
+﻿::deep * {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    ::deep * {
+        font-size: 16px;
+    }
+}
+
+::deep .container {
+    max-width: 960px;
+}
+
+::deep .pricing-header {
+    max-width: 700px;
+}
+
+::deep .card-deck .card {
+    min-width: 220px;
+}

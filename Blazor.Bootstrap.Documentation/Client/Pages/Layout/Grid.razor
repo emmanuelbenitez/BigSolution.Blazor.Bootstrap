@@ -1,0 +1,27 @@
+﻿@page "/layout/grid"
+<MainContentHeader Title="Grid system">
+    <Description>Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes.</Description>
+</MainContentHeader>
+
+<PageSection Id="howitwork" Title="How it work">
+    <Paragraph>
+        Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
+    </Paragraph>
+    <Example Code="&lt;Container&gt;
+                &lt;GridRow&gt;
+                    &lt;GridColumn SmallWidth=&quot;GridColumnDefaultWidth.Instance&quot;&gt;One of three columns&lt;/GridColumn&gt;
+                    &lt;GridColumn SmallWidth=&quot;GridColumnDefaultWidth.Instance&quot;&gt;One of three columns&lt;/GridColumn&gt;
+                    &lt;GridColumn SmallWidth=&quot;GridColumnDefaultWidth.Instance&quot;&gt;One of three columns&lt;/GridColumn&gt;
+                &lt;/GridRow&gt;
+            &lt;/Container&gt;">
+        <Content>
+            <Container>
+                <GridRow>
+                    <GridColumn SmallWidth="GridColumnDefaultWidth.Instance">One of three columns</GridColumn>
+                    <GridColumn SmallWidth="GridColumnDefaultWidth.Instance">One of three columns</GridColumn>
+                    <GridColumn SmallWidth="GridColumnDefaultWidth.Instance">One of three columns</GridColumn>
+                </GridRow>
+            </Container>
+        </Content>
+    </Example>
+</PageSection>

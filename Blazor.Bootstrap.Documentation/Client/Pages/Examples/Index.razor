@@ -1,0 +1,38 @@
+﻿@layout EmptyLayout
+@page "/examples/"
+@inject IExamplesProvider _examplesProvider;
+
+<PageHeader />
+<Content TagName="header" Display="DisplayType.Flex" FlexOptions="FlexOrientation.Vertical"
+         MediumFlexOptions="new FlexOptions() { Direction = FlexOrientation.Horizontal, ItemsAlignment = FlexAlignment.Center }"
+         Padding="5" BackgroundColor="Color.Light">
+    <Content MediumPadding="@_mediumPadding">
+        <Heading Classes="bd-title" Margin="new FixedMarginSide(0) { ImpactedSides = Sides.Top }">Examples</Heading>
+        <Paragraph Classes="bd-lead">
+            Quickly get a project started with any of our examples ranging from using parts of the framework to custom components and layouts.
+        </Paragraph>
+    </Content>
+</Content>
+<Content TagName="main" Classes="bd-content" Padding="5" role="main">
+    <Heading Size="HeadingSize.Two">
+        <span class="bd-content-title">Custom Components</span>
+    </Heading>
+    <Paragraph>Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework.</Paragraph>
+    <GridRow>
+        @foreach (var example in _examplesProvider.GetExamplePages())
+        {
+            <ExampleCard ExamplePage="@example"></ExampleCard>
+        }
+    </GridRow>
+</Content>
+
+@code {
+
+    private static readonly Padding _mediumPadding = new() {
+        Sides = new PaddingSide[] {
+            new FixedPaddingSide(3) { ImpactedSides = Sides.Top },
+            new FixedPaddingSide(4) { ImpactedSides = Sides.Bottom }
+        }
+    };
+}
+
