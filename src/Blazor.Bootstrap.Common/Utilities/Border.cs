@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,11 +18,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap.Utilities
 {
-    public sealed class Border
+    public class Border
     {
         #region Operators
 
@@ -81,14 +82,22 @@ namespace BigSolution.Bootstrap.Utilities
 
         public IEnumerable<string> BuildCssClasses()
         {
-            return CssBuilder.Empty()
+            var cssBuilder = CssBuilder.Empty()
                 .AddClasses(BuildSideCssClasses(AdditiveSides), IsValidCssClass)
                 .AddClasses(BuildSideCssClasses(SubtractiveSides, "0"), IsValidCssClass)
                 .AddColor(CSS_CLASS_PREFIX, () => Color, () => Color != Color.Muted && Color != Color.None)
+                .AddClasses(BuildCustomClasses(), IsValidCssClass);
+
+            return cssBuilder
                 .Build()
                 .Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        private const string CSS_CLASS_PREFIX = "border";
+        protected virtual IEnumerable<string> BuildCustomClasses()
+        {
+            return Enumerable.Empty<string>();
+        }
+
+        public const string CSS_CLASS_PREFIX = "border";
     }
 }

@@ -33,7 +33,7 @@ namespace BigSolution.Bootstrap
         public void ButtonTypeInitialized(ButtonType buttonType, string expectedType)
         {
             var component = RenderComponent<Button>(ComponentParameter.CreateParameter(nameof(Button.Type), buttonType));
-            component.Find("button").Attributes[HtmlAttributeNames.TYPE].Value.Should().Be(expectedType);
+            component.Find("button").Attributes[HtmlAttributeNames.TYPE]!.Value.Should().Be(expectedType);
         }
 
         [Theory]

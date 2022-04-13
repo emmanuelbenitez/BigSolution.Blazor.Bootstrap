@@ -33,7 +33,7 @@ namespace BigSolution.Bootstrap
 
             var divisionElement = renderedComponent.Find("div");
             divisionElement.ClassName.Should().Be("alert");
-            var headerElement = divisionElement.FindChild<IHtmlHeadingElement>();
+            var headerElement = divisionElement.FindChild<IHtmlHeadingElement>()!;
             headerElement.LocalName.Should().Be("h1");
             headerElement.ClassName.Should().Be("alert-heading");
             headerElement.GetInnerText().Should().Be("heading-content");

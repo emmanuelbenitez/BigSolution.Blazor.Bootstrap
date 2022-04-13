@@ -16,6 +16,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
@@ -35,8 +36,8 @@ namespace BigSolution.Bootstrap.Utilities
         {
             get
             {
-                yield return new object[] { false, false, new string[0] };
-                yield return new object[] { false, true, new string[0] };
+                yield return new object[] { false, false, Array.Empty<string>() };
+                yield return new object[] { false, true, Array.Empty<string>() };
                 yield return new object[] { true, true, new[] { "sr-only", "sr-only-focusable" } };
                 yield return new object[] { true, false, new[] { "sr-only" } };
             }

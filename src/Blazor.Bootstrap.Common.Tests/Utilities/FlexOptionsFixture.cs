@@ -16,6 +16,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
@@ -67,7 +68,7 @@ namespace BigSolution.Bootstrap.Utilities
         {
             get
             {
-                yield return new object[] { new FlexOptions(), Breakpoint.None, new string[0] };
+                yield return new object[] { new FlexOptions(), Breakpoint.None, Array.Empty<string>() };
                 yield return new object[] { new FlexOptions { Direction = FlexOrientation.Horizontal }, Breakpoint.None, new[] { "flex-row" } };
                 yield return new object[] { new FlexOptions { JustifyContent = FlexJustifyContent.Center }, Breakpoint.None, new[] { "justify-content-center" } };
                 yield return new object[] { new FlexOptions { ItemsAlignment = FlexAlignment.Center }, Breakpoint.None, new[] { "align-items-center" } };

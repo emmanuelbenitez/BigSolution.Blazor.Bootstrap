@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2020 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
@@ -48,7 +49,7 @@ namespace BigSolution.Bootstrap.Utilities
         [Fact]
         public void CastColorSucceeds()
         {
-            var border = (Border) Color.Active;
+            var border = (Border)Color.Active;
             border.AdditiveSides.Should().Be(Sides.All);
             border.SubtractiveSides.Should().Be(Sides.None);
             border.Color.Should().Be(Color.Active);
@@ -57,10 +58,17 @@ namespace BigSolution.Bootstrap.Utilities
         [Fact]
         public void CastSideSucceeds()
         {
-            var border = (Border) Sides.Top;
+            var border = (Border)Sides.Top;
             border.AdditiveSides.Should().Be(Sides.Top);
             border.SubtractiveSides.Should().Be(Sides.None);
             border.Color.Should().Be(Color.None);
+        }
+
+        [Fact]
+        public void CustomizeCssClassBuilder()
+        {
+            var customBorder = new CustomBorder();
+            customBorder.BuildCssClasses().Should().BeEquivalentTo("border-test");
         }
 
         public static IEnumerable<object[]> AdditiveSides
@@ -73,7 +81,7 @@ namespace BigSolution.Bootstrap.Utilities
                 yield return new object[] { Sides.Bottom, new[] { "border-bottom" } };
                 yield return new object[] { Sides.Bottom | Sides.Top, new[] { "border-bottom", "border-top" } };
                 yield return new object[] { Sides.Bottom | Sides.Top | Sides.Left | Sides.Right, new[] { "border" } };
-                yield return new object[] { Sides.None, new string[0] };
+                yield return new object[] { Sides.None, Array.Empty<string>() };
             }
         }
 
@@ -87,7 +95,7 @@ namespace BigSolution.Bootstrap.Utilities
                 yield return new object[] { Sides.Bottom, new[] { "border-bottom-0" } };
                 yield return new object[] { Sides.Bottom | Sides.Top, new[] { "border-bottom-0", "border-top-0" } };
                 yield return new object[] { Sides.Bottom | Sides.Top | Sides.Left | Sides.Right, new[] { "border-0" } };
-                yield return new object[] { Sides.None, new string[0] };
+                yield return new object[] { Sides.None, Array.Empty<string>() };
             }
         }
 
@@ -96,9 +104,21 @@ namespace BigSolution.Bootstrap.Utilities
             get
             {
                 yield return new object[] { Color.Active, new[] { "border-active" } };
-                yield return new object[] { Color.Muted, new string[0] };
-                yield return new object[] { Color.None, new string[0] };
+                yield return new object[] { Color.Muted, Array.Empty<string>() };
+                yield return new object[] { Color.None, Array.Empty<string>() };
             }
+        }
+
+        private class CustomBorder : Border
+        {
+            #region Base Class Member Overrides
+
+            protected override IEnumerable<string> BuildCustomClasses()
+            {
+                yield return $"{CSS_CLASS_PREFIX}-test";
+            }
+
+            #endregion
         }
     }
 }

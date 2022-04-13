@@ -28,7 +28,7 @@ namespace BigSolution.Bootstrap
         public void ComponentRendered()
         {
             var component = RenderComponent<Breadcrumb>();
-            component.Find("nav").Attributes["aria-label"].Value.Should().Be("breadcrumb");
+            component.Find("nav")!.Attributes["aria-label"]!.Value.Should().Be("breadcrumb");
         }
     }
 }

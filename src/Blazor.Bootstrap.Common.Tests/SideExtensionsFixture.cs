@@ -16,6 +16,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
@@ -42,7 +43,7 @@ namespace BigSolution.Bootstrap
                 yield return new object[] { Sides.All, new[] { Sides.Left, Sides.Bottom, Sides.Top, Sides.Right } };
                 yield return new object[] { Sides.TopAndBottom, new[] { Sides.Bottom, Sides.Top } };
                 yield return new object[] { Sides.LeftAndRight, new[] { Sides.Left, Sides.Right } };
-                yield return new object[] { Sides.None, new Sides[0] };
+                yield return new object[] { Sides.None, Array.Empty<Sides>() };
             }
         }
     }
