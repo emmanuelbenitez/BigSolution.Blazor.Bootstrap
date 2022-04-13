@@ -39,7 +39,7 @@ namespace BigSolution.Bootstrap.Utilities
 
         #endregion
 
-        private static IEnumerable<string> BuildSideCssClasses(Sides sides, string suffix = null)
+        protected static IEnumerable<string> BuildSideCssClasses(Sides sides, string suffix = null)
         {
             if (sides == Sides.All)
             {

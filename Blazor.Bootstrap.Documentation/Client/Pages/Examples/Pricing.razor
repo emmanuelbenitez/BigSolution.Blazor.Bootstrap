@@ -6,21 +6,21 @@
 
 <div>
     <Content Display="DisplayType.Flex" FlexOptions="new FlexOptions() { Direction = FlexOrientation.Vertical, ItemsAlignment = FlexAlignment.Center }"
-             MediumFlexOptions="FlexOrientation.Horizontal" Padding="3" MediumPadding="new FixedPaddingSide(4) { ImpactedSides = Sides.LeftAndRight }"
+             MediumFlexOptions="FlexOrientation.Horizontal" Padding="3" MediumPadding="new FixedPaddingSide(4) { ImpactedSides = Sides.StartAndEnd }"
              Margin="new FixedMarginSide(3) { ImpactedSides = Sides.Bottom }" BackgroundColor="Color.White" Border="Sides.Bottom" Shadow="Shadow.Small">
         <Heading Size="HeadingSize.Five" Margin="new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }"
-                 MediumMargin="new AutoMarginSide { ImpactedSides = Sides.Right }" FontWeight="FontWeight.Normal">
+                 MediumMargin="new AutoMarginSide { ImpactedSides = Sides.Start }" FontWeight="FontWeight.Normal">
             Company Name
         </Heading>
         <Navigation Margin="new FixedMarginSide(2) { ImpactedSides = Sides.TopAndBottom }"
-                    MediumMargin="new Margin { Sides = new MarginSide[] { new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }, new FixedMarginSide(3) { ImpactedSides = Sides.Right } } }">
+                    MediumMargin="new Margin { Sides = new MarginSide[] { new FixedMarginSide(0) { ImpactedSides = Sides.TopAndBottom }, new FixedMarginSide(3) { ImpactedSides = Sides.Start } } }">
             @foreach (var item in new[] { "Features", "Enterprise", "Support", "Pricing" }) {
                 <Content TagName="a" Padding="2" TextColor="Color.Dark">@item</Content>
             }
         </Navigation>
         <Button TagName="a" HasOutline="true" Color="Color.Primary">Sign up</Button>
     </Content>
-    <Content Classes="pricing-header" Padding="3" Margin="new AutoMarginSide() { ImpactedSides = Sides.LeftAndRight }" TextAlign="TextAlign.Center"
+    <Content Classes="pricing-header" Padding="3" Margin="new AutoMarginSide() { ImpactedSides = Sides.StartAndEnd }" TextAlign="TextAlign.Center"
              MediumPadding="new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) { ImpactedSides = Sides.Top }, new FixedPaddingSide(4) { ImpactedSides = Sides.Bottom } } }">
         <Heading DisplaySize="DisplaySize.Four"></Heading>
         <Paragraph IsLead="true">

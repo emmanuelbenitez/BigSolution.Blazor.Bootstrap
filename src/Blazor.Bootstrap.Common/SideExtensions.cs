@@ -31,6 +31,6 @@ namespace BigSolution.Bootstrap
                 .Where(position => !_excludedValues.Contains(position) && sides.HasFlag(position));
         }
 
-        private static readonly Sides[] _excludedValues = { Sides.All, Sides.LeftAndRight, Sides.TopAndBottom, Sides.None };
+        private static readonly Sides[] _excludedValues = { Sides.All, Sides.StartAndEnd, Sides.TopAndBottom, Sides.None };
     }
 }

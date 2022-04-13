@@ -30,7 +30,7 @@ namespace Blazor.Bootstrap.Documentation.Client.Components
         private static readonly Padding _mediumPadding = new() {
             Sides = new PaddingSide[] {
                 new FixedPaddingSide(3) { ImpactedSides = Sides.TopAndBottom },
-                new FixedPaddingSide(5) { ImpactedSides = Sides.Left }
+                new FixedPaddingSide(5) { ImpactedSides = Sides.End }
             }
         };
     }

@@ -36,13 +36,13 @@ namespace BigSolution.Bootstrap
         {
             get
             {
-                yield return new object[] { Sides.Left, new[] { Sides.Left } };
-                yield return new object[] { Sides.Right, new[] { Sides.Right } };
+                yield return new object[] { Sides.End, new[] { Sides.End } };
+                yield return new object[] { Sides.Start, new[] { Sides.Start } };
                 yield return new object[] { Sides.Top, new[] { Sides.Top } };
                 yield return new object[] { Sides.Bottom, new[] { Sides.Bottom } };
-                yield return new object[] { Sides.All, new[] { Sides.Left, Sides.Bottom, Sides.Top, Sides.Right } };
+                yield return new object[] { Sides.All, new[] { Sides.End, Sides.Bottom, Sides.Top, Sides.Start } };
                 yield return new object[] { Sides.TopAndBottom, new[] { Sides.Bottom, Sides.Top } };
-                yield return new object[] { Sides.LeftAndRight, new[] { Sides.Left, Sides.Right } };
+                yield return new object[] { Sides.StartAndEnd, new[] { Sides.End, Sides.Start } };
                 yield return new object[] { Sides.None, Array.Empty<Sides>() };
             }
         }

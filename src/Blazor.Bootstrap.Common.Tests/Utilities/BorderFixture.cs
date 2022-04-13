@@ -75,12 +75,12 @@ namespace BigSolution.Bootstrap.Utilities
         {
             get
             {
-                yield return new object[] { Sides.Left, new[] { "border-left" } };
-                yield return new object[] { Sides.Right, new[] { "border-right" } };
+                yield return new object[] { Sides.End, new[] { "border-end" } };
+                yield return new object[] { Sides.Start, new[] { "border-start" } };
                 yield return new object[] { Sides.Top, new[] { "border-top" } };
                 yield return new object[] { Sides.Bottom, new[] { "border-bottom" } };
-                yield return new object[] { Sides.Bottom | Sides.Top, new[] { "border-bottom", "border-top" } };
-                yield return new object[] { Sides.Bottom | Sides.Top | Sides.Left | Sides.Right, new[] { "border" } };
+                yield return new object[] { Sides.Bottom | Sides.Start, new[] { "border-bottom", "border-start" } };
+                yield return new object[] { Sides.Bottom | Sides.Top | Sides.End | Sides.Start, new[] { "border" } };
                 yield return new object[] { Sides.None, Array.Empty<string>() };
             }
         }
@@ -89,12 +89,12 @@ namespace BigSolution.Bootstrap.Utilities
         {
             get
             {
-                yield return new object[] { Sides.Left, new[] { "border-left-0" } };
-                yield return new object[] { Sides.Right, new[] { "border-right-0" } };
+                yield return new object[] { Sides.End, new[] { "border-end-0" } };
+                yield return new object[] { Sides.Start, new[] { "border-start-0" } };
                 yield return new object[] { Sides.Top, new[] { "border-top-0" } };
                 yield return new object[] { Sides.Bottom, new[] { "border-bottom-0" } };
-                yield return new object[] { Sides.Bottom | Sides.Top, new[] { "border-bottom-0", "border-top-0" } };
-                yield return new object[] { Sides.Bottom | Sides.Top | Sides.Left | Sides.Right, new[] { "border-0" } };
+                yield return new object[] { Sides.Bottom | Sides.Start, new[] { "border-bottom-0", "border-start-0" } };
+                yield return new object[] { Sides.Bottom | Sides.Top | Sides.End | Sides.Start, new[] { "border-0" } };
                 yield return new object[] { Sides.None, Array.Empty<string>() };
             }
         }

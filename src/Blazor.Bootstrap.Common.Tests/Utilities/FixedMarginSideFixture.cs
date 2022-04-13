@@ -35,9 +35,9 @@ namespace BigSolution.Bootstrap.Utilities
         {
             get
             {
-                yield return new object[] { 0, Sides.LeftAndRight, Breakpoint.None, new[] { "mx-0" } };
-                yield return new object[] { -1, Sides.Left, Breakpoint.None, new[] { "ml-n1" } };
-                yield return new object[] { 0, Sides.Left, Breakpoint.Small, new[] { "ml-sm-0" } };
+                yield return new object[] { 0, Sides.StartAndEnd, Breakpoint.None, new[] { "mx-0" } };
+                yield return new object[] { -1, Sides.End, Breakpoint.None, new[] { "me-n1" } };
+                yield return new object[] { 0, Sides.Start, Breakpoint.Small, new[] { "ms-sm-0" } };
             }
         }
     }
