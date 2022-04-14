@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,12 +22,14 @@ namespace BigSolution.Bootstrap
     {
         public const string A = "a";
         public const string BUTTON = "button";
+        public const string DIV = "div";
         public const string H1 = "h1";
         public const string IMG = "img";
         public const string INPUT = "input";
         public const string LI = "li";
         public const string NAV = "nav";
         public const string P = "p";
+        public const string SPAN = "span";
         public const string UL = "ul";
     }
 }

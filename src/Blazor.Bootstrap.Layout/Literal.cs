@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,21 +16,9 @@
 
 #endregion
 
-using BlazorComponentUtilities;
-using Microsoft.AspNetCore.Components;
+namespace BigSolution.Bootstrap;
 
-namespace BigSolution.Bootstrap
+public class Literal : BootstrapComponentBase
 {
-    public class Container : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass($"container{(IsFluid ? "-fluid" : string.Empty)}");
-
-        #endregion
-
-        [Parameter]
-        public bool IsFluid { get; set; }
-    }
+    protected override string DefaultTagName => HtmlTagNames.SPAN;
 }
