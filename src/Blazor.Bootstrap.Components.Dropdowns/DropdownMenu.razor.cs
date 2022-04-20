@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ public partial class DropdownMenu
 {
     #region Base Class Member Overrides
 
-    protected override CssBuilder CssBuilder => new("dropdown-menu");
+    protected override CssBuilder CssBuilder => base.CssBuilder.AddClass("dropdown-menu");
 
     #endregion
 }

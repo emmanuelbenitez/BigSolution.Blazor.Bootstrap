@@ -1,16 +1,13 @@
 ﻿@inherits BootstrapComponentBase
 
 <CardWrapper Classes="@CssClasses" HasOutline="@HasOutline" Color="@Color" AdditionalAttributes="@AdditionalAttributes">
-    @if (Header != null)
-    {
-        <CardHeader ChildContent="@Header" Classes="@HeaderClasses"></CardHeader>
-    }
-    @if (Body != null)
-    {
-        <CardBody Classes="@BodyClasses" ChildContent="@Body"></CardBody>
-    }
-    @if (Footer != null)
-    {
-        <CardFooter ChildContent="@Footer" Classes="@FooterClasses"></CardFooter>
-    }
+	@if (Header != null) {
+		<CardHeader ChildContent="@Header" Classes="@HeaderClasses"></CardHeader>
+	}
+	@if (Body != null) {
+		<CardBody Classes="@BodyClasses" ChildContent="@Body"></CardBody>
+	}
+	@if (Footer != null) {
+		<CardFooter ChildContent="@Footer" Classes="@FooterClasses"></CardFooter>
+	}
 </CardWrapper>

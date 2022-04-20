@@ -16,26 +16,19 @@
 
 #endregion
 
+using BigSolution.Bootstrap.Utilities;
 using Bunit;
 using FluentAssertions;
-using JetBrains.Annotations;
-using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace BigSolution.Bootstrap;
 
-public class BootstrapNavLinkFixture : TestContext
+public class NavigationBarBrandFixture : TestContext
 {
     [Fact]
-    public void CssClassUpdated()
+    public void ApplyCssClassesSucceeds()
     {
-        Services.AddSingleton<NavigationManager>(new MockNavigationManager("http://localhost/"));
-
-        var renderedComponent = RenderComponent<CustomLink>(ComponentParameter.CreateParameter("class", "custom-link"));
-        renderedComponent.Find("a").ClassName.Should().Be("custom-link");
+        var renderedComponent = RenderComponent<NavigationBarBrand>(ComponentParameter.CreateParameter(nameof(NavigationBarBrand.Display), DisplayType.Block));
+        renderedComponent.Find("a").ClassName.Should().ContainAll("d-block", "navbar-brand");
     }
-
-    [UsedImplicitly]
-    private class CustomLink : BootstrapNavLink { }
 }

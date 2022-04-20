@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,18 +19,21 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 
 namespace BigSolution.Bootstrap;
 
 [UsedImplicitly]
 public partial class NavigationBarToggler
 {
-    public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append("toggler").Build();
+    #region Base Class Member Overrides
 
     protected override CssBuilder CssBuilder => base.CssBuilder
         .AddClass(CssClass);
 
+    #endregion
+
     [Parameter]
     public string Target { get; set; }
+
+    public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append("toggler").Build();
 }

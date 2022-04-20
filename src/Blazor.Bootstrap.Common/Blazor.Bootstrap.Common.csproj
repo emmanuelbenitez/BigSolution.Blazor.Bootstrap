@@ -6,10 +6,6 @@
     <AssemblyTitle>BigSolution.Blazor.Bootstrap.Common</AssemblyTitle>
     <AssemblyName>BigSolution.Blazor.Bootstrap.Common</AssemblyName>
     <Description>Provides Blazor components for Bootstrapp</Description>
-    <LangVersion>8.0</LangVersion>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>

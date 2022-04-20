@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,8 +24,6 @@ namespace BigSolution.Bootstrap;
 
 public class NavigationBarScrollingContainer : DynamicElement
 {
-    internal static readonly string DefaultCssClass = $"{NavigationBar.CSS_CLASS_PREFIX}-{Navigation.CSS_CLASS_PREFIX}-scroll";
-
     #region Base Class Member Overrides
 
     protected override CssBuilder CssBuilder => base.CssBuilder
@@ -37,4 +35,6 @@ public class NavigationBarScrollingContainer : DynamicElement
 
     [CascadingParameter]
     public NavigationBar NavigationBar { get; set; }
+
+    internal static readonly string DefaultCssClass = $"{NavigationBar.CSS_CLASS_PREFIX}-{Navigation.CSS_CLASS_PREFIX}-scroll";
 }

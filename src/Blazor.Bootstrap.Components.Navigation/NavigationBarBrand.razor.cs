@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
@@ -24,11 +25,13 @@ using JetBrains.Annotations;
 namespace BigSolution.Bootstrap;
 
 [UsedImplicitly]
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public partial class NavigationBarBrand
 {
     #region Base Class Member Overrides
 
-    protected override CssBuilder CssBuilder => new("navbar-brand");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CssClass);
 
     #endregion
 
@@ -38,8 +41,19 @@ public partial class NavigationBarBrand
         {
             var attributes = AdditionalAttributes?.ToDictionary(attribute => attribute.Key, attribute => attribute.Value)
                 ?? new Dictionary<string, object>();
-            attributes.Add("class", CssClasses);
+            if (attributes.ContainsKey(HtmlAttributeNames.CLASS))
+            {
+                attributes[HtmlAttributeNames.CLASS] = string.Join(" ", attributes[HtmlAttributeNames.CLASS], CssClasses);
+            }
+            else
+            {
+                attributes.Add(HtmlAttributeNames.CLASS, CssClasses);
+            }
             return attributes;
         }
     }
+
+    private const string CSS_CLASS_SUFFIX = "brand";
+
+    public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append(CSS_CLASS_SUFFIX).Build();
 }

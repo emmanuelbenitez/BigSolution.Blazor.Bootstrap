@@ -1,9 +1,8 @@
 ﻿@inherits BootstrapComponentBase
 
 <AlertWrapper Color="@Color">
-    @if (Heading != null)
-    {
-        <AlertHeading Size="@HeadingSize">@Heading</AlertHeading>
-    }
-    @ChildContent
+	@if (Heading != null) {
+		<AlertHeading Size="@HeadingSize">@Heading</AlertHeading>
+	}
+	@ChildContent
 </AlertWrapper>

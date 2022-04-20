@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,17 +16,9 @@
 
 #endregion
 
-using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
 namespace BigSolution.Bootstrap;
 
 [UsedImplicitly]
-public partial class Breadcrumb
-{
-    #region Base Class Member Overrides
-
-    protected override CssBuilder CssBuilder => new();
-
-    #endregion
-}
+public partial class Breadcrumb { }
