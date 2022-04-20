@@ -23,20 +23,19 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class BootstrapNavLinkFixture : TestContext
 {
-    public class BootstrapNavLinkFixture : TestContext
+    [Fact]
+    public void CssClassUpdated()
     {
-        [Fact]
-        public void CssClassUpdated()
-        {
-            Services.AddSingleton<NavigationManager>(new MockNavigationManager("http://localhost/"));
+        Services.AddSingleton<NavigationManager>(new MockNavigationManager("http://localhost/"));
 
-            var renderedComponent = RenderComponent<CustomLink>(ComponentParameter.CreateParameter("class", "custom-link"));
-            renderedComponent.Find("a").ClassName.Should().Be("custom-link");
-        }
-
-        [UsedImplicitly]
-        private class CustomLink : BootstrapNavLink { }
+        var renderedComponent = RenderComponent<CustomLink>(ComponentParameter.CreateParameter("class", "custom-link"));
+        renderedComponent.Find("a").ClassName.Should().Be("custom-link");
     }
+
+    [UsedImplicitly]
+    private class CustomLink : BootstrapNavLink { }
 }

@@ -20,71 +20,70 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class EnumExtensionsFixture
 {
-    public class EnumExtensionsFixture
+    [Fact]
+    public void IsFlagSucceedsForEnum()
     {
-        [Fact]
-        public void IsFlagSucceedsForEnum()
-        {
-            Enum.None.IsFlag().Should().BeFalse();
-        }
+        Enum.None.IsFlag().Should().BeFalse();
+    }
 
-        [Fact]
-        public void IsFlagSucceedsForFlagEnum()
-        {
-            Flag.Value1.IsFlag().Should().BeTrue();
-        }
+    [Fact]
+    public void IsFlagSucceedsForFlagEnum()
+    {
+        Flag.Value1.IsFlag().Should().BeTrue();
+    }
 
-        [Fact]
-        public void IsSingleValueFailed()
-        {
-            Action action = () => { Enum.None.IsSingleValue(); };
-            action.Should().ThrowExactly<ArgumentException>().Which.ParamName.Should().Be("value");
-        }
+    [Fact]
+    public void IsSingleValueFailed()
+    {
+        Action action = () => { Enum.None.IsSingleValue(); };
+        action.Should().ThrowExactly<ArgumentException>().Which.ParamName.Should().Be("value");
+    }
 
-        [Theory]
-        [InlineData(Flag.Value1, true)]
-        [InlineData(Flag.Value1 | Flag.Value2, false)]
-        public void IsSingleValueSucceeds(Flag value, bool expected)
-        {
-            value.IsSingleValue().Should().Be(expected);
-        }
+    [Theory]
+    [InlineData(Flag.Value1, true)]
+    [InlineData(Flag.Value1 | Flag.Value2, false)]
+    public void IsSingleValueSucceeds(Flag value, bool expected)
+    {
+        value.IsSingleValue().Should().Be(expected);
+    }
 
-        [Fact]
-        public void ToValueStringSucceedsForFlag()
-        {
-            (Flag.Value1 | Flag.Value2).GetCssClassPart().Should().Be("1 2");
-        }
+    [Fact]
+    public void ToValueStringSucceedsForFlag()
+    {
+        (Flag.Value1 | Flag.Value2).GetCssClassPart().Should().Be("1 2");
+    }
 
-        [Fact]
-        public void ToValueStringSucceedsForNotFlag()
-        {
-            Enum.Public.GetCssClassPart().Should().Be("public");
-        }
+    [Fact]
+    public void ToValueStringSucceedsForNotFlag()
+    {
+        Enum.Public.GetCssClassPart().Should().Be("public");
+    }
 
-        [Fact]
-        public void ToValueStringSucceedsForValueWithoutDescriptionAttribute()
-        {
-            Enum.None.GetCssClassPart().Should().BeEmpty();
-        }
+    [Fact]
+    public void ToValueStringSucceedsForValueWithoutDescriptionAttribute()
+    {
+        Enum.None.GetCssClassPart().Should().BeEmpty();
+    }
 
-        private enum Enum
-        {
-            None,
+    private enum Enum
+    {
+        None,
 
-            [CssClassPart("public")]
-            Public
-        }
+        [CssClassPart("public")]
+        Public
+    }
 
-        [Flags]
-        public enum Flag
-        {
-            [CssClassPart("1")]
-            Value1 = 1,
+    [Flags]
+    public enum Flag
+    {
+        [CssClassPart("1")]
+        Value1 = 1,
 
-            [CssClassPart("2")]
-            Value2 = 2
-        }
+        [CssClassPart("2")]
+        Value2 = 2
     }
 }

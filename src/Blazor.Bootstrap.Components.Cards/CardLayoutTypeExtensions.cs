@@ -16,15 +16,14 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public static class CardLayoutTypeExtensions
 {
-    public static class CardLayoutTypeExtensions
+    public static string ToCssClass(this CardLayoutType layoutType)
     {
-        public static string ToCssClass(this CardLayoutType layoutType)
-        {
-            return new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
-                .Append(layoutType.GetCssClassPart())
-                .Build();
-        }
+        return new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
+            .Append(layoutType.GetCssClassPart())
+            .Build();
     }
 }

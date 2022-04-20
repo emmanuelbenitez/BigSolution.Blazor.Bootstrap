@@ -19,38 +19,37 @@
 using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public partial class Card
 {
-    public partial class Card
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override bool IsFlex => true;
+    protected override bool IsFlex => true;
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public RenderFragment Body { get; set; }
+    [Parameter]
+    public RenderFragment Body { get; set; }
 
-        [Parameter]
-        public string BodyClasses { get; set; }
+    [Parameter]
+    public string BodyClasses { get; set; }
 
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        [Parameter]
-        public RenderFragment Footer { get; set; }
+    [Parameter]
+    public RenderFragment Footer { get; set; }
 
-        [Parameter]
-        public string FooterClasses { get; set; }
+    [Parameter]
+    public string FooterClasses { get; set; }
 
-        [Parameter]
-        public bool HasOutline { get; set; }
+    [Parameter]
+    public bool HasOutline { get; set; }
 
-        [Parameter]
-        public RenderFragment Header { get; set; }
+    [Parameter]
+    public RenderFragment Header { get; set; }
 
-        [Parameter]
-        public string HeaderClasses { get; set; }
-    }
+    [Parameter]
+    public string HeaderClasses { get; set; }
 }

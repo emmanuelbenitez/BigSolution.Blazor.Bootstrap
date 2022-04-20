@@ -20,29 +20,28 @@ using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardWrapper : BootstrapComponentBase
 {
-    public class CardWrapper : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(CSS_CLASS_PREFIX)
-            .AddColor(CSS_CLASS_PREFIX, () => Color, () => Color != Color.None)
-            .AddClass(_outlineCssClass, () => HasOutline);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CSS_CLASS_PREFIX)
+        .AddColor(CSS_CLASS_PREFIX, () => Color, () => Color != Color.None)
+        .AddClass(_outlineCssClass, () => HasOutline);
 
-        protected override bool IsFlex => true;
+    protected override bool IsFlex => true;
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        [Parameter]
-        public bool HasOutline { get; set; }
+    [Parameter]
+    public bool HasOutline { get; set; }
 
-        public const string CSS_CLASS_PREFIX = "card";
+    public const string CSS_CLASS_PREFIX = "card";
 
-        private static readonly string _outlineCssClass = new CssClassBuilder(CSS_CLASS_PREFIX).Append("outline").Build();
-    }
+    private static readonly string _outlineCssClass = new CssClassBuilder(CSS_CLASS_PREFIX).Append("outline").Build();
 }

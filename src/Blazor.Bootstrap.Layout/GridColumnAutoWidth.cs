@@ -18,46 +18,45 @@
 
 using System;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public sealed class GridColumnAutoWidth : GridColumnWidth
 {
-    public sealed class GridColumnAutoWidth : GridColumnWidth
+    #region Operators
+
+    public static implicit operator GridColumnAutoWidth(string value)
     {
-        #region Operators
-
-        public static implicit operator GridColumnAutoWidth(string value)
-        {
-            return ToGridColumnAutoWidth(value);
-        }
-
-        #endregion
-
-        public static bool CanConvert(string value)
-        {
-            return string.Equals(CSS_CLASS_SUFFIX, value, StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        private static GridColumnAutoWidth ToGridColumnAutoWidth(string value)
-        {
-            if (!CanConvert(value))
-            {
-                throw new InvalidCastException(
-                    $"The string can be only cast to {nameof(GridColumnAutoWidth)} when value equals to '{CSS_CLASS_SUFFIX}' (value={value})");
-            }
-
-            return Instance;
-        }
-
-        #region Base Class Member Overrides
-
-        protected override void ConfigureCssClassBuilder(CssClassBuilder builder)
-        {
-            builder.Append(CSS_CLASS_SUFFIX);
-        }
-
-        #endregion
-
-        internal const string CSS_CLASS_SUFFIX = "auto";
-
-        public static readonly GridColumnAutoWidth Instance = new();
+        return ToGridColumnAutoWidth(value);
     }
+
+    #endregion
+
+    public static bool CanConvert(string value)
+    {
+        return string.Equals(CSS_CLASS_SUFFIX, value, StringComparison.InvariantCultureIgnoreCase);
+    }
+
+    private static GridColumnAutoWidth ToGridColumnAutoWidth(string value)
+    {
+        if (!CanConvert(value))
+        {
+            throw new InvalidCastException(
+                $"The string can be only cast to {nameof(GridColumnAutoWidth)} when value equals to '{CSS_CLASS_SUFFIX}' (value={value})");
+        }
+
+        return Instance;
+    }
+
+    #region Base Class Member Overrides
+
+    protected override void ConfigureCssClassBuilder(CssClassBuilder builder)
+    {
+        builder.Append(CSS_CLASS_SUFFIX);
+    }
+
+    #endregion
+
+    internal const string CSS_CLASS_SUFFIX = "auto";
+
+    public static readonly GridColumnAutoWidth Instance = new();
 }

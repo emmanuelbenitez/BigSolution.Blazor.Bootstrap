@@ -19,15 +19,14 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public class AlertHeading : Heading
 {
-    [UsedImplicitly]
-    public class AlertHeading : Heading
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new("alert-heading");
+    protected override CssBuilder CssBuilder => new("alert-heading");
 
-        #endregion
-    }
+    #endregion
 }

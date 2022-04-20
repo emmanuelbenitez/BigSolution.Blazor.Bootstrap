@@ -22,54 +22,53 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.CompilerServices;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class NavigationBar : BootstrapComponentBase
 {
-    public class NavigationBar : BootstrapComponentBase
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CSS_CLASS_PREFIX)
+        .AddClass($"{CSS_CLASS_PREFIX}-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
+        .AddClass(GetExpandCssClass(), () => ExpandBreakpoint.HasValue);
+
+    #endregion
+
+    #region Base Class Member Overrides
+
+    protected override string DefaultTagName => HtmlTagNames.NAV;
+
+    #endregion
+
+    #region Base Class Member Overrides
+
+    protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(CSS_CLASS_PREFIX)
-            .AddClass($"{CSS_CLASS_PREFIX}-{Color.GetCssClassPart()}", () => Color != NavigationBarColor.None)
-            .AddClass(GetExpandCssClass(), () => ExpandBreakpoint.HasValue);
-
-        #endregion
-
-        #region Base Class Member Overrides
-
-        protected override string DefaultTagName => HtmlTagNames.NAV;
-
-        #endregion
-
-        #region Base Class Member Overrides
-
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            var sequenceGenerator = new SequenceGenerator();
-            builder.OpenComponent<CascadingValue<NavigationBar>>(sequenceGenerator.GetNextValue());
-            builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.Value), RuntimeHelpers.TypeCheck(this));
-            builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.ChildContent), (RenderFragment) (b => base.BuildRenderTree(b)));
-            builder.CloseComponent();
-        }
-
-        #endregion
-
-        [Parameter]
-        public NavigationBarColor Color { get; set; }
-
-        [Parameter]
-        public Breakpoint? ExpandBreakpoint { get; [UsedImplicitly] set; }
-
-        private string GetExpandCssClass()
-        {
-            return ExpandBreakpoint.HasValue
-                ? new CssClassBuilder(CSS_CLASS_PREFIX)
-                    .Append("expand")
-                    .Append(() => ExpandBreakpoint.Value.GetCssClassPart(), ExpandBreakpoint.Value != Breakpoint.None)
-                    .Build()
-                : string.Empty;
-        }
-
-        public const string CSS_CLASS_PREFIX = "navbar";
+        var sequenceGenerator = new SequenceGenerator();
+        builder.OpenComponent<CascadingValue<NavigationBar>>(sequenceGenerator.GetNextValue());
+        builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.Value), RuntimeHelpers.TypeCheck(this));
+        builder.AddAttribute(sequenceGenerator.GetNextValue(), nameof(CascadingValue<NavigationBar>.ChildContent), (RenderFragment) (b => base.BuildRenderTree(b)));
+        builder.CloseComponent();
     }
+
+    #endregion
+
+    [Parameter]
+    public NavigationBarColor Color { get; set; }
+
+    [Parameter]
+    public Breakpoint? ExpandBreakpoint { get; [UsedImplicitly] set; }
+
+    private string GetExpandCssClass()
+    {
+        return ExpandBreakpoint.HasValue
+            ? new CssClassBuilder(CSS_CLASS_PREFIX)
+                .Append("expand")
+                .Append(() => ExpandBreakpoint.Value.GetCssClassPart(), ExpandBreakpoint.Value != Breakpoint.None)
+                .Build()
+            : string.Empty;
+    }
+
+    public const string CSS_CLASS_PREFIX = "navbar";
 }

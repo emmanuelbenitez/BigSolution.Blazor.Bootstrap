@@ -16,13 +16,12 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
-{
-    public enum BadgeType
-    {
-        None,
+namespace BigSolution.Bootstrap;
 
-        [CssClassPart("pill")]
-        Pill
-    }
+public enum BadgeType
+{
+    None,
+
+    [CssClassPart("pill")]
+    Pill
 }

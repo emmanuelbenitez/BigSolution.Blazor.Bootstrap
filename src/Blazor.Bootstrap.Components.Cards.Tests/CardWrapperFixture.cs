@@ -21,18 +21,17 @@ using BigSolution.Bootstrap.Utilities;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardWrapperFixture
 {
-    public class CardWrapperFixture
+    [Theory]
+    [InlineData(Color.None, "card")]
+    [InlineData(Color.Dark, "card card-dark")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassWellFormattedForColor(Color color, string expected)
     {
-        [Theory]
-        [InlineData(Color.None, "card")]
-        [InlineData(Color.Dark, "card card-dark")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassWellFormattedForColor(Color color, string expected)
-        {
-            new CardWrapper { Color = color }
-                .CssClasses.Should().Be(expected);
-        }
+        new CardWrapper { Color = color }
+            .CssClasses.Should().Be(expected);
     }
 }

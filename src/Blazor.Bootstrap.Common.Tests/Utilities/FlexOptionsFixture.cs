@@ -21,60 +21,59 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FlexOptionsFixture
 {
-    public class FlexOptionsFixture
+    [Theory]
+    [MemberData(nameof(ValidFlexOptions))]
+    public void BuildCssClassesSucceeds(FlexOptions flexOptions, Breakpoint breakpoint, string[] expected)
     {
-        [Theory]
-        [MemberData(nameof(ValidFlexOptions))]
-        public void BuildCssClassesSucceeds(FlexOptions flexOptions, Breakpoint breakpoint, string[] expected)
-        {
-            flexOptions.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expected);
-        }
+        flexOptions.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expected);
+    }
 
-        [Fact]
-        public void CastFlexContentAlignmentSucceeds()
-        {
-            ((FlexOptions) FlexContentAlignment.Center).ContentAlignment.Should().Be(FlexContentAlignment.Center);
-        }
+    [Fact]
+    public void CastFlexContentAlignmentSucceeds()
+    {
+        ((FlexOptions) FlexContentAlignment.Center).ContentAlignment.Should().Be(FlexContentAlignment.Center);
+    }
 
-        [Fact]
-        public void CastFlexDirectionSucceeds()
-        {
-            var flexDirection = new FlexDirection();
-            ((FlexOptions) flexDirection).Direction.Should().Be(flexDirection);
-        }
+    [Fact]
+    public void CastFlexDirectionSucceeds()
+    {
+        var flexDirection = new FlexDirection();
+        ((FlexOptions) flexDirection).Direction.Should().Be(flexDirection);
+    }
 
-        [Fact]
-        public void CastFlexOrientationSucceeds()
-        {
-            ((FlexOptions) FlexOrientation.Vertical).Direction.Orientation.Should().Be(FlexOrientation.Vertical);
-        }
+    [Fact]
+    public void CastFlexOrientationSucceeds()
+    {
+        ((FlexOptions) FlexOrientation.Vertical).Direction.Orientation.Should().Be(FlexOrientation.Vertical);
+    }
 
-        [Fact]
-        public void CastFlexWrapSucceeds()
-        {
-            var flexWrap = new FlexWrap();
-            ((FlexOptions) flexWrap).Wrap.Should().Be(flexWrap);
-        }
+    [Fact]
+    public void CastFlexWrapSucceeds()
+    {
+        var flexWrap = new FlexWrap();
+        ((FlexOptions) flexWrap).Wrap.Should().Be(flexWrap);
+    }
 
-        [Fact]
-        public void CastJustifyContentSucceeds()
-        {
-            ((FlexOptions) FlexJustifyContent.Center).JustifyContent.Should().Be(FlexJustifyContent.Center);
-        }
+    [Fact]
+    public void CastJustifyContentSucceeds()
+    {
+        ((FlexOptions) FlexJustifyContent.Center).JustifyContent.Should().Be(FlexJustifyContent.Center);
+    }
 
-        public static IEnumerable<object[]> ValidFlexOptions
+    public static IEnumerable<object[]> ValidFlexOptions
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { new FlexOptions(), Breakpoint.None, Array.Empty<string>() };
-                yield return new object[] { new FlexOptions { Direction = FlexOrientation.Horizontal }, Breakpoint.None, new[] { "flex-row" } };
-                yield return new object[] { new FlexOptions { JustifyContent = FlexJustifyContent.Center }, Breakpoint.None, new[] { "justify-content-center" } };
-                yield return new object[] { new FlexOptions { ItemsAlignment = FlexAlignment.Center }, Breakpoint.None, new[] { "align-items-center" } };
-                yield return new object[] { new FlexOptions { Wrap = true }, Breakpoint.None, new[] { "flex-wrap" } };
-                yield return new object[] { new FlexOptions { ContentAlignment = FlexContentAlignment.Center }, Breakpoint.None, new[] { "align-content-center" } };
-            }
+            yield return new object[] { new FlexOptions(), Breakpoint.None, Array.Empty<string>() };
+            yield return new object[] { new FlexOptions { Direction = FlexOrientation.Horizontal }, Breakpoint.None, new[] { "flex-row" } };
+            yield return new object[] { new FlexOptions { JustifyContent = FlexJustifyContent.Center }, Breakpoint.None, new[] { "justify-content-center" } };
+            yield return new object[] { new FlexOptions { ItemsAlignment = FlexAlignment.Center }, Breakpoint.None, new[] { "align-items-center" } };
+            yield return new object[] { new FlexOptions { Wrap = true }, Breakpoint.None, new[] { "flex-wrap" } };
+            yield return new object[] { new FlexOptions { ContentAlignment = FlexContentAlignment.Center }, Breakpoint.None, new[] { "align-content-center" } };
         }
     }
 }

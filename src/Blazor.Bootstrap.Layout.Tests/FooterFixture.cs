@@ -16,7 +16,6 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
-{
-    public class FooterFixture { }
-}
+namespace BigSolution.Bootstrap;
+
+public class FooterFixture { }

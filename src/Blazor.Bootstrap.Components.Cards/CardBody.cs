@@ -19,18 +19,17 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public class CardBody : BootstrapComponentBase
 {
-    [UsedImplicitly]
-    public class CardBody : BootstrapComponentBase
-    {
-        private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX).Append("body").Build();
+    private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX).Append("body").Build();
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DefaultCssClass);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DefaultCssClass);
 
-        #endregion
-    }
+    #endregion
 }

@@ -18,36 +18,35 @@
 
 using System;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public sealed class GridColumnDefaultWidth : GridColumnWidth
 {
-    public sealed class GridColumnDefaultWidth : GridColumnWidth
+    #region Operators
+
+    public static implicit operator GridColumnDefaultWidth(string value)
     {
-        #region Operators
-
-        public static implicit operator GridColumnDefaultWidth(string value)
-        {
-            return ToGridColumnDefaultWidth(value);
-        }
-
-        #endregion
-
-        internal static bool CanConvert(string value)
-        {
-            return string.IsNullOrEmpty(value);
-        }
-
-        private static GridColumnDefaultWidth ToGridColumnDefaultWidth(string value)
-        {
-            if (!CanConvert(value))
-            {
-                throw new InvalidCastException($"The string can be only cast to {nameof(GridColumnDefaultWidth)} when value is null or empty (value={value})");
-            }
-
-            return Instance;
-        }
-
-        private GridColumnDefaultWidth() { }
-
-        public static readonly GridColumnDefaultWidth Instance = new();
+        return ToGridColumnDefaultWidth(value);
     }
+
+    #endregion
+
+    internal static bool CanConvert(string value)
+    {
+        return string.IsNullOrEmpty(value);
+    }
+
+    private static GridColumnDefaultWidth ToGridColumnDefaultWidth(string value)
+    {
+        if (!CanConvert(value))
+        {
+            throw new InvalidCastException($"The string can be only cast to {nameof(GridColumnDefaultWidth)} when value is null or empty (value={value})");
+        }
+
+        return Instance;
+    }
+
+    private GridColumnDefaultWidth() { }
+
+    public static readonly GridColumnDefaultWidth Instance = new();
 }

@@ -22,31 +22,30 @@ using Bunit;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class AlertFixture : TestContext
 {
-    public class AlertFixture : TestContext
+    [Fact]
+    public void HeadingBuilt()
     {
-        [Fact]
-        public void HeadingBuilt()
-        {
-            var renderedComponent = RenderComponent<Alert>(ComponentParameterFactory.RenderFragment(nameof(Alert.Heading), "heading-content"));
+        var renderedComponent = RenderComponent<Alert>(ComponentParameterFactory.RenderFragment(nameof(Alert.Heading), "heading-content"));
 
-            var divisionElement = renderedComponent.Find("div");
-            divisionElement.ClassName.Should().Be("alert");
-            var headerElement = divisionElement.FindChild<IHtmlHeadingElement>()!;
-            headerElement.LocalName.Should().Be("h1");
-            headerElement.ClassName.Should().Be("alert-heading");
-            headerElement.GetInnerText().Should().Be("heading-content");
-        }
+        var divisionElement = renderedComponent.Find("div");
+        divisionElement.ClassName.Should().Be("alert");
+        var headerElement = divisionElement.FindChild<IHtmlHeadingElement>()!;
+        headerElement.LocalName.Should().Be("h1");
+        headerElement.ClassName.Should().Be("alert-heading");
+        headerElement.GetInnerText().Should().Be("heading-content");
+    }
 
-        [Fact]
-        public void HeadingDoesNotBuild()
-        {
-            var renderedComponent = RenderComponent<Alert>();
+    [Fact]
+    public void HeadingDoesNotBuild()
+    {
+        var renderedComponent = RenderComponent<Alert>();
 
-            var divisionElement = renderedComponent.Find("div");
-            divisionElement.ClassName.Should().Be("alert");
-            divisionElement.FindChild<IHtmlHeadingElement>().Should().BeNull();
-        }
+        var divisionElement = renderedComponent.Find("div");
+        divisionElement.ClassName.Should().Be("alert");
+        divisionElement.FindChild<IHtmlHeadingElement>().Should().BeNull();
     }
 }

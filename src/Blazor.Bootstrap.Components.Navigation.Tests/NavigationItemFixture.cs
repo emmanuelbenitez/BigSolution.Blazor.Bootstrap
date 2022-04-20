@@ -20,18 +20,17 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class NavigationItemFixture
 {
-    public class NavigationItemFixture
+    [Theory]
+    [InlineData(false, "nav-item")]
+    [InlineData(true, "nav-item dropdown")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassWellFormattedForIsDropdown(bool value, string expected)
     {
-        [Theory]
-        [InlineData(false, "nav-item")]
-        [InlineData(true, "nav-item dropdown")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassWellFormattedForIsDropdown(bool value, string expected)
-        {
-            new NavigationItem { IsDropdown = value }
-                .CssClasses.Should().Be(expected);
-        }
+        new NavigationItem { IsDropdown = value }
+            .CssClasses.Should().Be(expected);
     }
 }

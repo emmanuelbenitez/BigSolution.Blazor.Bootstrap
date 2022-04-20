@@ -18,25 +18,24 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardText : BootstrapComponentBase
 {
-    public class CardText : BootstrapComponentBase
-    {
-        private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
-            .Append("text")
-            .Build();
+    private static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
+        .Append("text")
+        .Build();
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DefaultCssClass);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DefaultCssClass);
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => HtmlTagNames.P;
+    protected override string DefaultTagName => HtmlTagNames.P;
 
-        #endregion
-    }
+    #endregion
 }

@@ -19,21 +19,20 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class HeadingFixture
 {
-    public class HeadingFixture
+    [Theory]
+    [InlineData(HeadingSize.One, "h1")]
+    [InlineData(HeadingSize.Two, "h2")]
+    [InlineData(HeadingSize.Three, "h3")]
+    [InlineData(HeadingSize.Four, "h4")]
+    [InlineData(HeadingSize.Five, "h5")]
+    [InlineData(HeadingSize.Six, "h6")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "<Pending>")]
+    public void SizeInitializationFailed(HeadingSize size, string expectedTagName)
     {
-        [Theory]
-        [InlineData(HeadingSize.One, "h1")]
-        [InlineData(HeadingSize.Two, "h2")]
-        [InlineData(HeadingSize.Three, "h3")]
-        [InlineData(HeadingSize.Four, "h4")]
-        [InlineData(HeadingSize.Five, "h5")]
-        [InlineData(HeadingSize.Six, "h6")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "<Pending>")]
-        public void SizeInitializationFailed(HeadingSize size, string expectedTagName)
-        {
-            _ = new Heading { Size = size }.TagName.Should().Be(expectedTagName);
-        }
+        _ = new Heading { Size = size }.TagName.Should().Be(expectedTagName);
     }
 }

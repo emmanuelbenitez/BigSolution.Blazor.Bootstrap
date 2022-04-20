@@ -19,17 +19,16 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class OverflowExtensionsFixture
 {
-    public class OverflowExtensionsFixture
+    [Theory]
+    [InlineData(Overflow.None, "")]
+    [InlineData(Overflow.Auto, "overflow-auto")]
+    [InlineData(Overflow.Hidden, "overflow-hidden")]
+    public void ToCssClassSucceeds(Overflow overflow, string expected)
     {
-        [Theory]
-        [InlineData(Overflow.None, "")]
-        [InlineData(Overflow.Auto, "overflow-auto")]
-        [InlineData(Overflow.Hidden, "overflow-hidden")]
-        public void ToCssClassSucceeds(Overflow overflow, string expected)
-        {
-            overflow.ToCssClass().Should().Be(expected);
-        }
+        overflow.ToCssClass().Should().Be(expected);
     }
 }

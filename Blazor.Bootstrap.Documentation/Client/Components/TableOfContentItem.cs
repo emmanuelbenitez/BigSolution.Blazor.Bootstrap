@@ -20,15 +20,14 @@ using System.Diagnostics.CodeAnalysis;
 using BigSolution.Bootstrap;
 using BlazorComponentUtilities;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public class TableOfContentItem : ActivatableDynamicElement
 {
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-    public class TableOfContentItem : ActivatableDynamicElement
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder.AddClass("bd-toc-item");
+    protected override CssBuilder CssBuilder => base.CssBuilder.AddClass("bd-toc-item");
 
-        #endregion
-    }
+    #endregion
 }

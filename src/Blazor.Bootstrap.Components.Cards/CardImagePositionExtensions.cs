@@ -16,15 +16,14 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public static class CardImagePositionExtensions
 {
-    public static class CardImagePositionExtensions
+    public static string ToCssClass(this CardImagePosition position)
     {
-        public static string ToCssClass(this CardImagePosition position)
-        {
-            return new CssClassBuilder(CardImage.DefaultCssClass)
-                .Append(() => position.GetCssClassPart(), () => position != CardImagePosition.None)
-                .Build();
-        }
+        return new CssClassBuilder(CardImage.DefaultCssClass)
+            .Append(() => position.GetCssClassPart(), () => position != CardImagePosition.None)
+            .Build();
     }
 }

@@ -21,55 +21,54 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FixedOrderFixture
 {
-    public class FixedOrderFixture
+    [Theory]
+    [InlineData(1, Breakpoint.None, "order-1")]
+    [InlineData(1, Breakpoint.Small, "order-sm-1")]
+    public void BuildCssClassSucceeds(uint order, Breakpoint breakpoint, string expectedCssClass)
     {
-        [Theory]
-        [InlineData(1, Breakpoint.None, "order-1")]
-        [InlineData(1, Breakpoint.Small, "order-sm-1")]
-        public void BuildCssClassSucceeds(uint order, Breakpoint breakpoint, string expectedCssClass)
-        {
-            new FixedOrder(order).BuildCssClass(breakpoint).Should().Be(expectedCssClass);
-        }
+        new FixedOrder(order).BuildCssClass(breakpoint).Should().Be(expectedCssClass);
+    }
 
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        [InlineData("auto")]
-        [SuppressMessage("ReSharper", "RedundantCast")]
-        public void CastStringFailed(string value)
-        {
-            Action action = () => { _ = (FixedOrder) value; };
-            action.Should().ThrowExactly<InvalidCastException>();
-        }
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("auto")]
+    [SuppressMessage("ReSharper", "RedundantCast")]
+    public void CastStringFailed(string value)
+    {
+        Action action = () => { _ = (FixedOrder) value; };
+        action.Should().ThrowExactly<InvalidCastException>();
+    }
 
-        [Fact]
-        public void CastStringSucceeds()
-        {
-            ((FixedOrder) "1").Order.Should().Be(1);
-        }
+    [Fact]
+    public void CastStringSucceeds()
+    {
+        ((FixedOrder) "1").Order.Should().Be(1);
+    }
 
-        [Fact]
-        public void CastUintSucceeds()
-        {
-            ((FixedOrder) 1).Order.Should().Be(1);
-        }
+    [Fact]
+    public void CastUintSucceeds()
+    {
+        ((FixedOrder) 1).Order.Should().Be(1);
+    }
 
-        [Theory]
-        [InlineData(0)]
-        [InlineData(13)]
-        [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
-        public void InstantiationFailed(uint order)
-        {
-            Action action = () => new FixedOrder(order);
-            action.Should().ThrowExactly<ArgumentException>().Which.ParamName.Should().Be("order");
-        }
+    [Theory]
+    [InlineData(0)]
+    [InlineData(13)]
+    [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
+    public void InstantiationFailed(uint order)
+    {
+        Action action = () => new FixedOrder(order);
+        action.Should().ThrowExactly<ArgumentException>().Which.ParamName.Should().Be("order");
+    }
 
-        [Fact]
-        public void InstantiationSucceeds()
-        {
-            new FixedOrder(1).Order.Should().Be(1);
-        }
+    [Fact]
+    public void InstantiationSucceeds()
+    {
+        new FixedOrder(1).Order.Should().Be(1);
     }
 }

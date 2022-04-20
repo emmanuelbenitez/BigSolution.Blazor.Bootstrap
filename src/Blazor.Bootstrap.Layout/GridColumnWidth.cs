@@ -19,47 +19,46 @@
 using System;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public abstract class GridColumnWidth
 {
-    public abstract class GridColumnWidth
+    #region Operators
+
+    public static implicit operator GridColumnWidth(string value)
     {
-        #region Operators
-
-        public static implicit operator GridColumnWidth(string value)
-        {
-            return ToGridColumnWidth(value);
-        }
-
-        public static implicit operator GridColumnWidth(uint value)
-        {
-            return ToGridColumnWidth(value);
-        }
-
-        #endregion
-
-        private static GridColumnWidth ToGridColumnWidth(string value)
-        {
-            if (GridColumnDefaultWidth.CanConvert(value)) return (GridColumnDefaultWidth) value;
-            if (GridColumnAutoWidth.CanConvert(value)) return (GridColumnAutoWidth) value;
-            if (GridColumnFixedWidth.CanConvert(value)) return (GridColumnFixedWidth) value;
-
-            throw new InvalidCastException(
-                $"The string can be only cast to {nameof(GridColumnWidth)} when value equals to '{GridColumnAutoWidth.CSS_CLASS_SUFFIX}' or null or empty or is a number (value={value})");
-        }
-
-        private static GridColumnWidth ToGridColumnWidth(uint value)
-        {
-            return GridColumnFixedWidth.ToGridColumnFixedWidth(value);
-        }
-
-        public string BuildCssClass(Breakpoint breakpoint)
-        {
-            var builder = new CssClassBuilder("col")
-                .Append(() => breakpoint.GetCssClassPart(), () => breakpoint != Breakpoint.None);
-            ConfigureCssClassBuilder(builder);
-            return builder.Build();
-        }
-
-        protected virtual void ConfigureCssClassBuilder([NotNull] CssClassBuilder builder) { }
+        return ToGridColumnWidth(value);
     }
+
+    public static implicit operator GridColumnWidth(uint value)
+    {
+        return ToGridColumnWidth(value);
+    }
+
+    #endregion
+
+    private static GridColumnWidth ToGridColumnWidth(string value)
+    {
+        if (GridColumnDefaultWidth.CanConvert(value)) return (GridColumnDefaultWidth) value;
+        if (GridColumnAutoWidth.CanConvert(value)) return (GridColumnAutoWidth) value;
+        if (GridColumnFixedWidth.CanConvert(value)) return (GridColumnFixedWidth) value;
+
+        throw new InvalidCastException(
+            $"The string can be only cast to {nameof(GridColumnWidth)} when value equals to '{GridColumnAutoWidth.CSS_CLASS_SUFFIX}' or null or empty or is a number (value={value})");
+    }
+
+    private static GridColumnWidth ToGridColumnWidth(uint value)
+    {
+        return GridColumnFixedWidth.ToGridColumnFixedWidth(value);
+    }
+
+    public string BuildCssClass(Breakpoint breakpoint)
+    {
+        var builder = new CssClassBuilder("col")
+            .Append(() => breakpoint.GetCssClassPart(), () => breakpoint != Breakpoint.None);
+        ConfigureCssClassBuilder(builder);
+        return builder.Build();
+    }
+
+    protected virtual void ConfigureCssClassBuilder([NotNull] CssClassBuilder builder) { }
 }

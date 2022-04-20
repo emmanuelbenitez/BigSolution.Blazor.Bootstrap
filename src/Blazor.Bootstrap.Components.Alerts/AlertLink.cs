@@ -19,16 +19,15 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public class AlertLink : BootstrapNavLink
 {
-    [UsedImplicitly]
-    public class AlertLink : BootstrapNavLink
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("alert-link");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass("alert-link");
 
-        #endregion
-    }
+    #endregion
 }

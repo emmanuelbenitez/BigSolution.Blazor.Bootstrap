@@ -19,23 +19,22 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardTitle : Heading
 {
-    public class CardTitle : Heading
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DefaultCssClass);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DefaultCssClass);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public bool IsSubTitle { get; set; }
+    [Parameter]
+    public bool IsSubTitle { get; set; }
 
-        private string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
-            .Append("title", () => !IsSubTitle)
-            .Append("subtitle", () => IsSubTitle)
-            .Build();
-    }
+    private string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
+        .Append("title", () => !IsSubTitle)
+        .Append("subtitle", () => IsSubTitle)
+        .Build();
 }

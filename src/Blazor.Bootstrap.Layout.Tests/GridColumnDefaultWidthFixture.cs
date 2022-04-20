@@ -23,42 +23,41 @@ using System.Linq;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class GridColumnDefaultWidthFixture
 {
-    public class GridColumnDefaultWidthFixture
+    [Theory]
+    [MemberData(nameof(GetSize))]
+    public void BuildCssClassSucceeds(Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [MemberData(nameof(GetSize))]
-        public void BuildCssClassSucceeds(Breakpoint breakpoint, string expected)
-        {
-            GridColumnDefaultWidth.Instance.BuildCssClass(breakpoint).Should().Be(expected);
-        }
+        GridColumnDefaultWidth.Instance.BuildCssClass(breakpoint).Should().Be(expected);
+    }
 
-        [Theory]
-        [InlineData("test")]
-        [InlineData("auto")]
-        [SuppressMessage("ReSharper", "UnusedVariable")]
-        public void CastStringFailed(string value)
-        {
-            Action action = () => {
-                GridColumnDefaultWidth gridColumnAutoWidth = value;
-            };
-            action.Should().ThrowExactly<InvalidCastException>();
-        }
+    [Theory]
+    [InlineData("test")]
+    [InlineData("auto")]
+    [SuppressMessage("ReSharper", "UnusedVariable")]
+    public void CastStringFailed(string value)
+    {
+        Action action = () => {
+            GridColumnDefaultWidth gridColumnAutoWidth = value;
+        };
+        action.Should().ThrowExactly<InvalidCastException>();
+    }
 
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        public void CastStringSucceeds(string value)
-        {
-            ((GridColumnDefaultWidth) value).Should().Be(GridColumnDefaultWidth.Instance);
-        }
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void CastStringSucceeds(string value)
+    {
+        ((GridColumnDefaultWidth) value).Should().Be(GridColumnDefaultWidth.Instance);
+    }
 
-        public static IEnumerable<object[]> GetSize()
-        {
-            return Enum.GetValues(typeof(Breakpoint))
-                .Cast<Breakpoint>()
-                .Select(size => new object[] { size, size != Breakpoint.None ? $"col-{size.GetCssClassPart()}" : "col" });
-        }
+    public static IEnumerable<object[]> GetSize()
+    {
+        return Enum.GetValues(typeof(Breakpoint))
+            .Cast<Breakpoint>()
+            .Select(size => new object[] { size, size != Breakpoint.None ? $"col-{size.GetCssClassPart()}" : "col" });
     }
 }

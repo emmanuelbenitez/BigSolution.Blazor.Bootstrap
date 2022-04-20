@@ -19,13 +19,12 @@
 using System;
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+internal static class CssBuilderExtensions
 {
-    internal static class CssBuilderExtensions
+    public static CssBuilder AddButtonSize(this CssBuilder builder, Func<ButtonSize> valueGetter)
     {
-        public static CssBuilder AddButtonSize(this CssBuilder builder, Func<ButtonSize> valueGetter)
-        {
-            return builder.AddEnumValue(Button.DEFAULT_CSS_CLASS, valueGetter, () => valueGetter() != ButtonSize.None);
-        }
+        return builder.AddEnumValue(Button.DEFAULT_CSS_CLASS, valueGetter, () => valueGetter() != ButtonSize.None);
     }
 }

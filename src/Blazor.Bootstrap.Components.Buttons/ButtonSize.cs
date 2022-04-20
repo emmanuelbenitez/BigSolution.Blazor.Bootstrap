@@ -16,16 +16,15 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum ButtonSize
 {
-    public enum ButtonSize
-    {
-        None,
+    None,
 
-        [CssClassPart("sm")]
-        Small,
+    [CssClassPart("sm")]
+    Small,
 
-        [CssClassPart("lg")]
-        Large,
-    }
+    [CssClassPart("lg")]
+    Large,
 }

@@ -14,8 +14,7 @@
 // limitations under the License.
 #endregion
 
-namespace Blazor.Bootstrap.Documentation.Client.Pages.GettingStarted
-{
-    public partial class Introduction
-    { }
-}
+namespace Blazor.Bootstrap.Documentation.Client.Pages.GettingStarted;
+
+public partial class Introduction
+{ }

@@ -20,30 +20,29 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
-{
-    public class NavigationBarFixture
-    {
-        [Theory]
-        [InlineData(null, "navbar")]
-        [InlineData(Breakpoint.None, "navbar navbar-expand")]
-        [InlineData(Breakpoint.Large, "navbar navbar-expand-lg")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassWellFormattedForExpendBreakpoint(Breakpoint? breakpoint, string expected)
-        {
-            new NavigationBar { ExpandBreakpoint = breakpoint }
-                .CssClasses.Should().Be(expected);
-        }
+namespace BigSolution.Bootstrap;
 
-        [Theory]
-        [InlineData(NavigationBarColor.None, "navbar")]
-        [InlineData(NavigationBarColor.Dark, "navbar navbar-dark")]
-        [InlineData(NavigationBarColor.Light, "navbar navbar-light")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassWellFormattedForNavigationBarColor(NavigationBarColor color, string expected)
-        {
-            new NavigationBar { Color = color }
-                .CssClasses.Should().Be(expected);
-        }
+public class NavigationBarFixture
+{
+    [Theory]
+    [InlineData(null, "navbar")]
+    [InlineData(Breakpoint.None, "navbar navbar-expand")]
+    [InlineData(Breakpoint.Large, "navbar navbar-expand-lg")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassWellFormattedForExpendBreakpoint(Breakpoint? breakpoint, string expected)
+    {
+        new NavigationBar { ExpandBreakpoint = breakpoint }
+            .CssClasses.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(NavigationBarColor.None, "navbar")]
+    [InlineData(NavigationBarColor.Dark, "navbar navbar-dark")]
+    [InlineData(NavigationBarColor.Light, "navbar navbar-light")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassWellFormattedForNavigationBarColor(NavigationBarColor color, string expected)
+    {
+        new NavigationBar { Color = color }
+            .CssClasses.Should().Be(expected);
     }
 }

@@ -19,13 +19,12 @@
 using System;
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+internal static class CssBuilderExtensions
 {
-    internal static class CssBuilderExtensions
+    public static CssBuilder AddBadgeType(this CssBuilder builder, Func<BadgeType> valueGetter)
     {
-        public static CssBuilder AddBadgeType(this CssBuilder builder, Func<BadgeType> valueGetter)
-        {
-            return builder.AddEnumValue(Badge.DEFAULT_CSS_CLASS, valueGetter, () => valueGetter() != BadgeType.None);
-        }
+        return builder.AddEnumValue(Badge.DEFAULT_CSS_CLASS, valueGetter, () => valueGetter() != BadgeType.None);
     }
 }

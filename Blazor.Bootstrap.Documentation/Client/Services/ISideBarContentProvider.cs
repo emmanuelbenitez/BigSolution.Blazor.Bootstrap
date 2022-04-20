@@ -19,10 +19,9 @@
 using System.Collections.Generic;
 using Blazor.Bootstrap.Documentation.Client.Models;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public interface ISideBarContentProvider
 {
-    public interface ISideBarContentProvider
-    {
-        IEnumerable<SideBarItemGroup> GetItemGroups();
-    }
+    IEnumerable<SideBarItemGroup> GetItemGroups();
 }

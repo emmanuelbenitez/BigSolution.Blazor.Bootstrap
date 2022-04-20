@@ -23,21 +23,20 @@ using Blazor.Bootstrap.Documentation.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Blazor.Bootstrap.Documentation.Client
+namespace Blazor.Bootstrap.Documentation.Client;
+
+public class Program
 {
-    public class Program
+    public static async Task Main(string[] args)
     {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
+        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddSingleton<ISideBarContentProvider>(new SideBarContentProvider());
-            builder.Services.AddSingleton<IExamplesProvider>(new ExamplesProvider());
-            builder.Services.AddSingleton<IPricingModelProvider>(new PricingModelProvider());
+        builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+        builder.Services.AddSingleton<ISideBarContentProvider>(new SideBarContentProvider());
+        builder.Services.AddSingleton<IExamplesProvider>(new ExamplesProvider());
+        builder.Services.AddSingleton<IPricingModelProvider>(new PricingModelProvider());
 
-            await builder.Build().RunAsync();
-        }
+        await builder.Build().RunAsync();
     }
 }

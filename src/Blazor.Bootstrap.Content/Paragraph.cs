@@ -19,24 +19,23 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Paragraph : BootstrapComponentBase
 {
-    public class Paragraph : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(() => "lead", () => IsLead);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(() => "lead", () => IsLead);
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => HtmlTagNames.P;
+    protected override string DefaultTagName => HtmlTagNames.P;
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public bool IsLead { get; set; }
-    }
+    [Parameter]
+    public bool IsLead { get; set; }
 }

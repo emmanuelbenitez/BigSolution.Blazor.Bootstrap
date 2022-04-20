@@ -19,11 +19,10 @@
 using BigSolution.Bootstrap;
 using BigSolution.Bootstrap.Utilities;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+public partial class PageHeader
 {
-    public partial class PageHeader
-    {
-        private static readonly MarginSide _defaultMargin = new FixedMarginSide(0) { ImpactedSides = Sides.Start };
-        private static readonly MarginSide _mediumMargin = new FixedMarginSide(2) { ImpactedSides = Sides.Start };
-    }
+    private static readonly MarginSide _defaultMargin = new FixedMarginSide(0) { ImpactedSides = Sides.Start };
+    private static readonly MarginSide _mediumMargin = new FixedMarginSide(2) { ImpactedSides = Sides.Start };
 }

@@ -21,20 +21,19 @@ using System.Reflection;
 using Blazor.Bootstrap.Documentation.Client.Pages.Examples;
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public static class ExamplePageFactory
 {
-    public static class ExamplePageFactory
+    public static ExamplePage Create<TPage>()
+        where TPage : ExamplePageBase
     {
-        public static ExamplePage Create<TPage>()
-            where TPage : ExamplePageBase
-        {
-            var pageType = typeof(TPage);
-            return new ExamplePage() {
-                Route = pageType.GetCustomAttribute<RouteAttribute>()?.Template,
-                Title = pageType.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName,
-                Description = pageType.GetCustomAttribute<DescriptionAttribute>()?.Description,
-                ImageUrl = pageType.GetCustomAttribute<ImageUrlAttribute>()?.ImageUrl
-            };
-        }
+        var pageType = typeof(TPage);
+        return new ExamplePage() {
+            Route = pageType.GetCustomAttribute<RouteAttribute>()?.Template,
+            Title = pageType.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName,
+            Description = pageType.GetCustomAttribute<DescriptionAttribute>()?.Description,
+            ImageUrl = pageType.GetCustomAttribute<ImageUrlAttribute>()?.ImageUrl
+        };
     }
 }

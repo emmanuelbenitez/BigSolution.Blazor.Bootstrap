@@ -16,26 +16,25 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum HeadingSize
 {
-    public enum HeadingSize
-    {
-        [CssClassPart("h1")]
-        One,
+    [CssClassPart("h1")]
+    One,
 
-        [CssClassPart("h2")]
-        Two,
+    [CssClassPart("h2")]
+    Two,
 
-        [CssClassPart("h3")]
-        Three,
+    [CssClassPart("h3")]
+    Three,
 
-        [CssClassPart("h4")]
-        Four,
+    [CssClassPart("h4")]
+    Four,
 
-        [CssClassPart("h5")]
-        Five,
+    [CssClassPart("h5")]
+    Five,
 
-        [CssClassPart("h6")]
-        Six,
-    }
+    [CssClassPart("h6")]
+    Six,
 }

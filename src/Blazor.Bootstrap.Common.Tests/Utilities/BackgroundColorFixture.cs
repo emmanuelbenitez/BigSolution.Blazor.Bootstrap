@@ -20,25 +20,24 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class BackgroundColorFixture
-    {
-        [Theory]
-        [InlineData(Color.Muted)]
-        [InlineData(Color.None)]
-        public void BuildCssClassFailed(Color color)
-        {
-            Action action = () => new BackgroundColor { Color = color }.BuildCssClass();
-            action.Should().ThrowExactly<InvalidOperationException>();
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        [Theory]
-        [InlineData(Color.Active, true, "bg-gradient-active")]
-        [InlineData(Color.Active, false, "bg-active")]
-        public void BuildCssClassSucceeds(Color color, bool isGradient, string expectedCssClass)
-        {
-            new BackgroundColor { Color = color, IsGradient = isGradient }.BuildCssClass().Should().Be(expectedCssClass);
-        }
+public class BackgroundColorFixture
+{
+    [Theory]
+    [InlineData(Color.Muted)]
+    [InlineData(Color.None)]
+    public void BuildCssClassFailed(Color color)
+    {
+        Action action = () => new BackgroundColor { Color = color }.BuildCssClass();
+        action.Should().ThrowExactly<InvalidOperationException>();
+    }
+
+    [Theory]
+    [InlineData(Color.Active, true, "bg-gradient-active")]
+    [InlineData(Color.Active, false, "bg-active")]
+    public void BuildCssClassSucceeds(Color color, bool isGradient, string expectedCssClass)
+    {
+        new BackgroundColor { Color = color, IsGradient = isGradient }.BuildCssClass().Should().Be(expectedCssClass);
     }
 }

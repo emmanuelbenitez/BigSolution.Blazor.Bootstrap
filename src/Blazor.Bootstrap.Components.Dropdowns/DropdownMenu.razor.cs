@@ -19,15 +19,14 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public partial class DropdownMenu
 {
-    [UsedImplicitly]
-    public partial class DropdownMenu
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new("dropdown-menu");
+    protected override CssBuilder CssBuilder => new("dropdown-menu");
 
-        #endregion
-    }
+    #endregion
 }

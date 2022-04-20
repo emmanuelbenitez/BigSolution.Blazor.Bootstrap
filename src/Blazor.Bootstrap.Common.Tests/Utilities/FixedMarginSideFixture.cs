@@ -20,25 +20,24 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class FixedMarginSideFixture
-    {
-        [Theory]
-        [MemberData(nameof(ValidFixedMargins))]
-        public void BuildCssClassesSucceeds(int value, Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
-        {
-            new FixedMarginSide(value) { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        public static IEnumerable<object[]> ValidFixedMargins
+public class FixedMarginSideFixture
+{
+    [Theory]
+    [MemberData(nameof(ValidFixedMargins))]
+    public void BuildCssClassesSucceeds(int value, Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
+    {
+        new FixedMarginSide(value) { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+    }
+
+    public static IEnumerable<object[]> ValidFixedMargins
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { 0, Sides.StartAndEnd, Breakpoint.None, new[] { "mx-0" } };
-                yield return new object[] { -1, Sides.End, Breakpoint.None, new[] { "me-n1" } };
-                yield return new object[] { 0, Sides.Start, Breakpoint.Small, new[] { "ms-sm-0" } };
-            }
+            yield return new object[] { 0, Sides.StartAndEnd, Breakpoint.None, new[] { "mx-0" } };
+            yield return new object[] { -1, Sides.End, Breakpoint.None, new[] { "me-n1" } };
+            yield return new object[] { 0, Sides.Start, Breakpoint.Small, new[] { "ms-sm-0" } };
         }
     }
 }

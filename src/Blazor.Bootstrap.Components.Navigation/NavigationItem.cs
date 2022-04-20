@@ -20,27 +20,26 @@ using System.Collections.Generic;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class NavigationItem : BootstrapComponentBase
 {
-    public class NavigationItem : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => HtmlTagNames.LI;
+    protected override string DefaultTagName => HtmlTagNames.LI;
 
-        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.LI };
+    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.LI };
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass($"{Navigation.CSS_CLASS_PREFIX}-item")
-            .AddClass("dropdown", IsDropdown);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass($"{Navigation.CSS_CLASS_PREFIX}-item")
+        .AddClass("dropdown", IsDropdown);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public bool IsDropdown { get; set; }
-    }
+    [Parameter]
+    public bool IsDropdown { get; set; }
 }

@@ -16,17 +16,16 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum CardLayoutType
 {
-    public enum CardLayoutType
-    {
-        [CssClassPart("group")]
-        Group,
+    [CssClassPart("group")]
+    Group,
 
-        [CssClassPart("deck")]
-        Deck,
+    [CssClassPart("deck")]
+    Deck,
 
-        [CssClassPart("columns")]
-        Columns
-    }
+    [CssClassPart("columns")]
+    Columns
 }

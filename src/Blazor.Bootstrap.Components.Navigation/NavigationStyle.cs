@@ -16,16 +16,15 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum NavigationStyle
 {
-    public enum NavigationStyle
-    {
-        None,
+    None,
 
-        [CssClassPart("tabs")]
-        Tabs,
+    [CssClassPart("tabs")]
+    Tabs,
 
-        [CssClassPart("pills")]
-        Pills
-    }
+    [CssClassPart("pills")]
+    Pills
 }

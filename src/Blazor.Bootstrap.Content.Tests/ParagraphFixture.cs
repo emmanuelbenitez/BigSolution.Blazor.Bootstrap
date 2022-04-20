@@ -19,17 +19,16 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class ParagraphFixture
 {
-    public class ParagraphFixture
+    [Theory]
+    [InlineData(false, "")]
+    [InlineData(true, "lead")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "<Pending>")]
+    public void CssClassWellFormattedForIsLead(bool isLead, string expected)
     {
-        [Theory]
-        [InlineData(false, "")]
-        [InlineData(true, "lead")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "<Pending>")]
-        public void CssClassWellFormattedForIsLead(bool isLead, string expected)
-        {
-            _ = new Paragraph { IsLead = isLead }.CssClasses.Should().Be(expected);
-        }
+        _ = new Paragraph { IsLead = isLead }.CssClasses.Should().Be(expected);
     }
 }

@@ -18,28 +18,27 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class MockNavigationManager : NavigationManager
 {
-    public class MockNavigationManager : NavigationManager
+    public MockNavigationManager(string baseUri)
     {
-        public MockNavigationManager(string baseUri)
-        {
-            Requires.Argument(baseUri, nameof(baseUri))
-                .IsNotNullOrWhiteSpace();
-            _baseUri = baseUri;
-        }
-
-        #region Base Class Member Overrides
-
-        protected override void EnsureInitialized()
-        {
-            Initialize(_baseUri, _baseUri);
-        }
-
-        protected override void NavigateToCore(string uri, bool forceLoad) { }
-
-        #endregion
-
-        private readonly string _baseUri;
+        Requires.Argument(baseUri, nameof(baseUri))
+            .IsNotNullOrWhiteSpace();
+        _baseUri = baseUri;
     }
+
+    #region Base Class Member Overrides
+
+    protected override void EnsureInitialized()
+    {
+        Initialize(_baseUri, _baseUri);
+    }
+
+    protected override void NavigateToCore(string uri, bool forceLoad) { }
+
+    #endregion
+
+    private readonly string _baseUri;
 }

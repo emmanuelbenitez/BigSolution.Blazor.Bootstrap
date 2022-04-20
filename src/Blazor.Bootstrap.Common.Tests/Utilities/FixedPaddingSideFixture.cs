@@ -20,24 +20,23 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class FixedPaddingSideFixture
-    {
-        [Theory]
-        [MemberData(nameof(ValidFixedPaddings))]
-        public void BuildCssClassesSucceeds(uint value, Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
-        {
-            new FixedPaddingSide(value) { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        public static IEnumerable<object[]> ValidFixedPaddings
+public class FixedPaddingSideFixture
+{
+    [Theory]
+    [MemberData(nameof(ValidFixedPaddings))]
+    public void BuildCssClassesSucceeds(uint value, Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
+    {
+        new FixedPaddingSide(value) { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+    }
+
+    public static IEnumerable<object[]> ValidFixedPaddings
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { 0, Sides.StartAndEnd, Breakpoint.None, new[] { "px-0" } };
-                yield return new object[] { 2, Sides.End, Breakpoint.Small, new[] { "pe-sm-2" } };
-            }
+            yield return new object[] { 0, Sides.StartAndEnd, Breakpoint.None, new[] { "px-0" } };
+            yield return new object[] { 2, Sides.End, Breakpoint.Small, new[] { "pe-sm-2" } };
         }
     }
 }

@@ -20,45 +20,44 @@ using System.Collections.Generic;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Navigation : BootstrapComponentBase
 {
-    public class Navigation : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => HtmlTagNames.UL;
+    protected override string DefaultTagName => HtmlTagNames.UL;
 
-        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.UL };
+    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.UL };
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(MainClass)
-            .AddClass($"{CSS_CLASS_PREFIX}-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None)
-            .AddClass(NavigationBarScrollingContainer.DefaultCssClass, () => IsInNavigationBar && SupportScrolling);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(MainClass)
+        .AddClass($"{CSS_CLASS_PREFIX}-{Style.GetCssClassPart()}", () => Style != NavigationStyle.None)
+        .AddClass(NavigationBarScrollingContainer.DefaultCssClass, () => IsInNavigationBar && SupportScrolling);
 
-        protected override bool IsFlex => true;
+    protected override bool IsFlex => true;
 
-        #endregion
+    #endregion
 
-        [CascadingParameter]
-        public NavigationBar NavigationBar { get; set; }
+    [CascadingParameter]
+    public NavigationBar NavigationBar { get; set; }
 
-        [Parameter]
-        public NavigationStyle Style { get; set; }
+    [Parameter]
+    public NavigationStyle Style { get; set; }
 
-        [Parameter]
-        public bool SupportScrolling { get; set; }
+    [Parameter]
+    public bool SupportScrolling { get; set; }
 
-        private bool IsInNavigationBar => NavigationBar != null;
+    private bool IsInNavigationBar => NavigationBar != null;
 
-        private string MainClass => new CssClassBuilder(string.Empty)
-            .Append(NavigationBar.CSS_CLASS_PREFIX, () => IsInNavigationBar)
-            .Append(CSS_CLASS_PREFIX)
-            .Build();
+    private string MainClass => new CssClassBuilder(string.Empty)
+        .Append(NavigationBar.CSS_CLASS_PREFIX, () => IsInNavigationBar)
+        .Append(CSS_CLASS_PREFIX)
+        .Build();
 
-        public const string CSS_CLASS_PREFIX = "nav";
-    }
+    public const string CSS_CLASS_PREFIX = "nav";
 }

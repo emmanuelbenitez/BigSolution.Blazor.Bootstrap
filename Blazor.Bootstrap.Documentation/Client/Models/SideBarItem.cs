@@ -16,12 +16,11 @@
 
 #endregion
 
-namespace Blazor.Bootstrap.Documentation.Client.Models
-{
-    public class SideBarItem
-    {
-        public string Display { get; set; }
+namespace Blazor.Bootstrap.Documentation.Client.Models;
 
-        public string Link { get; set; }
-    }
+public class SideBarItem
+{
+    public string Display { get; set; }
+
+    public string Link { get; set; }
 }

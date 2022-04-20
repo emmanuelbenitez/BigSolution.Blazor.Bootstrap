@@ -20,30 +20,29 @@ using System.Collections.Generic;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardImage : BootstrapComponentBase
 {
-    public class CardImage : BootstrapComponentBase
-    {
-        internal static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
-            .Append("image")
-            .Build();
+    internal static string DefaultCssClass => new CssClassBuilder(CardWrapper.CSS_CLASS_PREFIX)
+        .Append("image")
+        .Build();
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => HtmlTagNames.IMG;
+    protected override string DefaultTagName => HtmlTagNames.IMG;
 
-        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.IMG };
+    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.IMG };
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(Position.ToCssClass());
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(Position.ToCssClass());
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public CardImagePosition Position { get; set; }
-    }
+    [Parameter]
+    public CardImagePosition Position { get; set; }
 }

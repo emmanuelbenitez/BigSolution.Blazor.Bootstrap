@@ -20,22 +20,21 @@ using BigSolution.Blazor;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class NavigationBarScrollingContainer : DynamicElement
 {
-    public class NavigationBarScrollingContainer : DynamicElement
-    {
-        internal static readonly string DefaultCssClass = $"{NavigationBar.CSS_CLASS_PREFIX}-{Navigation.CSS_CLASS_PREFIX}-scroll";
+    internal static readonly string DefaultCssClass = $"{NavigationBar.CSS_CLASS_PREFIX}-{Navigation.CSS_CLASS_PREFIX}-scroll";
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DefaultCssClass, () => IsInNavigationBar);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DefaultCssClass, () => IsInNavigationBar);
 
-        #endregion
+    #endregion
 
-        public bool IsInNavigationBar => NavigationBar != null;
+    public bool IsInNavigationBar => NavigationBar != null;
 
-        [CascadingParameter]
-        public NavigationBar NavigationBar { get; set; }
-    }
+    [CascadingParameter]
+    public NavigationBar NavigationBar { get; set; }
 }

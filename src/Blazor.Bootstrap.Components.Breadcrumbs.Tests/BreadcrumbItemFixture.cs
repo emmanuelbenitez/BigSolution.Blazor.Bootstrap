@@ -19,15 +19,14 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class BreadcrumbItemFixture
 {
-    public class BreadcrumbItemFixture
+    [Fact]
+    public void CssClassInitialized()
     {
-        [Fact]
-        public void CssClassInitialized()
-        {
-            var alert = new BreadcrumbItem();
-            alert.CssClasses.Should().Be("breadcrumb-item");
-        }
+        var alert = new BreadcrumbItem();
+        alert.CssClasses.Should().Be("breadcrumb-item");
     }
 }

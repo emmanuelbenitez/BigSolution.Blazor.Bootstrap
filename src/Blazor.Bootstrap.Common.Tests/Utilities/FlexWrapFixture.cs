@@ -19,29 +19,28 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class FlexWrapFixture
-    {
-        [Theory]
-        [InlineData(true, true, Breakpoint.None, "flex-wrap-reverse")]
-        [InlineData(false, true, Breakpoint.None, "flex-nowrap")]
-        [InlineData(false, false, Breakpoint.None, "flex-nowrap")]
-        [InlineData(true, false, Breakpoint.None, "flex-wrap")]
-        [InlineData(true, false, Breakpoint.Small, "flex-sm-wrap")]
-        public void BuildCssClassSucceeds(bool wrap, bool reversed, Breakpoint breakpoint, string expected)
-        {
-            new FlexWrap { Wrap = wrap, Reversed = reversed }.BuildCssClass(breakpoint).Should().Be(expected);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void CastBooleanSucceeds(bool value)
-        {
-            var flexWrap = (FlexWrap) value;
-            flexWrap.Wrap.Should().Be(value);
-            flexWrap.Reversed.Should().BeFalse();
-        }
+public class FlexWrapFixture
+{
+    [Theory]
+    [InlineData(true, true, Breakpoint.None, "flex-wrap-reverse")]
+    [InlineData(false, true, Breakpoint.None, "flex-nowrap")]
+    [InlineData(false, false, Breakpoint.None, "flex-nowrap")]
+    [InlineData(true, false, Breakpoint.None, "flex-wrap")]
+    [InlineData(true, false, Breakpoint.Small, "flex-sm-wrap")]
+    public void BuildCssClassSucceeds(bool wrap, bool reversed, Breakpoint breakpoint, string expected)
+    {
+        new FlexWrap { Wrap = wrap, Reversed = reversed }.BuildCssClass(breakpoint).Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public void CastBooleanSucceeds(bool value)
+    {
+        var flexWrap = (FlexWrap) value;
+        flexWrap.Wrap.Should().Be(value);
+        flexWrap.Reversed.Should().BeFalse();
     }
 }

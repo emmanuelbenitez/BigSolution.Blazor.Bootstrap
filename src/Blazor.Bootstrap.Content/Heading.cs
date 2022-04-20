@@ -19,27 +19,26 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Heading : BootstrapComponentBase
 {
-    public class Heading : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => Size.GetCssClassPart() ?? HtmlTagNames.H1;
+    protected override string DefaultTagName => Size.GetCssClassPart() ?? HtmlTagNames.H1;
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DisplaySize.ToCssClass(), () => DisplaySize != null);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DisplaySize.ToCssClass(), () => DisplaySize != null);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public DisplaySize? DisplaySize { get; set; }
+    [Parameter]
+    public DisplaySize? DisplaySize { get; set; }
 
-        [Parameter]
-        public HeadingSize Size { get; set; }
-    }
+    [Parameter]
+    public HeadingSize Size { get; set; }
 }

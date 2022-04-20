@@ -19,11 +19,10 @@
 using Blazor.Bootstrap.Documentation.Client.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+public partial class PageSideBar
 {
-    public partial class PageSideBar
-    {
-        [Inject]
-        private ISideBarContentProvider ContentProvider { get; set; }
-    }
+    [Inject]
+    private ISideBarContentProvider ContentProvider { get; set; }
 }

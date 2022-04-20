@@ -18,15 +18,14 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class ButtonGroup : BootstrapComponentBase
 {
-    public class ButtonGroup : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass($"{Button.DEFAULT_CSS_CLASS}-group");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass($"{Button.DEFAULT_CSS_CLASS}-group");
 
-        #endregion
-    }
+    #endregion
 }

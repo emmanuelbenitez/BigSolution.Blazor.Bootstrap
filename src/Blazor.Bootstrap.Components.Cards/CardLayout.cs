@@ -19,20 +19,19 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardLayout : BootstrapComponentBase
 {
-    public class CardLayout : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(Type.ToCssClass());
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(Type.ToCssClass());
 
-        protected override bool IsFlex => true;
+    protected override bool IsFlex => true;
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public CardLayoutType Type { get; set; }
-    }
+    [Parameter]
+    public CardLayoutType Type { get; set; }
 }

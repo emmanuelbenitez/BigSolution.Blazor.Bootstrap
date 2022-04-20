@@ -16,20 +16,19 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum DisplaySize
 {
-    public enum DisplaySize
-    {
-        [CssClassPart("1")]
-        One,
+    [CssClassPart("1")]
+    One,
 
-        [CssClassPart("2")]
-        Two,
+    [CssClassPart("2")]
+    Two,
 
-        [CssClassPart("3")]
-        Three,
+    [CssClassPart("3")]
+    Three,
 
-        [CssClassPart("4")]
-        Four,
-    }
+    [CssClassPart("4")]
+    Four,
 }

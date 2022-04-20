@@ -21,30 +21,29 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
-{
-    public class SideExtensionsFixture
-    {
-        [Theory]
-        [MemberData(nameof(SideExtractions))]
-        public void ExtractSides(Sides sides, Sides[] extractedSides)
-        {
-            sides.ExtractSides().Should().BeEquivalentTo(extractedSides);
-        }
+namespace BigSolution.Bootstrap;
 
-        public static IEnumerable<object[]> SideExtractions
+public class SideExtensionsFixture
+{
+    [Theory]
+    [MemberData(nameof(SideExtractions))]
+    public void ExtractSides(Sides sides, Sides[] extractedSides)
+    {
+        sides.ExtractSides().Should().BeEquivalentTo(extractedSides);
+    }
+
+    public static IEnumerable<object[]> SideExtractions
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { Sides.End, new[] { Sides.End } };
-                yield return new object[] { Sides.Start, new[] { Sides.Start } };
-                yield return new object[] { Sides.Top, new[] { Sides.Top } };
-                yield return new object[] { Sides.Bottom, new[] { Sides.Bottom } };
-                yield return new object[] { Sides.All, new[] { Sides.End, Sides.Bottom, Sides.Top, Sides.Start } };
-                yield return new object[] { Sides.TopAndBottom, new[] { Sides.Bottom, Sides.Top } };
-                yield return new object[] { Sides.StartAndEnd, new[] { Sides.End, Sides.Start } };
-                yield return new object[] { Sides.None, Array.Empty<Sides>() };
-            }
+            yield return new object[] { Sides.End, new[] { Sides.End } };
+            yield return new object[] { Sides.Start, new[] { Sides.Start } };
+            yield return new object[] { Sides.Top, new[] { Sides.Top } };
+            yield return new object[] { Sides.Bottom, new[] { Sides.Bottom } };
+            yield return new object[] { Sides.All, new[] { Sides.End, Sides.Bottom, Sides.Top, Sides.Start } };
+            yield return new object[] { Sides.TopAndBottom, new[] { Sides.Bottom, Sides.Top } };
+            yield return new object[] { Sides.StartAndEnd, new[] { Sides.End, Sides.Start } };
+            yield return new object[] { Sides.None, Array.Empty<Sides>() };
         }
     }
 }

@@ -21,26 +21,25 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class ScreenReaderOptionsFixture
-    {
-        [Theory]
-        [MemberData(nameof(ValidScreenReaderOptions))]
-        public void BuildCssClassesSucceeds(bool isOnlyVisible, bool isFocusable, string[] expectedCssClasses)
-        {
-            new ScreenReaderOptions { IsOnlyVisible = isOnlyVisible, IsFocusable = isFocusable }.BuildCssClasses().Should().BeEquivalentTo(expectedCssClasses);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        public static IEnumerable<object[]> ValidScreenReaderOptions
+public class ScreenReaderOptionsFixture
+{
+    [Theory]
+    [MemberData(nameof(ValidScreenReaderOptions))]
+    public void BuildCssClassesSucceeds(bool isOnlyVisible, bool isFocusable, string[] expectedCssClasses)
+    {
+        new ScreenReaderOptions { IsOnlyVisible = isOnlyVisible, IsFocusable = isFocusable }.BuildCssClasses().Should().BeEquivalentTo(expectedCssClasses);
+    }
+
+    public static IEnumerable<object[]> ValidScreenReaderOptions
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { false, false, Array.Empty<string>() };
-                yield return new object[] { false, true, Array.Empty<string>() };
-                yield return new object[] { true, true, new[] { "sr-only", "sr-only-focusable" } };
-                yield return new object[] { true, false, new[] { "sr-only" } };
-            }
+            yield return new object[] { false, false, Array.Empty<string>() };
+            yield return new object[] { false, true, Array.Empty<string>() };
+            yield return new object[] { true, true, new[] { "sr-only", "sr-only-focusable" } };
+            yield return new object[] { true, false, new[] { "sr-only" } };
         }
     }
 }

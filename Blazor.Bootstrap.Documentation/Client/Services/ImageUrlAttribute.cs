@@ -18,16 +18,15 @@
 
 using System;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
-{
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public sealed class ImageUrlAttribute : Attribute
-    {
-        public ImageUrlAttribute(string imageUrl)
-        {
-            ImageUrl = imageUrl;
-        }
+namespace Blazor.Bootstrap.Documentation.Client.Services;
 
-        public string ImageUrl { get; }
+[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+public sealed class ImageUrlAttribute : Attribute
+{
+    public ImageUrlAttribute(string imageUrl)
+    {
+        ImageUrl = imageUrl;
     }
+
+    public string ImageUrl { get; }
 }

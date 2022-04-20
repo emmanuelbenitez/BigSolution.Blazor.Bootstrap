@@ -19,18 +19,17 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class UserSelectionExtensionsFixture
 {
-    public class UserSelectionExtensionsFixture
+    [Theory]
+    [InlineData(UserSelection.All, "user-select-all")]
+    [InlineData(UserSelection.Auto, "user-select-auto")]
+    [InlineData(UserSelection.None, "user-select-none")]
+    [InlineData(null, "")]
+    public void ToCssClassSucceeds(UserSelection? userSelection, string expected)
     {
-        [Theory]
-        [InlineData(UserSelection.All, "user-select-all")]
-        [InlineData(UserSelection.Auto, "user-select-auto")]
-        [InlineData(UserSelection.None, "user-select-none")]
-        [InlineData(null, "")]
-        public void ToCssClassSucceeds(UserSelection? userSelection, string expected)
-        {
-            userSelection.ToCssClass().Should().Be(expected);
-        }
+        userSelection.ToCssClass().Should().Be(expected);
     }
 }

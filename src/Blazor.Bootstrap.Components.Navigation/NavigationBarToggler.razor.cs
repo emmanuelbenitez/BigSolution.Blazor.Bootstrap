@@ -16,15 +16,21 @@
 
 #endregion
 
+using BlazorComponentUtilities;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public partial class NavigationBarToggler
 {
-    [UsedImplicitly]
-    public partial class NavigationBarToggler
-    {
-        [Parameter]
-        public string Target { get; set; }
-    }
+    public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append("toggler").Build();
+
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CssClass);
+
+    [Parameter]
+    public string Target { get; set; }
 }

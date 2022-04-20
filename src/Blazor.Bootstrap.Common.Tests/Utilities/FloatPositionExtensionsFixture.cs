@@ -19,18 +19,17 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FloatPositionExtensionsFixture
 {
-    public class FloatPositionExtensionsFixture
+    [Theory]
+    [InlineData(FloatPosition.None, Breakpoint.None, "float-none")]
+    [InlineData(FloatPosition.None, Breakpoint.Small, "float-sm-none")]
+    [InlineData(FloatPosition.Left, Breakpoint.None, "float-left")]
+    [InlineData(FloatPosition.Right, Breakpoint.None, "float-right")]
+    public void ToCssClassSucceeds(FloatPosition position, Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [InlineData(FloatPosition.None, Breakpoint.None, "float-none")]
-        [InlineData(FloatPosition.None, Breakpoint.Small, "float-sm-none")]
-        [InlineData(FloatPosition.Left, Breakpoint.None, "float-left")]
-        [InlineData(FloatPosition.Right, Breakpoint.None, "float-right")]
-        public void ToCssClassSucceeds(FloatPosition position, Breakpoint breakpoint, string expected)
-        {
-            position.ToCssClass(breakpoint).Should().Be(expected);
-        }
+        position.ToCssClass(breakpoint).Should().Be(expected);
     }
 }

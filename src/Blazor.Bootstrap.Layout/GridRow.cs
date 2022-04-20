@@ -21,88 +21,87 @@ using System.Linq;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class GridRow : BootstrapComponentBase
 {
-    public class GridRow : BootstrapComponentBase
+    private static string BuildColumnsCssClass(Breakpoint breakpoint, uint columns)
     {
-        private static string BuildColumnsCssClass(Breakpoint breakpoint, uint columns)
-        {
-            return new CssClassBuilder(CSS_CLASS_PREFIX)
-                .Append("cols")
-                .Append(() => breakpoint.GetCssClassPart(), () => breakpoint != Breakpoint.None)
-                .Append(() => $"{columns}")
-                .Build();
-        }
-
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder
-        {
-            get
-            {
-                var cssBuilder = base.CssBuilder
-                    .AddClass(CSS_CLASS_PREFIX)
-                    .AddClass("no-gutters", () => HasNoGutters);
-
-                foreach (var (breakpoint, columnSize) in _columnsDictionary.Where(pair => pair.Value >= 1 && pair.Value <= 6))
-                {
-                    cssBuilder.AddClass(() => BuildColumnsCssClass(breakpoint, columnSize.GetValueOrDefault()), true);
-                }
-
-                return cssBuilder;
-            }
-        }
-
-        protected override bool IsFlex => true;
-
-        #endregion
-
-        [Parameter]
-        public uint? Columns
-        {
-            get => _columnsDictionary[Breakpoint.None];
-            set => _columnsDictionary[Breakpoint.None] = value;
-        }
-
-        [Parameter]
-        public uint? ExtraLargeColumns
-        {
-            get => _columnsDictionary[Breakpoint.ExtraLarge];
-            set => _columnsDictionary[Breakpoint.ExtraLarge] = value;
-        }
-
-        [Parameter]
-        public bool HasNoGutters { get; set; }
-
-        [Parameter]
-        public uint? LargeColumns
-        {
-            get => _columnsDictionary[Breakpoint.Large];
-            set => _columnsDictionary[Breakpoint.Large] = value;
-        }
-
-        [Parameter]
-        public uint? MediumColumns
-        {
-            get => _columnsDictionary[Breakpoint.Medium];
-            set => _columnsDictionary[Breakpoint.Medium] = value;
-        }
-
-        [Parameter]
-        public uint? SmallColumns
-        {
-            get => _columnsDictionary[Breakpoint.Small];
-            set => _columnsDictionary[Breakpoint.Small] = value;
-        }
-
-        private const string CSS_CLASS_PREFIX = "row";
-
-        private readonly Dictionary<Breakpoint, uint?> _columnsDictionary = new() {
-            { Breakpoint.None, null },
-            { Breakpoint.Small, null },
-            { Breakpoint.Medium, null },
-            { Breakpoint.Large, null },
-            { Breakpoint.ExtraLarge, null }
-        };
+        return new CssClassBuilder(CSS_CLASS_PREFIX)
+            .Append("cols")
+            .Append(() => breakpoint.GetCssClassPart(), () => breakpoint != Breakpoint.None)
+            .Append(() => $"{columns}")
+            .Build();
     }
+
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder
+    {
+        get
+        {
+            var cssBuilder = base.CssBuilder
+                .AddClass(CSS_CLASS_PREFIX)
+                .AddClass("no-gutters", () => HasNoGutters);
+
+            foreach (var (breakpoint, columnSize) in _columnsDictionary.Where(pair => pair.Value >= 1 && pair.Value <= 6))
+            {
+                cssBuilder.AddClass(() => BuildColumnsCssClass(breakpoint, columnSize.GetValueOrDefault()), true);
+            }
+
+            return cssBuilder;
+        }
+    }
+
+    protected override bool IsFlex => true;
+
+    #endregion
+
+    [Parameter]
+    public uint? Columns
+    {
+        get => _columnsDictionary[Breakpoint.None];
+        set => _columnsDictionary[Breakpoint.None] = value;
+    }
+
+    [Parameter]
+    public uint? ExtraLargeColumns
+    {
+        get => _columnsDictionary[Breakpoint.ExtraLarge];
+        set => _columnsDictionary[Breakpoint.ExtraLarge] = value;
+    }
+
+    [Parameter]
+    public bool HasNoGutters { get; set; }
+
+    [Parameter]
+    public uint? LargeColumns
+    {
+        get => _columnsDictionary[Breakpoint.Large];
+        set => _columnsDictionary[Breakpoint.Large] = value;
+    }
+
+    [Parameter]
+    public uint? MediumColumns
+    {
+        get => _columnsDictionary[Breakpoint.Medium];
+        set => _columnsDictionary[Breakpoint.Medium] = value;
+    }
+
+    [Parameter]
+    public uint? SmallColumns
+    {
+        get => _columnsDictionary[Breakpoint.Small];
+        set => _columnsDictionary[Breakpoint.Small] = value;
+    }
+
+    private const string CSS_CLASS_PREFIX = "row";
+
+    private readonly Dictionary<Breakpoint, uint?> _columnsDictionary = new() {
+        { Breakpoint.None, null },
+        { Breakpoint.Small, null },
+        { Breakpoint.Medium, null },
+        { Breakpoint.Large, null },
+        { Breakpoint.ExtraLarge, null }
+    };
 }

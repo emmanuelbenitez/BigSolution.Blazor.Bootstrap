@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,24 +16,24 @@
 
 #endregion
 
-using System.Collections.Generic;
 using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap;
 
-public class BreadcrumbItem : ActivatableDynamicElement
+public class NavigationBarTogglerIcon : BootstrapComponentBase
 {
     #region Base Class Member Overrides
 
-    protected override CssBuilder CssBuilder => new("breadcrumb-item");
+    protected override string DefaultTagName => HtmlTagNames.SPAN;
 
     #endregion
 
     #region Base Class Member Overrides
 
-    protected override string DefaultTagName => HtmlTagNames.LI;
-
-    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.LI };
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CssClass);
 
     #endregion
+
+    public static readonly string CssClass = new CssClassBuilder(NavigationBarToggler.CssClass).Append("icon").Build();
 }

@@ -19,46 +19,45 @@
 using System.Collections.Generic;
 using Blazor.Bootstrap.Documentation.Client.Models.Examples;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public class PricingModelProvider : IPricingModelProvider
 {
-    public class PricingModelProvider : IPricingModelProvider
+    #region IPricingModelProvider Members
+
+    public IEnumerable<PricingModel> GetPricingModels()
     {
-        #region IPricingModelProvider Members
-
-        public IEnumerable<PricingModel> GetPricingModels()
-        {
-            yield return new PricingModel() {
-                Name = "Free",
-                Price = 0,
-                Feature = new[] {
-                    "10 users included",
-                    "2 GB of storage",
-                    "Email support",
-                    "Help center access"
-                }
-            };
-            yield return new PricingModel() {
-                Name = "Pro",
-                Price = 15,
-                Feature = new[] {
-                    "20 users included",
-                    "10 GB of storage",
-                    "Priority email support",
-                    "Help center access"
-                }
-            };
-            yield return new PricingModel() {
-                Name = "Enterprise",
-                Price = 29,
-                Feature = new[] {
-                    "30 users included",
-                    "15 GB of storage",
-                    "Phone and email support",
-                    "Help center access"
-                }
-            };
-        }
-
-        #endregion
+        yield return new PricingModel() {
+            Name = "Free",
+            Price = 0,
+            Feature = new[] {
+                "10 users included",
+                "2 GB of storage",
+                "Email support",
+                "Help center access"
+            }
+        };
+        yield return new PricingModel() {
+            Name = "Pro",
+            Price = 15,
+            Feature = new[] {
+                "20 users included",
+                "10 GB of storage",
+                "Priority email support",
+                "Help center access"
+            }
+        };
+        yield return new PricingModel() {
+            Name = "Enterprise",
+            Price = 29,
+            Feature = new[] {
+                "30 users included",
+                "15 GB of storage",
+                "Phone and email support",
+                "Help center access"
+            }
+        };
     }
+
+    #endregion
 }

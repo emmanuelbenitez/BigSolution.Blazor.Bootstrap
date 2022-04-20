@@ -24,61 +24,60 @@ using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Button : BootstrapComponentBase
 {
-    public class Button : BootstrapComponentBase
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DEFAULT_CSS_CLASS)
+        .AddColor(HasOutline ? $"{DEFAULT_CSS_CLASS}-outline" : DEFAULT_CSS_CLASS, () => Color)
+        .AddButtonSize(() => Size)
+        .AddClass("disabled", () => TagName == HtmlTagNames.A && Disabled);
+
+    #endregion
+
+    #region Base Class Member Overrides
+
+    protected override string DefaultTagName => HtmlTagNames.BUTTON;
+
+    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.A, HtmlTagNames.BUTTON, HtmlTagNames.INPUT };
+
+    #endregion
+
+    #region Base Class Member Overrides
+
+    protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
-        #region Base Class Member Overrides
+        var sequenceGenerator = new SequenceGenerator();
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DEFAULT_CSS_CLASS)
-            .AddColor(HasOutline ? $"{DEFAULT_CSS_CLASS}-outline" : DEFAULT_CSS_CLASS, () => Color)
-            .AddButtonSize(() => Size)
-            .AddClass("disabled", () => TagName == HtmlTagNames.A && Disabled);
-
-        #endregion
-
-        #region Base Class Member Overrides
-
-        protected override string DefaultTagName => HtmlTagNames.BUTTON;
-
-        protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.A, HtmlTagNames.BUTTON, HtmlTagNames.INPUT };
-
-        #endregion
-
-        #region Base Class Member Overrides
-
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            var sequenceGenerator = new SequenceGenerator();
-
-            builder.OpenElement(sequenceGenerator.GetNextValue(), TagName);
-            builder.AddAttribute(sequenceGenerator.GetNextValue(), "class", CssClasses);
-            if (TagName == HtmlTagNames.BUTTON || TagName == HtmlTagNames.INPUT) builder.AddAttribute(sequenceGenerator.GetNextValue(), "type", Type.GetCssClassPart());
-            else builder.AddAttribute(sequenceGenerator.GetNextValue(), "role", "button");
-            builder.AddMultipleAttributes(sequenceGenerator.GetNextValue(), AdditionalAttributes?.Where(pair => pair.Key != "class"));
-            builder.AddContent(sequenceGenerator.GetNextValue(), ChildContent);
-            builder.CloseElement();
-        }
-
-        #endregion
-
-        [Parameter]
-        public Color Color { get; set; }
-
-        [Parameter]
-        public bool Disabled { get; set; }
-
-        [Parameter]
-        public bool HasOutline { get; set; }
-
-        [Parameter]
-        public ButtonSize Size { get; set; }
-
-        [Parameter]
-        public ButtonType Type { get; set; }
-
-        [SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "Constant")]
-        public const string DEFAULT_CSS_CLASS = "btn";
+        builder.OpenElement(sequenceGenerator.GetNextValue(), TagName);
+        builder.AddAttribute(sequenceGenerator.GetNextValue(), "class", CssClasses);
+        if (TagName == HtmlTagNames.BUTTON || TagName == HtmlTagNames.INPUT) builder.AddAttribute(sequenceGenerator.GetNextValue(), "type", Type.GetCssClassPart());
+        else builder.AddAttribute(sequenceGenerator.GetNextValue(), "role", "button");
+        builder.AddMultipleAttributes(sequenceGenerator.GetNextValue(), AdditionalAttributes?.Where(pair => pair.Key != "class"));
+        builder.AddContent(sequenceGenerator.GetNextValue(), ChildContent);
+        builder.CloseElement();
     }
+
+    #endregion
+
+    [Parameter]
+    public Color Color { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public bool HasOutline { get; set; }
+
+    [Parameter]
+    public ButtonSize Size { get; set; }
+
+    [Parameter]
+    public ButtonType Type { get; set; }
+
+    [SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "Constant")]
+    public const string DEFAULT_CSS_CLASS = "btn";
 }

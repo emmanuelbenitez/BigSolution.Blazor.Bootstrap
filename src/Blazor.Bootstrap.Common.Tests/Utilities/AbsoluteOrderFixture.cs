@@ -21,44 +21,43 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class AbsoluteOrderFixture
 {
-    public class AbsoluteOrderFixture
+    [Theory]
+    [InlineData(OrderPosition.First, Breakpoint.None, "order-first")]
+    [InlineData(OrderPosition.Last, Breakpoint.None, "order-last")]
+    [InlineData(OrderPosition.Last, Breakpoint.Small, "order-sm-last")]
+    public void BuildCssClassSucceeds(OrderPosition position, Breakpoint breakpoint, string expectedCssClass)
     {
-        [Theory]
-        [InlineData(OrderPosition.First, Breakpoint.None, "order-first")]
-        [InlineData(OrderPosition.Last, Breakpoint.None, "order-last")]
-        [InlineData(OrderPosition.Last, Breakpoint.Small, "order-sm-last")]
-        public void BuildCssClassSucceeds(OrderPosition position, Breakpoint breakpoint, string expectedCssClass)
-        {
-            new AbsoluteOrder(position).BuildCssClass(breakpoint).Should().Be(expectedCssClass);
-        }
+        new AbsoluteOrder(position).BuildCssClass(breakpoint).Should().Be(expectedCssClass);
+    }
 
-        [Fact]
-        public void CastOrderPositionSucceeds()
-        {
-            ((AbsoluteOrder) OrderPosition.Last).Position.Should().Be(OrderPosition.Last);
-        }
+    [Fact]
+    public void CastOrderPositionSucceeds()
+    {
+        ((AbsoluteOrder) OrderPosition.Last).Position.Should().Be(OrderPosition.Last);
+    }
 
-        [Theory]
-        [InlineData("")]
-        [InlineData(null)]
-        [InlineData("auto")]
-        [SuppressMessage("ReSharper", "RedundantCast")]
-        public void CastStringFailed(string value)
-        {
-            Action action = () => { _ = (AbsoluteOrder) value; };
-            action.Should().ThrowExactly<InvalidCastException>();
-        }
+    [Theory]
+    [InlineData("")]
+    [InlineData(null)]
+    [InlineData("auto")]
+    [SuppressMessage("ReSharper", "RedundantCast")]
+    public void CastStringFailed(string value)
+    {
+        Action action = () => { _ = (AbsoluteOrder) value; };
+        action.Should().ThrowExactly<InvalidCastException>();
+    }
 
-        [Theory]
-        [InlineData("first", OrderPosition.First)]
-        [InlineData("last", OrderPosition.Last)]
-        [InlineData("FIRST", OrderPosition.First)]
-        [InlineData("LAST", OrderPosition.Last)]
-        public void CastStringSucceeds(string value, OrderPosition expectedPosition)
-        {
-            ((AbsoluteOrder) value).Position.Should().Be(expectedPosition);
-        }
+    [Theory]
+    [InlineData("first", OrderPosition.First)]
+    [InlineData("last", OrderPosition.Last)]
+    [InlineData("FIRST", OrderPosition.First)]
+    [InlineData("LAST", OrderPosition.Last)]
+    public void CastStringSucceeds(string value, OrderPosition expectedPosition)
+    {
+        ((AbsoluteOrder) value).Position.Should().Be(expectedPosition);
     }
 }

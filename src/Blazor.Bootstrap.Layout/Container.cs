@@ -19,18 +19,17 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Container : BootstrapComponentBase
 {
-    public class Container : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass($"container{(IsFluid ? "-fluid" : string.Empty)}");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass($"container{(IsFluid ? "-fluid" : string.Empty)}");
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public bool IsFluid { get; set; }
-    }
+    [Parameter]
+    public bool IsFluid { get; set; }
 }

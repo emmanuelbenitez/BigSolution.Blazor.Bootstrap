@@ -21,26 +21,25 @@ using System.Linq;
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public partial class NavigationBarBrand
 {
-    [UsedImplicitly]
-    public partial class NavigationBarBrand
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder => new("navbar-brand");
+
+    #endregion
+
+    private IReadOnlyDictionary<string, object> Attributes
     {
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => new("navbar-brand");
-
-        #endregion
-
-        private IReadOnlyDictionary<string, object> Attributes
+        get
         {
-            get
-            {
-                var attributes = AdditionalAttributes?.ToDictionary(attribute => attribute.Key, attribute => attribute.Value)
-                    ?? new Dictionary<string, object>();
-                attributes.Add("class", CssClasses);
-                return attributes;
-            }
+            var attributes = AdditionalAttributes?.ToDictionary(attribute => attribute.Key, attribute => attribute.Value)
+                ?? new Dictionary<string, object>();
+            attributes.Add("class", CssClasses);
+            return attributes;
         }
     }
 }

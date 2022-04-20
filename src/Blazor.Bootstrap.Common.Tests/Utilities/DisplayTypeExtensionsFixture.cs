@@ -19,22 +19,21 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class DisplayTypeExtensionsFixture
-    {
-        [Theory]
-        [InlineData(Breakpoint.Small, "d-sm-none")]
-        [InlineData(Breakpoint.None, "d-none")]
-        public void ToCssClassSucceeds(Breakpoint breakpoint, string expected)
-        {
-            DisplayType.None.ToCssClass(breakpoint).Should().BeEquivalentTo(expected);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        [Fact]
-        public void ToPrintCssClassSucceeds()
-        {
-            DisplayType.None.ToPrintCssClass().Should().Be("d-print-none");
-        }
+public class DisplayTypeExtensionsFixture
+{
+    [Theory]
+    [InlineData(Breakpoint.Small, "d-sm-none")]
+    [InlineData(Breakpoint.None, "d-none")]
+    public void ToCssClassSucceeds(Breakpoint breakpoint, string expected)
+    {
+        DisplayType.None.ToCssClass(breakpoint).Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void ToPrintCssClassSucceeds()
+    {
+        DisplayType.None.ToPrintCssClass().Should().Be("d-print-none");
     }
 }

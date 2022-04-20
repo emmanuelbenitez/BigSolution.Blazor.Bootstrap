@@ -18,10 +18,9 @@
 
 using System.Collections.Generic;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public interface IExamplesProvider
 {
-    public interface IExamplesProvider
-    {
-        IEnumerable<ExamplePage> GetExamplePages();
-    }
+    IEnumerable<ExamplePage> GetExamplePages();
 }

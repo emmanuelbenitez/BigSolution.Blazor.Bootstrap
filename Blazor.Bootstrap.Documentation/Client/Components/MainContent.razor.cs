@@ -20,18 +20,17 @@ using BigSolution.Bootstrap;
 using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+public partial class MainContent
 {
-    public partial class MainContent
-    {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
         
-        private static readonly Padding _mediumPadding = new() {
-            Sides = new PaddingSide[] {
-                new FixedPaddingSide(3) { ImpactedSides = Sides.TopAndBottom },
-                new FixedPaddingSide(5) { ImpactedSides = Sides.End }
-            }
-        };
-    }
+    private static readonly Padding _mediumPadding = new() {
+        Sides = new PaddingSide[] {
+            new FixedPaddingSide(3) { ImpactedSides = Sides.TopAndBottom },
+            new FixedPaddingSide(5) { ImpactedSides = Sides.End }
+        }
+    };
 }

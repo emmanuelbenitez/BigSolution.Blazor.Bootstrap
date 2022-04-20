@@ -16,9 +16,8 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Pages.Examples
+namespace Blazor.Bootstrap.Documentation.Client.Pages.Examples;
+
+public abstract class ExamplePageBase : ComponentBase
 {
-    public abstract class ExamplePageBase : ComponentBase
-    {
-    }
 }

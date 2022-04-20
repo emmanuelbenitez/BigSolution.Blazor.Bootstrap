@@ -24,28 +24,27 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BigSolution.Bootstrap
-{
-    public class BadgeLinkFixture : TestContext
-    {
-        [Theory]
-        [MemberData(nameof(CssClassData))]
-        public void CssClassWellFormatted(Color color, BadgeType badgeType, string expectedCssClass)
-        {
-            Services.AddSingleton<NavigationManager>(new MockNavigationManager("http://localhost/"));
-            var component = RenderComponent<BadgeLink>(
-                ComponentParameter.CreateParameter(nameof(BadgeLink.Color), color),
-                ComponentParameter.CreateParameter(nameof(BadgeLink.Type), badgeType));
-            component.Find("a").ClassName.Should().Be(expectedCssClass);
-        }
+namespace BigSolution.Bootstrap;
 
-        public static IEnumerable<object[]> CssClassData
+public class BadgeLinkFixture : TestContext
+{
+    [Theory]
+    [MemberData(nameof(CssClassData))]
+    public void CssClassWellFormatted(Color color, BadgeType badgeType, string expectedCssClass)
+    {
+        Services.AddSingleton<NavigationManager>(new MockNavigationManager("http://localhost/"));
+        var component = RenderComponent<BadgeLink>(
+            ComponentParameter.CreateParameter(nameof(BadgeLink.Color), color),
+            ComponentParameter.CreateParameter(nameof(BadgeLink.Type), badgeType));
+        component.Find("a").ClassName.Should().Be(expectedCssClass);
+    }
+
+    public static IEnumerable<object[]> CssClassData
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { Color.None, BadgeType.None, "badge" };
-                yield return new object[] { Color.Active, BadgeType.Pill, "badge badge-pill badge-active" };
-            }
+            yield return new object[] { Color.None, BadgeType.None, "badge" };
+            yield return new object[] { Color.Active, BadgeType.Pill, "badge badge-pill badge-active" };
         }
     }
 }

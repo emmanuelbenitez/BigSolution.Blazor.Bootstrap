@@ -20,15 +20,14 @@ using Bunit;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class BreadcrumbFixture : TestContext
 {
-    public class BreadcrumbFixture : TestContext
+    [Fact]
+    public void ComponentRendered()
     {
-        [Fact]
-        public void ComponentRendered()
-        {
-            var component = RenderComponent<Breadcrumb>();
-            component.Find("nav")!.Attributes["aria-label"]!.Value.Should().Be("breadcrumb");
-        }
+        var component = RenderComponent<Breadcrumb>();
+        component.Find("nav")!.Attributes["aria-label"]!.Value.Should().Be("breadcrumb");
     }
 }

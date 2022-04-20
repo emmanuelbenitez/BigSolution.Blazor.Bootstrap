@@ -14,18 +14,17 @@
 // limitations under the License.
 #endregion
 
-namespace Blazor.Bootstrap.Documentation.Client.Models.Examples
+namespace Blazor.Bootstrap.Documentation.Client.Models.Examples;
+
+public class PricingModel
 {
-    public class PricingModel
-    {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public int Price { get; set; }
+    public int Price { get; set; }
 
-        public string[] Feature { get; set; }
+    public string[] Feature { get; set; }
 
-        public string ActionName { get; set; }
+    public string ActionName { get; set; }
 
-        public bool HasOutline { get; set; }
-    }
+    public bool HasOutline { get; set; }
 }

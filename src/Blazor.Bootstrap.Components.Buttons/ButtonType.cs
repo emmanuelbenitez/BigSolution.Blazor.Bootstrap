@@ -16,17 +16,16 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum ButtonType
 {
-    public enum ButtonType
-    {
-        [CssClassPart("button")]
-        None,
+    [CssClassPart("button")]
+    None,
 
-        [CssClassPart("reset")]
-        Reset,
+    [CssClassPart("reset")]
+    Reset,
 
-        [CssClassPart("submit")]
-        Submit
-    }
+    [CssClassPart("submit")]
+    Submit
 }

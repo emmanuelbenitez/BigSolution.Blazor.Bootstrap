@@ -18,20 +18,19 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Footer : BootstrapComponentBase
 {
-    public class Footer : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => new("footer");
+    protected override CssBuilder CssBuilder => new("footer");
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => "footer";
+    protected override string DefaultTagName => "footer";
 
-        #endregion
-    }
+    #endregion
 }

@@ -21,29 +21,28 @@ using System.Linq;
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+[UsedImplicitly]
+public partial class DropdownItem
 {
-    [UsedImplicitly]
-    public partial class DropdownItem
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder => new("dropdown-item");
+
+    #endregion
+
+    private IReadOnlyDictionary<string, object> AllAttributes
     {
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => new("dropdown-item");
-
-        #endregion
-
-        private IReadOnlyDictionary<string, object> AllAttributes
+        get
         {
-            get
-            {
-                var attributes = AdditionalAttributes?.ToDictionary(
-                    additionalAttribute => additionalAttribute.Key,
-                    additionalAttribute => additionalAttribute.Value) ?? new Dictionary<string, object>();
+            var attributes = AdditionalAttributes?.ToDictionary(
+                additionalAttribute => additionalAttribute.Key,
+                additionalAttribute => additionalAttribute.Value) ?? new Dictionary<string, object>();
 
-                attributes["class"] = CssClasses;
+            attributes["class"] = CssClasses;
 
-                return attributes;
-            }
+            return attributes;
         }
     }
 }

@@ -20,21 +20,20 @@ using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class AlertWrapper : BootstrapComponentBase
 {
-    public class AlertWrapper : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DEFAULT_CSS_CLASS)
-            .AddColor(DEFAULT_CSS_CLASS, () => Color);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DEFAULT_CSS_CLASS)
+        .AddColor(DEFAULT_CSS_CLASS, () => Color);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        private const string DEFAULT_CSS_CLASS = "alert";
-    }
+    private const string DEFAULT_CSS_CLASS = "alert";
 }

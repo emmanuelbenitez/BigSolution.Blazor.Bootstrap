@@ -20,23 +20,22 @@ using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class BadgeLink : BootstrapNavLink
 {
-    public class BadgeLink : BootstrapNavLink
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(Badge.DEFAULT_CSS_CLASS)
-            .AddBadgeType(() => Type)
-            .AddColor(Badge.DEFAULT_CSS_CLASS, Color);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(Badge.DEFAULT_CSS_CLASS)
+        .AddBadgeType(() => Type)
+        .AddColor(Badge.DEFAULT_CSS_CLASS, Color);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        [Parameter]
-        public BadgeType Type { get; set; }
-    }
+    [Parameter]
+    public BadgeType Type { get; set; }
 }

@@ -19,20 +19,19 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FlexJustifyContentExtensionsFixture
 {
-    public class FlexJustifyContentExtensionsFixture
+    [Theory]
+    [InlineData(FlexJustifyContent.Center, Breakpoint.Small, "justify-content-sm-center")]
+    [InlineData(FlexJustifyContent.Center, Breakpoint.None, "justify-content-center")]
+    [InlineData(FlexJustifyContent.Around, Breakpoint.None, "justify-content-around")]
+    [InlineData(FlexJustifyContent.Between, Breakpoint.None, "justify-content-between")]
+    [InlineData(FlexJustifyContent.End, Breakpoint.None, "justify-content-end")]
+    [InlineData(FlexJustifyContent.None, Breakpoint.None, "")]
+    public void ToCssClassSucceeds(FlexJustifyContent justifyContent, Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [InlineData(FlexJustifyContent.Center, Breakpoint.Small, "justify-content-sm-center")]
-        [InlineData(FlexJustifyContent.Center, Breakpoint.None, "justify-content-center")]
-        [InlineData(FlexJustifyContent.Around, Breakpoint.None, "justify-content-around")]
-        [InlineData(FlexJustifyContent.Between, Breakpoint.None, "justify-content-between")]
-        [InlineData(FlexJustifyContent.End, Breakpoint.None, "justify-content-end")]
-        [InlineData(FlexJustifyContent.None, Breakpoint.None, "")]
-        public void ToCssClassSucceeds(FlexJustifyContent justifyContent, Breakpoint breakpoint, string expected)
-        {
-            justifyContent.ToCssClass(breakpoint).Should().Be(expected);
-        }
+        justifyContent.ToCssClass(breakpoint).Should().Be(expected);
     }
 }

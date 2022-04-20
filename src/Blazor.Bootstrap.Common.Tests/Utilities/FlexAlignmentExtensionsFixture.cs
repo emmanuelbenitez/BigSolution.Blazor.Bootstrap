@@ -19,21 +19,20 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FlexAlignmentExtensionsFixture
 {
-    public class FlexAlignmentExtensionsFixture
+    [Theory]
+    [InlineData(FlexAlignment.Center, FlexAlignmentScope.Items, Breakpoint.Small, "align-items-sm-center")]
+    [InlineData(FlexAlignment.Center, FlexAlignmentScope.Items, Breakpoint.None, "align-items-center")]
+    [InlineData(FlexAlignment.End, FlexAlignmentScope.Items, Breakpoint.None, "align-items-end")]
+    [InlineData(FlexAlignment.Baseline, FlexAlignmentScope.Items, Breakpoint.None, "align-items-baseline")]
+    [InlineData(FlexAlignment.Start, FlexAlignmentScope.Items, Breakpoint.None, "align-items-start")]
+    [InlineData(FlexAlignment.Stretch, FlexAlignmentScope.Items, Breakpoint.None, "align-items-stretch")]
+    [InlineData(FlexAlignment.None, FlexAlignmentScope.Items, Breakpoint.None, "")]
+    public void ToCssClassSucceeds(FlexAlignment alignment, FlexAlignmentScope scope, Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [InlineData(FlexAlignment.Center, FlexAlignmentScope.Items, Breakpoint.Small, "align-items-sm-center")]
-        [InlineData(FlexAlignment.Center, FlexAlignmentScope.Items, Breakpoint.None, "align-items-center")]
-        [InlineData(FlexAlignment.End, FlexAlignmentScope.Items, Breakpoint.None, "align-items-end")]
-        [InlineData(FlexAlignment.Baseline, FlexAlignmentScope.Items, Breakpoint.None, "align-items-baseline")]
-        [InlineData(FlexAlignment.Start, FlexAlignmentScope.Items, Breakpoint.None, "align-items-start")]
-        [InlineData(FlexAlignment.Stretch, FlexAlignmentScope.Items, Breakpoint.None, "align-items-stretch")]
-        [InlineData(FlexAlignment.None, FlexAlignmentScope.Items, Breakpoint.None, "")]
-        public void ToCssClassSucceeds(FlexAlignment alignment, FlexAlignmentScope scope, Breakpoint breakpoint, string expected)
-        {
-            alignment.ToCssClass(scope, breakpoint).Should().Be(expected);
-        }
+        alignment.ToCssClass(scope, breakpoint).Should().Be(expected);
     }
 }

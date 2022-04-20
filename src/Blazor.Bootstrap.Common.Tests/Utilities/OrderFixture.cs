@@ -21,33 +21,32 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class OrderFixture
 {
-    public class OrderFixture
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("test")]
+    [SuppressMessage("ReSharper", "RedundantCast")]
+    public void CastStringFailed(string value)
     {
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        [InlineData("test")]
-        [SuppressMessage("ReSharper", "RedundantCast")]
-        public void CastStringFailed(string value)
-        {
-            Action action = () => { _ = (Order) value; };
-            action.Should().ThrowExactly<InvalidCastException>();
-        }
+        Action action = () => { _ = (Order) value; };
+        action.Should().ThrowExactly<InvalidCastException>();
+    }
 
-        [Theory]
-        [InlineData("first", "order-first")]
-        [InlineData("1", "order-1")]
-        public void CastToStringSucceeds(string value, string expectedCssClass)
-        {
-            ((Order) value).BuildCssClass(Breakpoint.None).Should().Be(expectedCssClass);
-        }
+    [Theory]
+    [InlineData("first", "order-first")]
+    [InlineData("1", "order-1")]
+    public void CastToStringSucceeds(string value, string expectedCssClass)
+    {
+        ((Order) value).BuildCssClass(Breakpoint.None).Should().Be(expectedCssClass);
+    }
 
-        [Fact]
-        public void CastUintSucceeds()
-        {
-            ((Order) 1).Should().BeOfType<FixedOrder>().Which.Order.Should().Be(1);
-        }
+    [Fact]
+    public void CastUintSucceeds()
+    {
+        ((Order) 1).Should().BeOfType<FixedOrder>().Which.Order.Should().Be(1);
     }
 }

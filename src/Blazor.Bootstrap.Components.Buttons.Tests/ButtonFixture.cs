@@ -22,40 +22,39 @@ using Bunit;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class ButtonFixture : TestContext
 {
-    public class ButtonFixture : TestContext
+    [Theory]
+    [InlineData(ButtonType.None, "button")]
+    [InlineData(ButtonType.Submit, "submit")]
+    [InlineData(ButtonType.Reset, "reset")]
+    public void ButtonTypeInitialized(ButtonType buttonType, string expectedType)
     {
-        [Theory]
-        [InlineData(ButtonType.None, "button")]
-        [InlineData(ButtonType.Submit, "submit")]
-        [InlineData(ButtonType.Reset, "reset")]
-        public void ButtonTypeInitialized(ButtonType buttonType, string expectedType)
-        {
-            var component = RenderComponent<Button>(ComponentParameter.CreateParameter(nameof(Button.Type), buttonType));
-            component.Find("button").Attributes[HtmlAttributeNames.TYPE]!.Value.Should().Be(expectedType);
-        }
+        var component = RenderComponent<Button>(ComponentParameter.CreateParameter(nameof(Button.Type), buttonType));
+        component.Find("button").Attributes[HtmlAttributeNames.TYPE]!.Value.Should().Be(expectedType);
+    }
 
-        [Theory]
-        [InlineData("div")]
-        [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void TagNameInitializationFailed(string tagName)
-        {
-            Action action = () => new Button { TagName = tagName };
-            action.Should().ThrowExactly<ArgumentOutOfRangeException>().Which.ActualValue.Should().Be(tagName);
-        }
+    [Theory]
+    [InlineData("div")]
+    [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void TagNameInitializationFailed(string tagName)
+    {
+        Action action = () => new Button { TagName = tagName };
+        action.Should().ThrowExactly<ArgumentOutOfRangeException>().Which.ActualValue.Should().Be(tagName);
+    }
 
-        [Theory]
-        [InlineData("input")]
-        [InlineData("a")]
-        [InlineData("button")]
-        [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void TagNameInitializationSucceeds(string tagName)
-        {
-            Action action = () => new Button { TagName = tagName };
-            action.Should().NotThrow();
-        }
+    [Theory]
+    [InlineData("input")]
+    [InlineData("a")]
+    [InlineData("button")]
+    [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void TagNameInitializationSucceeds(string tagName)
+    {
+        Action action = () => new Button { TagName = tagName };
+        action.Should().NotThrow();
     }
 }

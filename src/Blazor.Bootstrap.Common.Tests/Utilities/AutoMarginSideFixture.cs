@@ -20,25 +20,24 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class AutoMarginSideFixture
-    {
-        [Theory]
-        [MemberData(nameof(ValidAutoMargins))]
-        public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
-        {
-            new AutoMarginSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        public static IEnumerable<object[]> ValidAutoMargins
+public class AutoMarginSideFixture
+{
+    [Theory]
+    [MemberData(nameof(ValidAutoMargins))]
+    public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
+    {
+        new AutoMarginSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+    }
+
+    public static IEnumerable<object[]> ValidAutoMargins
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { Sides.StartAndEnd, Breakpoint.None, new[] { "mx-auto" } };
-                yield return new object[] { Sides.End, Breakpoint.None, new[] { "me-auto" } };
-                yield return new object[] { Sides.End, Breakpoint.Small, new[] { "me-sm-auto" } };
-            }
+            yield return new object[] { Sides.StartAndEnd, Breakpoint.None, new[] { "mx-auto" } };
+            yield return new object[] { Sides.End, Breakpoint.None, new[] { "me-auto" } };
+            yield return new object[] { Sides.End, Breakpoint.Small, new[] { "me-sm-auto" } };
         }
     }
 }

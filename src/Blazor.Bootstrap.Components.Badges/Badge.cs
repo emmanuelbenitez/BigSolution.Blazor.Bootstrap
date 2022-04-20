@@ -20,31 +20,30 @@ using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Badge : BootstrapComponentBase
 {
-    public class Badge : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override string DefaultTagName => "span";
+    protected override string DefaultTagName => "span";
 
-        #endregion
+    #endregion
 
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(DEFAULT_CSS_CLASS)
-            .AddBadgeType(() => Type)
-            .AddColor(DEFAULT_CSS_CLASS, Color);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(DEFAULT_CSS_CLASS)
+        .AddBadgeType(() => Type)
+        .AddColor(DEFAULT_CSS_CLASS, Color);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        [Parameter]
-        public BadgeType Type { get; set; }
+    [Parameter]
+    public BadgeType Type { get; set; }
 
-        internal const string DEFAULT_CSS_CLASS = "badge";
-    }
+    internal const string DEFAULT_CSS_CLASS = "badge";
 }

@@ -19,27 +19,26 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class FlexDirectionFixture
-    {
-        [Theory]
-        [InlineData(FlexOrientation.Horizontal, false, Breakpoint.None, "flex-row")]
-        [InlineData(FlexOrientation.Horizontal, true, Breakpoint.None, "flex-row-reverse")]
-        [InlineData(FlexOrientation.Vertical, false, Breakpoint.None, "flex-column")]
-        [InlineData(FlexOrientation.Vertical, true, Breakpoint.None, "flex-column-reverse")]
-        [InlineData(FlexOrientation.Vertical, false, Breakpoint.Small, "flex-sm-column")]
-        public void BuildCssClassSucceeds(FlexOrientation orientation, bool reversed, Breakpoint breakpoint, string expected)
-        {
-            new FlexDirection { Orientation = orientation, Reversed = reversed }.BuildCssClass(breakpoint).Should().Be(expected);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        [Fact]
-        public void CastFlexOrientationSucceeds()
-        {
-            var flexDirection = (FlexDirection) FlexOrientation.Vertical;
-            flexDirection.Orientation.Should().Be(FlexOrientation.Vertical);
-            flexDirection.Reversed.Should().BeFalse();
-        }
+public class FlexDirectionFixture
+{
+    [Theory]
+    [InlineData(FlexOrientation.Horizontal, false, Breakpoint.None, "flex-row")]
+    [InlineData(FlexOrientation.Horizontal, true, Breakpoint.None, "flex-row-reverse")]
+    [InlineData(FlexOrientation.Vertical, false, Breakpoint.None, "flex-column")]
+    [InlineData(FlexOrientation.Vertical, true, Breakpoint.None, "flex-column-reverse")]
+    [InlineData(FlexOrientation.Vertical, false, Breakpoint.Small, "flex-sm-column")]
+    public void BuildCssClassSucceeds(FlexOrientation orientation, bool reversed, Breakpoint breakpoint, string expected)
+    {
+        new FlexDirection { Orientation = orientation, Reversed = reversed }.BuildCssClass(breakpoint).Should().Be(expected);
+    }
+
+    [Fact]
+    public void CastFlexOrientationSucceeds()
+    {
+        var flexDirection = (FlexDirection) FlexOrientation.Vertical;
+        flexDirection.Orientation.Should().Be(FlexOrientation.Vertical);
+        flexDirection.Reversed.Should().BeFalse();
     }
 }

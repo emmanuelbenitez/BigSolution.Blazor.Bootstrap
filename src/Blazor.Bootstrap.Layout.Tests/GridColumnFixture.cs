@@ -20,25 +20,24 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class GridColumnFixture
 {
-    public class GridColumnFixture
+    [Fact]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Test purpose")]
+    public void ColumnWidthInitialized()
     {
-        [Fact]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Test purpose")]
-        public void ColumnWidthInitialized()
-        {
-            var gridColumn = new GridColumn {
-                Width = "auto",
-                ExtraLargeWidth = "",
-                LargeWidth = new GridColumnFixedWidth(6),
-                MediumWidth = 3,
-                SmallWidth = 12
-            };
-            gridColumn.CssClasses.Should().Contain("col-auto")
-                .And.Contain("col-md-3")
-                .And.Contain("col-lg-6")
-                .And.Contain("col-xl");
-        }
+        var gridColumn = new GridColumn {
+            Width = "auto",
+            ExtraLargeWidth = "",
+            LargeWidth = new GridColumnFixedWidth(6),
+            MediumWidth = 3,
+            SmallWidth = 12
+        };
+        gridColumn.CssClasses.Should().Contain("col-auto")
+            .And.Contain("col-md-3")
+            .And.Contain("col-lg-6")
+            .And.Contain("col-xl");
     }
 }

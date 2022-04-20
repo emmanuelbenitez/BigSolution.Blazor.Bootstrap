@@ -18,15 +18,14 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class CardDeck : BootstrapComponentBase
 {
-    public class CardDeck : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass($"{CardWrapper.CSS_CLASS_PREFIX}-deck");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass($"{CardWrapper.CSS_CLASS_PREFIX}-deck");
 
-        #endregion
-    }
+    #endregion
 }

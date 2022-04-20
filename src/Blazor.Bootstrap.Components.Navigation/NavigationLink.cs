@@ -18,15 +18,14 @@
 
 using BlazorComponentUtilities;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class NavigationLink : BootstrapNavLink
 {
-    public class NavigationLink : BootstrapNavLink
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass("nav-link");
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass("nav-link");
 
-        #endregion
-    }
+    #endregion
 }

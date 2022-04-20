@@ -19,21 +19,20 @@
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class Jumbotron : BootstrapComponentBase
 {
-    public class Jumbotron : BootstrapComponentBase
-    {
-        #region Base Class Member Overrides
+    #region Base Class Member Overrides
 
-        protected override CssBuilder CssBuilder => base.CssBuilder
-            .AddClass(CSS_CLASS_PREFIX)
-            .AddClass($"{CSS_CLASS_PREFIX}-fluid", () => IsFluid);
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CSS_CLASS_PREFIX)
+        .AddClass($"{CSS_CLASS_PREFIX}-fluid", () => IsFluid);
 
-        #endregion
+    #endregion
 
-        [Parameter]
-        public bool IsFluid { get; set; }
+    [Parameter]
+    public bool IsFluid { get; set; }
 
-        private const string CSS_CLASS_PREFIX = "jumbotron";
-    }
+    private const string CSS_CLASS_PREFIX = "jumbotron";
 }

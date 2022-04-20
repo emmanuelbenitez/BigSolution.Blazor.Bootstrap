@@ -18,16 +18,15 @@
 
 using System.Collections.Generic;
 
-namespace Blazor.Bootstrap.Documentation.Client.Models
+namespace Blazor.Bootstrap.Documentation.Client.Models;
+
+public class SideBarItemGroup
 {
-    public class SideBarItemGroup
-    {
-        public string Display { get; set; }
+    public string Display { get; set; }
 
-        public string Link { get; set; }
+    public string Link { get; set; }
 
-        public List<SideBarItem> Items { get; } = new();
+    public List<SideBarItem> Items { get; } = new();
 
-        public string ActivePath { get; set; }
-    }
+    public string ActivePath { get; set; }
 }

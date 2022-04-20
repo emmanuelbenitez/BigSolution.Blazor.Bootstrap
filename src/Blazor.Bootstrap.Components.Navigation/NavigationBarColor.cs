@@ -16,16 +16,15 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum NavigationBarColor
 {
-    public enum NavigationBarColor
-    {
-        None,
+    None,
 
-        [CssClassPart("dark")]
-        Dark,
+    [CssClassPart("dark")]
+    Dark,
 
-        [CssClassPart("light")]
-        Light
-    }
+    [CssClassPart("light")]
+    Light
 }

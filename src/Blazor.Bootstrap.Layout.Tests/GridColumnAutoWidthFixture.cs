@@ -23,44 +23,43 @@ using System.Linq;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public class GridColumnAutoWidthFixture
 {
-    public class GridColumnAutoWidthFixture
+    [Theory]
+    [MemberData(nameof(GetSize))]
+    public void BuildCssClassSucceeds(Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [MemberData(nameof(GetSize))]
-        public void BuildCssClassSucceeds(Breakpoint breakpoint, string expected)
-        {
-            GridColumnAutoWidth.Instance.BuildCssClass(breakpoint).Should().Be(expected);
-        }
+        GridColumnAutoWidth.Instance.BuildCssClass(breakpoint).Should().Be(expected);
+    }
 
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        [InlineData("test")]
-        [SuppressMessage("ReSharper", "UnusedVariable")]
-        public void CastStringFailed(string value)
-        {
-            Action action = () => {
-                GridColumnAutoWidth gridColumnAutoWidth = value;
-            };
-            action.Should().ThrowExactly<InvalidCastException>();
-        }
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("test")]
+    [SuppressMessage("ReSharper", "UnusedVariable")]
+    public void CastStringFailed(string value)
+    {
+        Action action = () => {
+            GridColumnAutoWidth gridColumnAutoWidth = value;
+        };
+        action.Should().ThrowExactly<InvalidCastException>();
+    }
 
-        [Theory]
-        [InlineData("auto")]
-        [InlineData("AUTO")]
-        [InlineData("Auto")]
-        public void CastStringSucceeds(string value)
-        {
-            ((GridColumnAutoWidth) value).Should().Be(GridColumnAutoWidth.Instance);
-        }
+    [Theory]
+    [InlineData("auto")]
+    [InlineData("AUTO")]
+    [InlineData("Auto")]
+    public void CastStringSucceeds(string value)
+    {
+        ((GridColumnAutoWidth) value).Should().Be(GridColumnAutoWidth.Instance);
+    }
 
-        public static IEnumerable<object[]> GetSize()
-        {
-            return Enum.GetValues(typeof(Breakpoint))
-                .Cast<Breakpoint>()
-                .Select(size => new object[] { size, size != Breakpoint.None ? $"col-{size.GetCssClassPart()}-auto" : "col-auto" });
-        }
+    public static IEnumerable<object[]> GetSize()
+    {
+        return Enum.GetValues(typeof(Breakpoint))
+            .Cast<Breakpoint>()
+            .Select(size => new object[] { size, size != Breakpoint.None ? $"col-{size.GetCssClassPart()}-auto" : "col-auto" });
     }
 }

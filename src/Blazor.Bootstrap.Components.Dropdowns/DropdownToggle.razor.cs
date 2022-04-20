@@ -21,30 +21,29 @@ using System.Linq;
 using BlazorComponentUtilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public partial class DropdownToggle
 {
-    public partial class DropdownToggle
+    #region Base Class Member Overrides
+
+    protected override CssBuilder CssBuilder => new("dropdown-toggle");
+
+    protected override string DefaultTagName => IsLink ? "a" : "button";
+
+    #endregion
+
+    [Parameter]
+    public bool IsLink { get; set; }
+
+    private IReadOnlyDictionary<string, object> Attributes
     {
-        #region Base Class Member Overrides
-
-        protected override CssBuilder CssBuilder => new("dropdown-toggle");
-
-        protected override string DefaultTagName => IsLink ? "a" : "button";
-
-        #endregion
-
-        [Parameter]
-        public bool IsLink { get; set; }
-
-        private IReadOnlyDictionary<string, object> Attributes
+        get
         {
-            get
-            {
-                var attributes = AdditionalAttributes?.ToDictionary(attribute => attribute.Key, attribute => attribute.Value)
-                    ?? new Dictionary<string, object>();
-                attributes.Add("data-toggle", "dropdown");
-                return attributes;
-            }
+            var attributes = AdditionalAttributes?.ToDictionary(attribute => attribute.Key, attribute => attribute.Value)
+                ?? new Dictionary<string, object>();
+            attributes.Add("data-toggle", "dropdown");
+            return attributes;
         }
     }
 }

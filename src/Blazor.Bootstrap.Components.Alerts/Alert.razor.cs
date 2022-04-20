@@ -19,17 +19,16 @@
 using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public partial class Alert
 {
-    public partial class Alert
-    {
-        [Parameter]
-        public Color Color { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
 
-        [Parameter]
-        public RenderFragment Heading { get; set; }
+    [Parameter]
+    public RenderFragment Heading { get; set; }
 
-        [Parameter]
-        public HeadingSize HeadingSize { get; set; }
-    }
+    [Parameter]
+    public HeadingSize HeadingSize { get; set; }
 }

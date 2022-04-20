@@ -20,26 +20,25 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
-{
-    public class NavigationFixture
-    {
-        [Theory]
-        [InlineData(NavigationStyle.None, "nav")]
-        [InlineData(NavigationStyle.Pills, "nav nav-pills")]
-        [InlineData(NavigationStyle.Tabs, "nav nav-tabs")]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassWellFormattedForStyle(NavigationStyle style, string expected)
-        {
-            new Navigation { Style = style }
-                .CssClasses.Should().Be(expected);
-        }
+namespace BigSolution.Bootstrap;
 
-        [Fact]
-        public void CssClassWellFormattedWhenInsideNavigationBar()
-        {
-            new Navigation { NavigationBar = new NavigationBar() }
-                .CssClasses.Should().Be("navbar-nav");
-        }
+public class NavigationFixture
+{
+    [Theory]
+    [InlineData(NavigationStyle.None, "nav")]
+    [InlineData(NavigationStyle.Pills, "nav nav-pills")]
+    [InlineData(NavigationStyle.Tabs, "nav nav-tabs")]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassWellFormattedForStyle(NavigationStyle style, string expected)
+    {
+        new Navigation { Style = style }
+            .CssClasses.Should().Be(expected);
+    }
+
+    [Fact]
+    public void CssClassWellFormattedWhenInsideNavigationBar()
+    {
+        new Navigation { NavigationBar = new NavigationBar() }
+            .CssClasses.Should().Be("navbar-nav");
     }
 }

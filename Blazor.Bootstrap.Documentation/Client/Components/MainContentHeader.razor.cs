@@ -17,20 +17,19 @@
 using BigSolution.Bootstrap.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+public partial class MainContentHeader
 {
-    public partial class MainContentHeader
-    {
-        [Parameter]
-        public string Title { get; set; }
+    [Parameter]
+    public string Title { get; set; }
 
-        [Parameter]
-        public RenderFragment Description { get; set; }
+    [Parameter]
+    public RenderFragment Description { get; set; }
 
-        private static readonly FlexOptions _mediumFlexOptions = new() {
-            Direction = new FlexDirection { Orientation = FlexOrientation.Horizontal, Reversed = true },
-            JustifyContent = FlexJustifyContent.Between,
-            ItemsAlignment = FlexAlignment.Center
-        };
-    }
+    private static readonly FlexOptions _mediumFlexOptions = new() {
+        Direction = new FlexDirection { Orientation = FlexOrientation.Horizontal, Reversed = true },
+        JustifyContent = FlexJustifyContent.Between,
+        ItemsAlignment = FlexAlignment.Center
+    };
 }

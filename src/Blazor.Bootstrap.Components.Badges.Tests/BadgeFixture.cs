@@ -22,28 +22,27 @@ using BigSolution.Bootstrap.Utilities;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap
-{
-    public class BadgeFixture
-    {
-        [Theory]
-        [MemberData(nameof(CssClassData))]
-        [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
-        public void CssClassInitialized(Color color, BadgeType badgeType, string expectedCssClass)
-        {
-            _ = new Badge {
-                Color = color,
-                Type = badgeType
-            }.CssClasses.Should().Be(expectedCssClass);
-        }
+namespace BigSolution.Bootstrap;
 
-        public static IEnumerable<object[]> CssClassData
+public class BadgeFixture
+{
+    [Theory]
+    [MemberData(nameof(CssClassData))]
+    [SuppressMessage("Usage", "BL0005:Component parameter should not be set outside of its component.", Justification = "Testing purpose")]
+    public void CssClassInitialized(Color color, BadgeType badgeType, string expectedCssClass)
+    {
+        _ = new Badge {
+            Color = color,
+            Type = badgeType
+        }.CssClasses.Should().Be(expectedCssClass);
+    }
+
+    public static IEnumerable<object[]> CssClassData
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { Color.None, BadgeType.None, "badge" };
-                yield return new object[] { Color.Active, BadgeType.Pill, "badge badge-pill badge-active" };
-            }
+            yield return new object[] { Color.None, BadgeType.None, "badge" };
+            yield return new object[] { Color.Active, BadgeType.Pill, "badge badge-pill badge-active" };
         }
     }
 }

@@ -16,16 +16,15 @@
 
 #endregion
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public class ExamplePage
 {
-    public class ExamplePage
-    {
-        public string Description { get; set; }
+    public string Description { get; set; }
 
-        public string ImageUrl { get; set; }
+    public string ImageUrl { get; set; }
 
-        public string Route { get; set; }
+    public string Route { get; set; }
 
-        public string Title { get; set; }
-    }
+    public string Title { get; set; }
 }

@@ -20,25 +20,24 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
-{
-    public class AutoPaddingSideFixture
-    {
-        [Theory]
-        [MemberData(nameof(ValidAutoPaddings))]
-        public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
-        {
-            new AutoPaddingSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
-        }
+namespace BigSolution.Bootstrap.Utilities;
 
-        public static IEnumerable<object[]> ValidAutoPaddings
+public class AutoPaddingSideFixture
+{
+    [Theory]
+    [MemberData(nameof(ValidAutoPaddings))]
+    public void BuildCssClassesSucceeds(Sides sides, Breakpoint breakpoint, string[] expectedCssClasses)
+    {
+        new AutoPaddingSide { ImpactedSides = sides }.BuildCssClasses(breakpoint).Should().BeEquivalentTo(expectedCssClasses);
+    }
+
+    public static IEnumerable<object[]> ValidAutoPaddings
+    {
+        get
         {
-            get
-            {
-                yield return new object[] { Sides.StartAndEnd, Breakpoint.None, new[] { "px-auto" } };
-                yield return new object[] { Sides.End, Breakpoint.None, new[] { "pe-auto" } };
-                yield return new object[] { Sides.Start, Breakpoint.Small, new[] { "ps-sm-auto" } };
-            }
+            yield return new object[] { Sides.StartAndEnd, Breakpoint.None, new[] { "px-auto" } };
+            yield return new object[] { Sides.End, Breakpoint.None, new[] { "pe-auto" } };
+            yield return new object[] { Sides.Start, Breakpoint.Small, new[] { "ps-sm-auto" } };
         }
     }
 }

@@ -19,14 +19,13 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class PaddingFixture
 {
-    public class PaddingFixture
+    [Fact]
+    public void CastFromIntSucceeds()
     {
-        [Fact]
-        public void CastFromIntSucceeds()
-        {
-            ((Padding) 5).Should().BeEquivalentTo(new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) {ImpactedSides = Sides.All} } });
-        }
+        ((Padding) 5).Should().BeEquivalentTo(new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) {ImpactedSides = Sides.All} } });
     }
 }

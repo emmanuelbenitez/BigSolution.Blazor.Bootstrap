@@ -16,19 +16,18 @@
 
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Bootstrap.Documentation.Client.Components
+namespace Blazor.Bootstrap.Documentation.Client.Components;
+
+public partial class PageSection
 {
-    public partial class PageSection
-    {
-        [Parameter]
-        public string Title { get; set; }
+    [Parameter]
+    public string Title { get; set; }
 
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
 
-        [Parameter]
-        public string Id { get; set; }
+    [Parameter]
+    public string Id { get; set; }
 
-        private bool HasId => !string.IsNullOrWhiteSpace(Id);
-    }
+    private bool HasId => !string.IsNullOrWhiteSpace(Id);
 }

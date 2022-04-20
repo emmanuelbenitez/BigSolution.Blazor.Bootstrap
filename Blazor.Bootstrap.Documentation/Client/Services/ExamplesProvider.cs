@@ -19,14 +19,13 @@
 using System.Collections.Generic;
 using Blazor.Bootstrap.Documentation.Client.Pages.Examples;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public sealed class ExamplesProvider : IExamplesProvider
 {
-    public sealed class ExamplesProvider : IExamplesProvider
+    public IEnumerable<ExamplePage> GetExamplePages()
     {
-        public IEnumerable<ExamplePage> GetExamplePages()
-        {
-            yield return ExamplePageFactory.Create<Album>();
-            yield return ExamplePageFactory.Create<Pricing>();
-        }
+        yield return ExamplePageFactory.Create<Album>();
+        yield return ExamplePageFactory.Create<Pricing>();
     }
 }

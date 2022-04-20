@@ -16,16 +16,15 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public enum CardImagePosition
 {
-    public enum CardImagePosition
-    {
-        None,
+    None,
 
-        [CssClassPart("top")]
-        Top,
+    [CssClassPart("top")]
+    Top,
 
-        [CssClassPart("bottom")]
-        Bottom
-    }
+    [CssClassPart("bottom")]
+    Bottom
 }

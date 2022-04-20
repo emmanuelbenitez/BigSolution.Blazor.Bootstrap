@@ -19,10 +19,9 @@
 using System.Collections.Generic;
 using Blazor.Bootstrap.Documentation.Client.Models.Examples;
 
-namespace Blazor.Bootstrap.Documentation.Client.Services
+namespace Blazor.Bootstrap.Documentation.Client.Services;
+
+public interface IPricingModelProvider
 {
-    public interface IPricingModelProvider
-    {
-        IEnumerable<PricingModel> GetPricingModels();
-    }
+    IEnumerable<PricingModel> GetPricingModels();
 }

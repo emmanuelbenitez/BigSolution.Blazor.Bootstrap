@@ -19,22 +19,21 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class FlexContentAlignmentExtensionsFixture
 {
-    public class FlexContentAlignmentExtensionsFixture
+    [Theory]
+    [InlineData(FlexContentAlignment.Center, Breakpoint.None, "align-content-center")]
+    [InlineData(FlexContentAlignment.Stretch, Breakpoint.None, "align-content-stretch")]
+    [InlineData(FlexContentAlignment.Around, Breakpoint.None, "align-content-around")]
+    [InlineData(FlexContentAlignment.Between, Breakpoint.None, "align-content-between")]
+    [InlineData(FlexContentAlignment.Start, Breakpoint.None, "align-content-start")]
+    [InlineData(FlexContentAlignment.End, Breakpoint.None, "align-content-end")]
+    [InlineData(FlexContentAlignment.None, Breakpoint.None, "")]
+    [InlineData(FlexContentAlignment.Center, Breakpoint.Small, "align-content-sm-center")]
+    public void ToCssClass(FlexContentAlignment contentAlignment, Breakpoint breakpoint, string expected)
     {
-        [Theory]
-        [InlineData(FlexContentAlignment.Center, Breakpoint.None, "align-content-center")]
-        [InlineData(FlexContentAlignment.Stretch, Breakpoint.None, "align-content-stretch")]
-        [InlineData(FlexContentAlignment.Around, Breakpoint.None, "align-content-around")]
-        [InlineData(FlexContentAlignment.Between, Breakpoint.None, "align-content-between")]
-        [InlineData(FlexContentAlignment.Start, Breakpoint.None, "align-content-start")]
-        [InlineData(FlexContentAlignment.End, Breakpoint.None, "align-content-end")]
-        [InlineData(FlexContentAlignment.None, Breakpoint.None, "")]
-        [InlineData(FlexContentAlignment.Center, Breakpoint.Small, "align-content-sm-center")]
-        public void ToCssClass(FlexContentAlignment contentAlignment, Breakpoint breakpoint, string expected)
-        {
-            contentAlignment.ToCssClass(breakpoint).Should().Be(expected);
-        }
+        contentAlignment.ToCssClass(breakpoint).Should().Be(expected);
     }
 }

@@ -19,18 +19,17 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BigSolution.Bootstrap.Utilities
+namespace BigSolution.Bootstrap.Utilities;
+
+public class ShadowExtensionsFixture
 {
-    public class ShadowExtensionsFixture
+    [Theory]
+    [InlineData(null, "")]
+    [InlineData(Shadow.Regular, "shadow")]
+    [InlineData(Shadow.Small, "shadow-sm")]
+    [InlineData(Shadow.Large, "shadow-lg")]
+    public void ToCssClassSucceeds(Shadow? shadow, string expected)
     {
-        [Theory]
-        [InlineData(null, "")]
-        [InlineData(Shadow.Regular, "shadow")]
-        [InlineData(Shadow.Small, "shadow-sm")]
-        [InlineData(Shadow.Large, "shadow-lg")]
-        public void ToCssClassSucceeds(Shadow? shadow, string expected)
-        {
-            shadow.ToCssClass().Should().Be(expected);
-        }
+        shadow.ToCssClass().Should().Be(expected);
     }
 }

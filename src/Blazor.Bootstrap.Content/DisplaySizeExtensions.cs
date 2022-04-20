@@ -16,17 +16,16 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap
+namespace BigSolution.Bootstrap;
+
+public static class DisplaySizeExtensions
 {
-    public static class DisplaySizeExtensions
+    public static string ToCssClass(this DisplaySize? value)
     {
-        public static string ToCssClass(this DisplaySize? value)
-        {
-            return !value.HasValue
-                ? string.Empty
-                : new CssClassBuilder("display")
-                    .Append(() => value.Value.GetCssClassPart())
-                    .Build();
-        }
+        return !value.HasValue
+            ? string.Empty
+            : new CssClassBuilder("display")
+                .Append(() => value.Value.GetCssClassPart())
+                .Build();
     }
 }
