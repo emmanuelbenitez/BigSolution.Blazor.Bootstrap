@@ -16,18 +16,20 @@
 
 #endregion
 
-using BigSolution.Blazor;
 using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap;
 
-public class NavigationBarCollapse : DynamicElement
+public class NavigationBarCollapse : BootstrapComponentBase
 {
     #region Base Class Member Overrides
 
     protected override CssBuilder CssBuilder => base.CssBuilder
-        .AddClass("collapse")
-        .AddClass($"{NavigationBar.CSS_CLASS_PREFIX}-collapse");
+        .AddClass(CSS_CLASS)
+        .AddClass(CssClass);
 
     #endregion
+
+    private const string CSS_CLASS = "collapse";
+    public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append(CSS_CLASS).Build();
 }
