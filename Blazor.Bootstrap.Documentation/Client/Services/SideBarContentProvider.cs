@@ -47,7 +47,8 @@ public sealed class SideBarContentProvider : ISideBarContentProvider
             ActivePath = "/layout",
             Items = {
                 new SideBarItem { Display = "Overview", Link = "/layout/overview" },
-                new SideBarItem { Display = "Grid", Link = "/layout/grid" }
+                new SideBarItem { Display = "Grid", Link = "/layout/grid" },
+                new SideBarItem { Display = "Navigation", Link = "/layout/navigation" }
             }
         },
     };

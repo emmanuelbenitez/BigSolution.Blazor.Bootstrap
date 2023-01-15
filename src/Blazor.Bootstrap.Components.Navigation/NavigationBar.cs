@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -60,6 +60,16 @@ public class NavigationBar : BootstrapComponentBase
     [Parameter]
     public Breakpoint? ExpandBreakpoint { get; [UsedImplicitly] set; }
 
+    public void Collapse()
+    {
+        if (_collapse != null) _collapse.Expanded = false;
+    }
+
+    public void Expand()
+    {
+        if (_collapse != null) _collapse.Expanded = true;
+    }
+
     private string GetExpandCssClass()
     {
         return ExpandBreakpoint.HasValue
@@ -70,5 +80,13 @@ public class NavigationBar : BootstrapComponentBase
             : string.Empty;
     }
 
+    public void SetCollapse(NavigationBarCollapse collapse)
+    {
+        _collapse = collapse;
+    }
+
     public const string CSS_CLASS_PREFIX = "navbar";
+
+    [CanBeNull]
+    private NavigationBarCollapse _collapse;
 }

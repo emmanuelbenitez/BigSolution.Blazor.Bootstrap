@@ -1,10 +1,12 @@
 ﻿@inherits BootstrapComponentBase;
 
-<button class="@CssClasses" type="button" data-bs-toggle="collapse" data-bs-target="@Target"
-		aria-controls="@Target" aria-expanded="false" aria-label="Toggle navigation">
-	@if (ChildContent != null) {
+<button @onclick="Toggle" class="@CssClasses" type="button" data-bs-toggle="collapse" data-bs-target="@Target" aria-controls="@Target" aria-expanded="@Expanded" aria-label="Toggle navigation">
+	@if (ChildContent != null)
+	{
 		@ChildContent
-	} else {
-		<NavigationBarTogglerIcon/>
+	}
+	else
+	{
+		<NavigationBarTogglerIcon />
 	}
 </button>

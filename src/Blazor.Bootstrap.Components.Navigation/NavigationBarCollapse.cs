@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #endregion
 
 using BlazorComponentUtilities;
+using Microsoft.AspNetCore.Components;
 
 namespace BigSolution.Bootstrap;
 
@@ -26,10 +27,28 @@ public class NavigationBarCollapse : BootstrapComponentBase
 
     protected override CssBuilder CssBuilder => base.CssBuilder
         .AddClass(CSS_CLASS)
-        .AddClass(CssClass);
+        .AddClass(CssClass)
+        .AddClass(() => Expanded ? ShowClass : HideClass, true);
 
     #endregion
 
+    protected override void OnParametersSet()
+    {
+        NavigationBar.SetCollapse(this);
+    }
+
+    [CascadingParameter]
+    public NavigationBar NavigationBar { get; set; }
+
+    public bool Expanded { get; set; }
+
     private const string CSS_CLASS = "collapse";
+    
     public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append(CSS_CLASS).Build();
+
+    [Parameter]
+    public string ShowClass { get; set; }
+    
+    [Parameter]
+    public string HideClass { get; set; }
 }
