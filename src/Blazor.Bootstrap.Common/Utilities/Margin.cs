@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2022 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,42 +16,53 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap.Utilities
+using BigSolution.Bootstrap.Utilities.Fluent;
+
+namespace BigSolution.Bootstrap.Utilities;
+
+public class Margin : Spacing<MarginSide>
 {
-    public class Margin : Spacing<MarginSide>
+    #region Operators
+
+    public static implicit operator Margin(MarginSide marginSide)
     {
-        #region Operators
+        return ToMargin(marginSide);
+    }
 
-        public static implicit operator Margin(MarginSide marginSide)
-        {
-            return ToMargin(marginSide);
-        }
+    public static implicit operator Margin(int value)
+    {
+        return ToMargin(value);
+    }
 
-        public static implicit operator Margin(int value)
-        {
-            return ToMargin(value);
-        }
+    public static implicit operator Margin(string value)
+    {
+        return ToMargin(value);
+    }
 
-        public static implicit operator Margin(string value)
-        {
-            return ToMargin(value);
-        }
+    #endregion
 
-        #endregion
+    public static IFixedMarginBuilder IsFixedAt(int value)
+    {
+        return new FixedMarginBuilder(new Margin(), value);
+    }
 
-        private static Margin ToMargin(string value)
-        {
-            return (MarginSide) value;
-        }
+    public static IAutoMarginBuilder IsAuto()
+    {
+        return new AutoMarginBuilder(new Margin());
+    }
 
-        private static Margin ToMargin(int value)
-        {
-            return (FixedMarginSide) value;
-        }
+    private static Margin ToMargin(string value)
+    {
+        return (MarginSide)value;
+    }
 
-        private static Margin ToMargin(MarginSide marginSide)
-        {
-            return new Margin { Sides = new[] { marginSide } };
-        }
+    private static Margin ToMargin(int value)
+    {
+        return (FixedMarginSide)value;
+    }
+
+    private static Margin ToMargin(MarginSide marginSide)
+    {
+        return new Margin { Sides = new[] { marginSide } };
     }
 }

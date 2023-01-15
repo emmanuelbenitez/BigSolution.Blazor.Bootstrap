@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,21 +19,31 @@
 using BlazorComponentUtilities;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace BigSolution.Bootstrap;
 
 [UsedImplicitly]
 public partial class NavigationBarToggler
 {
-    #region Base Class Member Overrides
+    [Parameter]
+    public bool Expanded { get; set; }
 
-    protected override CssBuilder CssBuilder => base.CssBuilder
-        .AddClass(CssClass);
-
-    #endregion
+    [CascadingParameter]
+    public NavigationBar NavigationBar { get; set; }
 
     [Parameter]
     public string Target { get; set; }
 
+    private void Toggle(MouseEventArgs arg)
+    {
+        Expanded = !Expanded;
+        if (Expanded) NavigationBar?.Expand();
+        else NavigationBar?.Collapse();
+    }
+
     public static readonly string CssClass = new CssClassBuilder(NavigationBar.CSS_CLASS_PREFIX).Append("toggler").Build();
+
+    protected override CssBuilder CssBuilder => base.CssBuilder
+        .AddClass(CssClass);
 }

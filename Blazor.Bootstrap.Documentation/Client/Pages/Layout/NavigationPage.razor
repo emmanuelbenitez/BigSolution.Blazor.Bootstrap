@@ -1,0 +1,11 @@
+﻿@page "/layout/navigation"
+@using BigSolution.Bootstrap.Utilities
+
+<NavigationBar ExpandBreakpoint="Breakpoint.Large" Padding="new FixedPaddingSide(3) { ImpactedSides = Sides.TopAndBottom }">
+	<NavigationBarToggler Shadow="Shadow.None"></NavigationBarToggler>
+	<NavigationBarCollapse Classes="w-100 pt-3 pb-2 py-lg-0" ShowClass="show" HideClass="hide">
+		<Navigation>
+			<NavigationItem>Menu 1</NavigationItem>
+		</Navigation>
+	</NavigationBarCollapse>
+</NavigationBar>

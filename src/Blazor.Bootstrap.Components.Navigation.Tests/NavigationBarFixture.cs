@@ -1,6 +1,6 @@
 #region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -44,5 +44,27 @@ public class NavigationBarFixture
     {
         new NavigationBar { Color = color }
             .CssClasses.Should().Be(expected);
+    }
+
+    [Fact]
+    public void ExpandSucceeds()
+    {
+        var navigationBar = new NavigationBar();
+        var navigationBarCollapse = new NavigationBarCollapse();
+        navigationBar.SetCollapse(navigationBarCollapse);
+
+        navigationBar.Expand();
+        navigationBarCollapse.Expanded.Should().BeTrue();
+    }
+
+    [Fact]
+    public void CollapseSucceeds()
+    {
+        var navigationBar = new NavigationBar();
+        var navigationBarCollapse = new NavigationBarCollapse();
+        navigationBar.SetCollapse(navigationBarCollapse);
+
+        navigationBar.Collapse();
+        navigationBarCollapse.Expanded.Should().BeFalse();
     }
 }
