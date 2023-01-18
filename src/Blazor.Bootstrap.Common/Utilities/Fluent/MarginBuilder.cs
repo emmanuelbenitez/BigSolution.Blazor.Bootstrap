@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,29 +19,29 @@
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
 internal abstract class MarginBuilder<TMarginSide> : SpacingBuilder<Margin, MarginSide, IMarginCombiner, ISupportMargin>, IMarginCombiner, ISupportMargin, IMarginBuilder
-    where TMarginSide : MarginSide
+	where TMarginSide : MarginSide
 {
-    protected MarginBuilder(Margin margin, TMarginSide marginSide) : base(margin, marginSide) { }
+	protected MarginBuilder(Margin margin, TMarginSide marginSide) : base(margin, marginSide) { }
 
-    #region ISupportMargin Members
+	#region ISupportMargin Members
 
-    public IAutoMarginBuilder IsAuto()
-    {
-        return new AutoMarginBuilder(_spacing);
-    }
+	public IAutoMarginBuilder IsAuto()
+	{
+		return new AutoMarginBuilder(_spacing);
+	}
 
-    public IFixedMarginBuilder IsFixedAt(int value)
-    {
-        return new FixedMarginBuilder(_spacing, value);
-    }
+	public IFixedMarginBuilder IsFixedAt(int value)
+	{
+		return new FixedMarginBuilder(_spacing, value);
+	}
 
-    #endregion
+	#endregion
 
-    #region Base Class Member Overrides
+	#region Base Class Member Overrides
 
-    protected sealed override IMarginCombiner Combiner => this;
+	protected sealed override IMarginCombiner Combiner => this;
 
-    protected override ISupportMargin Factory => this;
+	protected override ISupportMargin Factory => this;
 
-    #endregion
+	#endregion
 }

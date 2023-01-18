@@ -18,21 +18,7 @@
 
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
-public interface ISupportSideDefinition<out TOut>
+internal class AutoPaddingBuilder : PaddingBuilder<AutoPaddingSide>, IAutoPaddingBuilder
 {
-	TOut On(Sides sides);
-
-	TOut OnAll();
-
-	TOut OnBottom();
-
-	TOut OnEnd();
-
-	TOut OnStart();
-
-	TOut OnStartEnd();
-
-	TOut OnTop();
-
-	TOut OnTopBottom();
+	public AutoPaddingBuilder(Padding padding) : base(padding, new AutoPaddingSide()) { }
 }

@@ -39,9 +39,9 @@ public class Margin : Spacing<MarginSide>
         return ToMargin(value);
     }
 
-    #endregion
+	#endregion
 
-    public static IFixedMarginBuilder IsFixedAt(int value)
+	public static IFixedMarginBuilder IsFixedAt(int value)
     {
         return new FixedMarginBuilder(new Margin(), value);
     }

@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,42 +16,53 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap.Utilities
+using BigSolution.Bootstrap.Utilities.Fluent;
+
+namespace BigSolution.Bootstrap.Utilities;
+
+public class Padding : Spacing<PaddingSide>
 {
-    public class Padding : Spacing<PaddingSide>
-    {
-        #region Operators
+	#region Operators
 
-        public static implicit operator Padding(PaddingSide paddingSide)
-        {
-            return ToPadding(paddingSide);
-        }
+	public static implicit operator Padding(PaddingSide paddingSide)
+	{
+		return ToPadding(paddingSide);
+	}
 
-        public static implicit operator Padding(uint value)
-        {
-            return ToPadding(value);
-        }
+	public static implicit operator Padding(uint value)
+	{
+		return ToPadding(value);
+	}
 
-        public static implicit operator Padding(string value)
-        {
-            return ToPadding(value);
-        }
+	public static implicit operator Padding(string value)
+	{
+		return ToPadding(value);
+	}
 
-        #endregion
+	#endregion
 
-        private static Padding ToPadding(string value)
-        {
-            return (PaddingSide) value;
-        }
+	public static IAutoPaddingBuilder IsAuto()
+	{
+		return new AutoPaddingBuilder(new Padding());
+	}
 
-        private static Padding ToPadding(uint value)
-        {
-            return (FixedPaddingSide) value;
-        }
+	public static IFixedPaddingBuilder IsFixedAt(uint value)
+	{
+		return new FixedPaddingBuilder(new Padding(), value);
+	}
 
-        private static Padding ToPadding(PaddingSide paddingSide)
-        {
-            return new Padding { Sides = new[] { paddingSide } };
-        }
-    }
+	private static Padding ToPadding(string value)
+	{
+		return (PaddingSide)value;
+	}
+
+	private static Padding ToPadding(uint value)
+	{
+		return (FixedPaddingSide)value;
+	}
+
+	private static Padding ToPadding(PaddingSide paddingSide)
+	{
+		return new Padding { Sides = new[] { paddingSide } };
+	}
 }

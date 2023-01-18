@@ -18,21 +18,7 @@
 
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
-public interface ISupportSideDefinition<out TOut>
+public interface ISupportFixedSpacing<out TFixedSpacingBuilder, in TValue>
 {
-	TOut On(Sides sides);
-
-	TOut OnAll();
-
-	TOut OnBottom();
-
-	TOut OnEnd();
-
-	TOut OnStart();
-
-	TOut OnStartEnd();
-
-	TOut OnTop();
-
-	TOut OnTopBottom();
+	TFixedSpacingBuilder IsFixedAt(TValue value);
 }

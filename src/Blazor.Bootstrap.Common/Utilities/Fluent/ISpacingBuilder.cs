@@ -18,21 +18,9 @@
 
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
-public interface ISupportSideDefinition<out TOut>
+public interface ISpacingBuilder<out TSpacing, TSpacingSides>
+	where TSpacing : Spacing<TSpacingSides>
+	where TSpacingSides : SpacingSide
 {
-	TOut On(Sides sides);
-
-	TOut OnAll();
-
-	TOut OnBottom();
-
-	TOut OnEnd();
-
-	TOut OnStart();
-
-	TOut OnStartEnd();
-
-	TOut OnTop();
-
-	TOut OnTopBottom();
+	TSpacing Build();
 }

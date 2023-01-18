@@ -18,21 +18,4 @@
 
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
-public interface ISupportSideDefinition<out TOut>
-{
-	TOut On(Sides sides);
-
-	TOut OnAll();
-
-	TOut OnBottom();
-
-	TOut OnEnd();
-
-	TOut OnStart();
-
-	TOut OnStartEnd();
-
-	TOut OnTop();
-
-	TOut OnTopBottom();
-}
+public interface ISupportPadding : ISupportFixedSpacing<IFixedPaddingBuilder, uint>, ISupportAutoSpacing<IAutoPaddingBuilder> { }

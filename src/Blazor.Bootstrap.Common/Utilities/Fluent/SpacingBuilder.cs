@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,78 +22,78 @@ using System.Linq;
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
 internal abstract class SpacingBuilder<TSpacing, TSpacingSide, TCombiner, TSupportSpacing> :
-    ISupportSideDefinition<TCombiner>,
-    ISpacingCombiner<TSupportSpacing, TSpacing, TSpacingSide>
-    where TSpacing : Spacing<TSpacingSide>
-    where TSpacingSide : SpacingSide
+	ISupportSideDefinition<TCombiner>,
+	ISpacingCombiner<TSupportSpacing, TSpacing, TSpacingSide>
+	where TSpacing : Spacing<TSpacingSide>
+	where TSpacingSide : SpacingSide
 {
-    protected SpacingBuilder(TSpacing spacing, TSpacingSide spacingSide)
-    {
-        _spacing = spacing;
-        _spacingSide = spacingSide;
-        _spacing.Sides = (_spacing.Sides ?? Array.Empty<TSpacingSide>()).Concat(new[] { _spacingSide }).ToArray();
-    }
+	protected SpacingBuilder(TSpacing spacing, TSpacingSide spacingSide)
+	{
+		_spacing = spacing;
+		_spacingSide = spacingSide;
+		_spacing.Sides = (_spacing.Sides ?? Array.Empty<TSpacingSide>()).Concat(new[] { _spacingSide }).ToArray();
+	}
 
-    #region ISpacingCombiner<TSupportSpacing,TSpacing,TSpacingSide> Members
+	#region ISpacingCombiner<TSupportSpacing,TSpacing,TSpacingSide> Members
 
-    public TSpacing Build()
-    {
-        return _spacing;
-    }
+	public TSpacing Build()
+	{
+		return _spacing;
+	}
 
-    public TSupportSpacing And => Factory;
+	public TSupportSpacing And => Factory;
 
-    #endregion
+	#endregion
 
-    #region ISupportSideDefinition<TCombiner> Members
+	#region ISupportSideDefinition<TCombiner> Members
 
-    public TCombiner On(Sides sides)
-    {
-        _spacingSide.ImpactedSides = sides;
-        return Combiner;
-    }
+	public TCombiner On(Sides sides)
+	{
+		_spacingSide.ImpactedSides = sides;
+		return Combiner;
+	}
 
-    public TCombiner OnAll()
-    {
-        return On(Sides.All);
-    }
+	public TCombiner OnAll()
+	{
+		return On(Sides.All);
+	}
 
-    public TCombiner OnBottom()
-    {
-        return On(Sides.Bottom);
-    }
+	public TCombiner OnBottom()
+	{
+		return On(Sides.Bottom);
+	}
 
-    public TCombiner OnEnd()
-    {
-        return On(Sides.End);
-    }
+	public TCombiner OnEnd()
+	{
+		return On(Sides.End);
+	}
 
-    public TCombiner OnStart()
-    {
-        return On(Sides.Start);
-    }
+	public TCombiner OnStart()
+	{
+		return On(Sides.Start);
+	}
 
-    public TCombiner OnStartEnd()
-    {
-        return On(Sides.Start | Sides.End);
-    }
+	public TCombiner OnStartEnd()
+	{
+		return On(Sides.Start | Sides.End);
+	}
 
-    public TCombiner OnTop()
-    {
-        return On(Sides.Top);
-    }
+	public TCombiner OnTop()
+	{
+		return On(Sides.Top);
+	}
 
-    public TCombiner OnTopBottom()
-    {
-        return On(Sides.Top | Sides.Bottom);
-    }
+	public TCombiner OnTopBottom()
+	{
+		return On(Sides.Top | Sides.Bottom);
+	}
 
-    #endregion
+	#endregion
 
-    protected abstract TCombiner Combiner { get; }
+	protected abstract TCombiner Combiner { get; }
 
-    protected abstract TSupportSpacing Factory { get; }
+	protected abstract TSupportSpacing Factory { get; }
 
-    protected readonly TSpacing _spacing;
-    private readonly TSpacingSide _spacingSide;
+	protected readonly TSpacing _spacing;
+	private readonly TSpacingSide _spacingSide;
 }

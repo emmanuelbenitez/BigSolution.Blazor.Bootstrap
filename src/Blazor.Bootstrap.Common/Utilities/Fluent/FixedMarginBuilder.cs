@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,5 +20,5 @@ namespace BigSolution.Bootstrap.Utilities.Fluent;
 
 internal class FixedMarginBuilder : MarginBuilder<FixedMarginSide>, IFixedMarginBuilder
 {
-    public FixedMarginBuilder(Margin margin, int value) : base(margin, new FixedMarginSide(value)) { }
+	public FixedMarginBuilder(Margin margin, int value) : base(margin, new FixedMarginSide(value)) { }
 }

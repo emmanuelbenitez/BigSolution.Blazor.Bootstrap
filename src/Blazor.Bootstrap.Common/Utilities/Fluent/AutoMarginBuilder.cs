@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,10 +20,5 @@ namespace BigSolution.Bootstrap.Utilities.Fluent;
 
 internal class AutoMarginBuilder : MarginBuilder<AutoMarginSide>, IAutoMarginBuilder
 {
-    public AutoMarginBuilder(Margin margin) : base(margin, new AutoMarginSide()) { }
+	public AutoMarginBuilder(Margin margin) : base(margin, new AutoMarginSide()) { }
 }
-
-//internal class AutoPaddingBuilder : MarginBuilder<AutoPaddingSide>
-//{
-//    public AutoMarginBuilder(Margin margin) : base(margin, new AutoMarginSide()) { }
-//}

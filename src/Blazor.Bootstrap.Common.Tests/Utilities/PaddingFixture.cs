@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,25 @@ namespace BigSolution.Bootstrap.Utilities;
 
 public class PaddingFixture
 {
-    [Fact]
-    public void CastFromIntSucceeds()
-    {
-        ((Padding) 5).Should().BeEquivalentTo(new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) {ImpactedSides = Sides.All} } });
-    }
+	[Fact]
+	public void CastFromIntSucceeds()
+	{
+		((Padding)5).Should().BeEquivalentTo(new Padding { Sides = new PaddingSide[] { new FixedPaddingSide(5) { ImpactedSides = Sides.All } } });
+	}
+
+	[Fact]
+	public void IsAutoSucceeds()
+	{
+		var padding = Padding.IsAuto().OnStart().Build();
+		padding.Should().NotBeNull();
+		padding.Sides.Should().BeEquivalentTo(new[] { new AutoMarginSide() { ImpactedSides = Sides.Start } });
+	}
+
+	[Fact]
+	public void IsFixedSucceeds()
+	{
+		var padding = Padding.IsFixedAt(0).OnStart().Build();
+		padding.Should().NotBeNull();
+		padding.Sides.Should().BeEquivalentTo(new[] { new FixedMarginSide(0) { ImpactedSides = Sides.Start } });
+	}
 }

@@ -16,23 +16,8 @@
 
 #endregion
 
-namespace BigSolution.Bootstrap.Utilities.Fluent;
+using BigSolution.Bootstrap.Utilities.Fluent;
 
-public interface ISupportSideDefinition<out TOut>
-{
-	TOut On(Sides sides);
+namespace BigSolution.Bootstrap.Utilities;
 
-	TOut OnAll();
-
-	TOut OnBottom();
-
-	TOut OnEnd();
-
-	TOut OnStart();
-
-	TOut OnStartEnd();
-
-	TOut OnTop();
-
-	TOut OnTopBottom();
-}
+public interface IAutoPaddingBuilder : ISupportSideDefinition<IPaddingCombiner> { }

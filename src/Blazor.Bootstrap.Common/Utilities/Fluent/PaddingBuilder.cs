@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,30 +18,30 @@
 
 namespace BigSolution.Bootstrap.Utilities.Fluent;
 
-internal abstract class PaddingBuilder<TMarginSide> : SpacingBuilder<Padding, PaddingSide, IPaddingCombiner, ISupportPadding>, IPaddingCombiner, IPaddingBuilder
-    where TMarginSide : PaddingSide
+internal abstract class PaddingBuilder<TPaddingSide> : SpacingBuilder<Padding, PaddingSide, IPaddingCombiner, ISupportPadding>, IPaddingCombiner, IPaddingBuilder, ISupportPadding
+	where TPaddingSide : PaddingSide
 {
-    protected PaddingBuilder(Padding margin, TMarginSide marginSide) : base(margin, marginSide) { }
+	protected PaddingBuilder(Padding margin, TPaddingSide marginSide) : base(margin, marginSide) { }
 
-    #region ISupportMargin Members
+	#region ISupportPadding Members
 
-    //public IAutoMarginBuilder IsAuto()
-    //{
-    //    return new AutoPaddingBuilder(_spacing);
-    //}
+	public IAutoPaddingBuilder IsAuto()
+	{
+		return new AutoPaddingBuilder(_spacing);
+	}
 
-    //public IFixedMarginBuilder IsFixedAt(int value)
-    //{
-    //    return new FixedMarginBuilder(_spacing, value);
-    //}
+	#endregion
 
-    #endregion
+	#region Base Class Member Overrides
 
-    #region Base Class Member Overrides
+	protected sealed override IPaddingCombiner Combiner => this;
 
-    protected sealed override IPaddingCombiner Combiner => this;
+	protected override ISupportPadding Factory => this;
 
-    //protected override ISupportMargin Factory => this;
+	#endregion
 
-    #endregion
+	public IFixedPaddingBuilder IsFixedAt(uint value)
+	{
+		return new FixedPaddingBuilder(_spacing, value);
+	}
 }
