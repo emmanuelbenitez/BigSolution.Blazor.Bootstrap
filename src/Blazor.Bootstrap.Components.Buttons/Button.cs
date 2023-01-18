@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 #endregion
 
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using BigSolution.Bootstrap.Utilities;
 using BlazorComponentUtilities;
@@ -26,58 +25,77 @@ using Microsoft.AspNetCore.Components.Rendering;
 
 namespace BigSolution.Bootstrap;
 
-public class Button : BootstrapComponentBase
+/// <summary>
+/// Represents a Bootstrap button.
+/// </summary>
+/// <seealso href="https://getbootstrap.com/docs/5.2/components/buttons/">Bootstrap button documentation</seealso>
+public class Button : BootstrapComponentBase, IButton
 {
-    #region Base Class Member Overrides
+	#region IButton Members
 
-    protected override CssBuilder CssBuilder => base.CssBuilder
-        .AddClass(DEFAULT_CSS_CLASS)
-        .AddColor(HasOutline ? $"{DEFAULT_CSS_CLASS}-outline" : DEFAULT_CSS_CLASS, () => Color)
-        .AddButtonSize(() => Size)
-        .AddClass("disabled", () => TagName == HtmlTagNames.A && Disabled);
+	/// <inheritdoc cref="IButton.Color"/>
+	[Parameter]
+	public Color Color { get; set; }
 
-    #endregion
+	/// <inheritdoc cref="IButton.Disabled"/>
+	[Parameter]
+	public bool Disabled { get; set; }
 
-    #region Base Class Member Overrides
+	/// <inheritdoc cref="IButton.HasOutline"/>
+	[Parameter]
+	public bool HasOutline { get; set; }
 
-    protected override string DefaultTagName => HtmlTagNames.BUTTON;
+	/// <inheritdoc cref="IButton.Size"/>
+	[Parameter]
+	public ButtonSize Size { get; set; }
 
-    protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.A, HtmlTagNames.BUTTON, HtmlTagNames.INPUT };
+	#endregion
 
-    #endregion
+	#region Base Class Member Overrides
 
-    #region Base Class Member Overrides
+	/// <inheritdoc />
+	protected override CssBuilder CssBuilder => base.CssBuilder.AddButtonClasses(this);
 
-    protected override void BuildRenderTree(RenderTreeBuilder builder)
-    {
-        var sequenceGenerator = new SequenceGenerator();
+	#endregion
 
-        builder.OpenElement(sequenceGenerator.GetNextValue(), TagName);
-        builder.AddAttribute(sequenceGenerator.GetNextValue(), "class", CssClasses);
-        if (TagName == HtmlTagNames.BUTTON || TagName == HtmlTagNames.INPUT) builder.AddAttribute(sequenceGenerator.GetNextValue(), "type", Type.GetCssClassPart());
-        else builder.AddAttribute(sequenceGenerator.GetNextValue(), "role", "button");
-        builder.AddMultipleAttributes(sequenceGenerator.GetNextValue(), AdditionalAttributes?.Where(pair => pair.Key != "class"));
-        builder.AddContent(sequenceGenerator.GetNextValue(), ChildContent);
-        builder.CloseElement();
-    }
+	#region Base Class Member Overrides
 
-    #endregion
+	/// <summary>
+	/// Returns <see cref="HtmlTagNames.BUTTON"/>.
+	/// </summary>
+	protected override string DefaultTagName => HtmlTagNames.BUTTON;
 
-    [Parameter]
-    public Color Color { get; set; }
+	/// <inheritdoc />
+	protected override IEnumerable<string> SupportedTagNames => new[] { HtmlTagNames.A, HtmlTagNames.BUTTON, HtmlTagNames.INPUT };
 
-    [Parameter]
-    public bool Disabled { get; set; }
+	#endregion
 
-    [Parameter]
-    public bool HasOutline { get; set; }
+	#region Base Class Member Overrides
 
-    [Parameter]
-    public ButtonSize Size { get; set; }
+	/// <inheritdoc />
+	protected override void BuildRenderTree(RenderTreeBuilder builder)
+	{
+		var sequenceGenerator = new SequenceGenerator();
 
-    [Parameter]
-    public ButtonType Type { get; set; }
+		builder.OpenElement(sequenceGenerator.GetNextValue(), TagName);
+		builder.AddAttribute(sequenceGenerator.GetNextValue(), "class", CssClasses);
+		if (TagName is HtmlTagNames.BUTTON or HtmlTagNames.INPUT) builder.AddAttribute(sequenceGenerator.GetNextValue(), "type", Type.GetHtmlButtonType());
+		else builder.AddAttribute(sequenceGenerator.GetNextValue(), "role", "button");
+		builder.AddMultipleAttributes(sequenceGenerator.GetNextValue(), AdditionalAttributes?.Where(pair => pair.Key != "class"));
+		builder.AddContent(sequenceGenerator.GetNextValue(), ChildContent);
+		builder.CloseElement();
+	}
 
-    [SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "Constant")]
-    public const string DEFAULT_CSS_CLASS = "btn";
+	#endregion
+
+	/// <summary>
+	/// The button type.
+	/// </summary>
+	[Parameter]
+	public ButtonType Type { get; set; }
+
+	/// <summary>
+	/// The default CSS class for a Bootstrap button.
+	/// </summary>
+	public const string DEFAULT_CSS_CLASS = "btn";
 }

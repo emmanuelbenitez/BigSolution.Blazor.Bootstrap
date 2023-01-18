@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,14 +18,27 @@
 
 namespace BigSolution.Bootstrap;
 
+/// <summary>
+/// Defines the supported type of a HTML button.
+/// </summary>
+/// <see href="https://www.w3schools.com/tags/att_button_type.asp">W3Schools - HTML button type attribute.</see>
 public enum ButtonType
 {
-    [CssClassPart("button")]
-    None,
+	/// <summary>
+	/// The button is a clickable button.
+	/// </summary>
+	[HtmlAttributeValue(HtmlAttributeNames.TYPE, "button")]
+	None,
 
-    [CssClassPart("reset")]
-    Reset,
+	/// <summary>
+	/// The button is a submit button (submits form-data).
+	/// </summary>
+	[HtmlAttributeValue(HtmlAttributeNames.TYPE, "reset")]
+	Reset,
 
-    [CssClassPart("submit")]
-    Submit
+	/// <summary>
+	/// The button is a reset button (resets the form-data to its initial values).
+	/// </summary>
+	[HtmlAttributeValue(HtmlAttributeNames.TYPE, "submit")]
+	Submit
 }

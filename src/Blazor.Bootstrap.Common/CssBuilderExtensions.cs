@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,42 +24,63 @@ using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap
 {
-    public static class CssBuilderExtensions
-    {
-        public static CssBuilder AddClasses(this CssBuilder builder, IEnumerable<string> values, Func<string, bool> condition = null)
-        {
-            foreach (var value in values ?? Enumerable.Empty<string>())
-            {
-                builder.AddClass(value, condition?.Invoke(value) ?? true);
-            }
+	public static class CssBuilderExtensions
+	{
+		public static CssBuilder AddClasses(this CssBuilder builder, IEnumerable<string> values, Func<string, bool> condition = null)
+		{
+			foreach (var value in values ?? Enumerable.Empty<string>())
+			{
+				builder.AddClass(value, condition?.Invoke(value) ?? true);
+			}
 
-            return builder;
-        }
+			return builder;
+		}
 
-        public static CssBuilder AddColor(this CssBuilder builder, string prefix, Color color)
-        {
-            return builder.AddColor(prefix, () => color);
-        }
+		public static CssBuilder AddColor(this CssBuilder builder, string prefix, Color color)
+		{
+			return builder.AddColor(new CssClassBuilder(prefix), () => color);
+		}
 
-        public static CssBuilder AddColor(this CssBuilder builder, string prefix, Func<Color> colorGetter, Func<bool> condition = null)
-        {
-            return builder.AddEnumValue(prefix, colorGetter, condition ?? (() => colorGetter() != Color.None));
-        }
+		public static CssBuilder AddColor(this CssBuilder builder, CssClassBuilder classBuilder, Color color)
+		{
+			return builder.AddColor(classBuilder, () => color);
+		}
 
-        public static CssBuilder AddEnumValue<TEnum>(this CssBuilder builder, string prefix, Func<TEnum> valueGetter, Func<bool> condition)
-            where TEnum : Enum
-        {
-            Requires.Argument(builder, nameof(builder))
-                .IsNotNull()
-                .Check();
-            Requires.Argument(prefix, nameof(prefix))
-                .IsNotNull()
-                .Check();
-            Requires.Argument(valueGetter, nameof(valueGetter))
-                .IsNotNull()
-                .Check();
+		public static CssBuilder AddColor(this CssBuilder builder, string prefix, Func<Color> colorGetter, Func<bool> condition = null)
+		{
+			return builder.AddColor(new CssClassBuilder(prefix), colorGetter, condition);
+		}
 
-            return builder.AddClass(() => $"{prefix}-{valueGetter.Invoke().GetCssClassPart()}", condition);
-        }
-    }
+		public static CssBuilder AddColor(this CssBuilder builder, CssClassBuilder classBuilder, Func<Color> colorGetter, Func<bool> condition = null)
+		{
+			return builder.AddEnumValue(classBuilder, colorGetter, condition ?? (() => colorGetter() != Color.None));
+		}
+
+		public static CssBuilder AddEnumValue<TEnum>(this CssBuilder builder, string prefix, Func<TEnum> valueGetter, Func<bool> condition)
+			where TEnum : Enum
+		{
+			Requires.Argument(prefix, nameof(prefix))
+				.IsNotNullOrWhiteSpace()
+				.Check();
+
+			var isSame = Equals(builder, builder.AddEnumValue(new CssClassBuilder(prefix), valueGetter, condition));
+			return builder.AddEnumValue(new CssClassBuilder(prefix), valueGetter, condition);
+		}
+
+		public static CssBuilder AddEnumValue<TEnum>(this CssBuilder builder, CssClassBuilder classBuilder, Func<TEnum> valueGetter, Func<bool> condition)
+			where TEnum : Enum
+		{
+			Requires.Argument(builder, nameof(builder))
+				.IsNotNull()
+				.Check();
+			Requires.Argument(classBuilder, nameof(classBuilder))
+				.IsNotNull()
+				.Check();
+			Requires.Argument(valueGetter, nameof(valueGetter))
+				.IsNotNull()
+				.Check();
+
+			return builder.AddClass(() => classBuilder.Append(() => valueGetter().GetCssClassPart()).Build(), condition);
+		}
+	}
 }

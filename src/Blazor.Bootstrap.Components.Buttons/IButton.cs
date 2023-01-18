@@ -16,28 +16,37 @@
 
 #endregion
 
+using BigSolution.Bootstrap.Utilities;
+
 namespace BigSolution.Bootstrap;
 
 /// <summary>
-/// Defines the Bootstrap button size.
+/// Defines the common parameters of a Bootstrap button.
 /// </summary>
-/// <seealso href="https://getbootstrap.com/docs/5.2/components/buttons/#sizes">Bootstrap button size - documentation</seealso>
-public enum ButtonSize
+public interface IButton
 {
 	/// <summary>
-	/// No size is defined.
+	/// The <see cref="Utilities.Color"/> of button.
 	/// </summary>
-	None,
+	public Color Color { get; }
 
 	/// <summary>
-	/// A smaller button.
+	/// If <see langword="true" />, indicates that the button is not active. So, the user cannot not click on it.
 	/// </summary>
-	[CssClassPart("sm")]
-	Small,
+	public bool Disabled { get; }
 
 	/// <summary>
-	/// A larger button.
+	/// If <see langword="true" />, indicates that the button has only colored outline. The color is defined by <see cref="Color"/>.
 	/// </summary>
-	[CssClassPart("lg")]
-	Large
+	public bool HasOutline { get; }
+
+	/// <summary>
+	/// Defines the size of the button.
+	/// </summary>
+	public ButtonSize Size { get; }
+
+	/// <summary>
+	/// Gets the <c>HTML</c> tag name which is used for rendering for <c>HTML</c> element.
+	/// </summary>
+	public string TagName { get; }
 }

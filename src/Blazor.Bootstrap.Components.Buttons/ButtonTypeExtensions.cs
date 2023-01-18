@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2021 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,19 +16,20 @@
 
 #endregion
 
-using System;
-
 namespace BigSolution.Bootstrap;
 
-[AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
-public sealed class CssClassPartAttribute : Attribute
+/// <summary>
+/// Provides extensions of <see cref="ButtonType"/>.
+/// </summary>
+public static class ButtonTypeExtensions
 {
-	public CssClassPartAttribute(string value)
+	/// <summary>
+	/// Gets the value of the attribute <c>type</c> of the HTML element <c>button</c> or <c>input</c>.
+	/// </summary>
+	/// <param name="value">The inspected value.</param>
+	/// <returns>Returns the value or <see cref="string.Empty"/>.</returns>
+	public static string GetHtmlButtonType(this ButtonType value)
 	{
-		Value = value;
+		return value.GetHtmlAttributeValue(HtmlAttributeNames.TYPE);
 	}
-
-	public string Scope { get; set; }
-
-	public string Value { get; }
 }

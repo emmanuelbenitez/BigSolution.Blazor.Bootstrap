@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2020 - 2022 Emmanuel Benitez
+// Copyright © 2020 - 2023 Emmanuel Benitez
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,12 +20,21 @@ using BlazorComponentUtilities;
 
 namespace BigSolution.Bootstrap;
 
+/// <summary>
+/// Represents a Bootstrap button group.
+/// </summary>
+/// <seealso href="https://getbootstrap.com/docs/5.2/components/button-group/"> Bootstrap button group - documentation</seealso>
 public class ButtonGroup : BootstrapComponentBase
 {
-    #region Base Class Member Overrides
+	#region Base Class Member Overrides
 
-    protected override CssBuilder CssBuilder => base.CssBuilder
-        .AddClass($"{Button.DEFAULT_CSS_CLASS}-group");
+	/// <inheritdoc />
+	protected override CssBuilder CssBuilder => base.CssBuilder
+		.AddClass(_defaultCssClass);
 
-    #endregion
+	#endregion
+
+	private const string CSS_CLASS_SUFFIX = "group";
+
+	private static readonly string _defaultCssClass = new CssClassBuilder(Button.DEFAULT_CSS_CLASS).Append(CSS_CLASS_SUFFIX).Build();
 }
